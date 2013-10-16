@@ -44,7 +44,7 @@ public class Sport {
 		this.name = name;
 	}
 
-	public void setLastname(String rules) {
+	public void setRules(String rules) {
 		this.rules = rules;
 	}
 
