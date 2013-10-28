@@ -25,13 +25,9 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		</session-management>
 	</http>
 	
-<!-- User service and password encoding configuration --> 
-	<beans:bean id="customEncoder" class="com.moysport.security.CustomPasswordEncoder" />
-	<beans:bean id="customUserService" class="com.moysport.security.CustomUserDetailService" />
-	
 	<authentication-manager>
-		<authentication-provider user-service-ref="customUserService">
-			<password-encoder ref="customEncoder" />
+		<authentication-provider user-service-ref="userService">
+			<!-- <password-encoder hash="md5" /> -->
 		</authentication-provider>
 	</authentication-manager>
 

@@ -2,9 +2,6 @@ package com.moysport.web;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.moysport.model.Sport;
 import com.moysport.service.SportService;
 
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SportController {
@@ -40,18 +36,6 @@ public class SportController {
 	public String deleteContact(@PathVariable("sportId") Integer sportId) {
 		sportService.removeSport(sportId);
 		return "redirect:/sport";
-	}
-
-	@RequestMapping("/employee/list.html")
-	public ModelAndView gotoEmployee(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		ModelAndView mav = new ModelAndView("employee/list");
-		return mav;
-	}
-
-	@RequestMapping("/admin/home.html")
-	public ModelAndView gotoAdmin(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		ModelAndView mav = new ModelAndView("admin/home");
-		return mav;
 	}
 
 }

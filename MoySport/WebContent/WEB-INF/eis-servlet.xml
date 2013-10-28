@@ -34,12 +34,6 @@
 	    class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
 	    <property name="defaultLocale" value="en"/>
 	</bean>	
-   	
-   	<bean name="/employee/list.html" class="com.moysport.web.EmployeeController">
-      </bean>
-
-	<bean name="/admin/home.html" class="com.moysport.web.AdminController">
-      </bean>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

@@ -46,12 +46,7 @@
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<bean id="employeeDAO" class="com.moysport.dao.EmployeeDAO">
-		<property name="hibernateTemplate" ref="hibernateTemplate" />
-	</bean>
-
-   	<bean id="empService" class="com.moysport.service.EmpServiceImpl">
-   		<property name="employeeDAO" ref="employeeDAO" />
-   	</bean>
+   	
+   	<bean id="userService" class="com.moysport.service.UserServiceImpl"/>
 
 </beans>
