@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SportController {
@@ -32,8 +33,14 @@ public class SportController {
 		return "redirect:/sport";
 	}
 
-	@RequestMapping("/sport/delete/{sportId}")
+	@RequestMapping("/sport/delete/{sportId}/deleteSport.html")
 	public String deleteContact(@PathVariable("sportId") Integer sportId) {
+		sportService.removeSport(sportId);
+		return "redirect:/sport";
+	}
+	
+	@RequestMapping("/sport/delete")
+	public String deleteContact2(@RequestParam("sportId") Integer sportId) {
 		sportService.removeSport(sportId);
 		return "redirect:/sport";
 	}

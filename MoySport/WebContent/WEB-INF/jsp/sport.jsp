@@ -32,6 +32,8 @@
 </span>
 <br>
 
+<p><a href="./">Home</a></p>
+
 <h2>Sport List</h2>
 
 <form:form method="post" action="sport/add" commandName="sport">
@@ -72,7 +74,8 @@
 		<td>${sport.name}</td>
 		<td width="800px">${sport.rules}</td>
 		<td><a target="_blank" href="${sport.httplink}">${sport.httplink}</a></td>
-		<td><a href="sport/delete/${sport.id}">delete</a></td>
+		<!-- <td><a href="sport/delete/${sport.id}">delete</a></td> -->
+		<td><form method="post" action="sport/delete"><input type="hidden" name="sportId" value="${sport.id}"/><input type="submit" value="Delete"/></form></td>
 	</tr>
 </c:forEach>
 </table>

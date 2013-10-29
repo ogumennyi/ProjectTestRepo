@@ -1,6 +1,6 @@
 <%@ page session="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -35,7 +35,7 @@ You can currently access "/admin" URLs.
 <a href="employee/list.html">Employee List</a></p>
 <p><a href="admin/home.html">Admin Home</a></p>
 <p><a href="j_spring_security_logout">Logout</a></p>
-
+<hr>
 <a href="sport">Welcome to MoySport</a>
 
 </div>
