@@ -21,22 +21,26 @@ Anyone can view this page.
 <p>
 Your principal object is....: <%= request.getUserPrincipal() %>
 </p>
-<sec:authorize url='/employee/list.html'>
+<sec:authorize url='./employee/list.html'>
 <p>
 You can currently access "/employee" URLs.
 </p>
 </sec:authorize>
-<sec:authorize url='/admin/home.html'>
+<sec:authorize url='./admin/home.html'>
 <p>
 You can currently access "/admin" URLs.
 </p>
 </sec:authorize>
 <p>
-<a href="employee/list.html">Employee List</a></p>
-<p><a href="admin/home.html">Admin Home</a></p>
-<p><a href="j_spring_security_logout">Logout</a></p>
+<a href="<%= getServletContext().getContextPath()%>/employee/list.html">Employee List</a></p>
+<p><a href="<%= getServletContext().getContextPath()%>/admin/home.html">Admin Home</a></p>
+<% if(request.getUserPrincipal()!=null){ %>
+<p><a href="<%= getServletContext().getContextPath()%>/j_spring_security_logout">Logout</a></p>
+<% } else { %>
+<p><a href="<%= getServletContext().getContextPath()%>/login">Login</a></p>
+<% } %>
 <hr>
-<a href="sport">Welcome to MoySport</a>
+<a href="<%= getServletContext().getContextPath()%>/sport">Welcome to MoySport</a>
 
 </div>
 </body>

@@ -6,21 +6,21 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
 <global-method-security pre-post-annotations="enabled" />
 
-	<http use-expressions="true" access-denied-page="/accessDenied.jsp">
+	<http use-expressions="true" access-denied-page="/accessdenied">
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/employee/**" access="isAuthenticated()" />
 		<intercept-url pattern="/sport/**" access="isAuthenticated()" />
 		<!-- Allow all other requests. In a real application you should adopt a 
 			whitelisting approach where access is not allowed by default -->
 		<intercept-url pattern="/**" access="permitAll" />
-		<form-login login-page="/login.jsp" default-target-url="/sport" authentication-failure-url="/login.jsp?auth=fail"/>
+		<form-login login-page="/login" default-target-url="/sport" authentication-failure-url="/loginfailed"/>
 		
-		<logout logout-success-url="/loggedout.jsp" />
+		<logout logout-success-url="/logout" />
 		
 		<remember-me />
 		<!-- Uncomment to enable X509 client authentication support <x509 /> -->
 		<!-- Uncomment to limit the number of sessions a user can have -->
-		<session-management invalid-session-url="/timeout.jsp">
+		<session-management invalid-session-url="/timeout">
 			<concurrency-control max-sessions="1"
 				error-if-maximum-exceeded="true" />
 		</session-management>
