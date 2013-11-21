@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name = "GAMEPARTIES")
 public class Gameparties {
 	@Id
-	@Column(name = "idgp")
+	@Column(name = "IDGP")
 	@GeneratedValue
 	private Integer idgp;
 
