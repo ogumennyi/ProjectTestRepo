@@ -10,6 +10,7 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/employee/**" access="isAuthenticated()" />
 		<intercept-url pattern="/sport/**" access="isAuthenticated()" />
+		<intercept-url pattern="/table_pages/**" access="isAuthenticated()" />
 		<!-- Allow all other requests. In a real application you should adopt a 
 			whitelisting approach where access is not allowed by default -->
 		<intercept-url pattern="/**" access="permitAll" />
