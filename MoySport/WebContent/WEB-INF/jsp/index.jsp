@@ -40,8 +40,9 @@ You can currently access "/admin" URLs.
 <p><a href="<%= getServletContext().getContextPath()%>/login">Login</a></p>
 <% } %>
 <hr>
-<a href="<%= getServletContext().getContextPath()%>/sport">Welcome to MoySport</a>
-<a href="<%= getServletContext().getContextPath()%>/table_pages/eventgames">Welcome to EventGames</a>
+<br><a href="<%= getServletContext().getContextPath()%>/sport">Welcome to MoySport</a>
+<br><a href="<%= getServletContext().getContextPath()%>/table_pages/eventgames">Welcome to EventGames</a>
+<br><a href="<%= getServletContext().getContextPath()%>/table_pages/gameparties">Welcome to GameParties</a>
 
 </div>
 </body>
