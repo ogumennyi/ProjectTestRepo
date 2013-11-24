@@ -39,6 +39,7 @@
 <form:form method="post" action="gameparties/add" commandName="gameparties">
 
 	<table>
+	<%-- 
 	<tr>
 		<td><form:label path="idevent"><spring:message code="label.table_page.eventgames.idevent"/></form:label></td>
 		<td><form:input path="idevent" /></td> 
@@ -60,6 +61,7 @@
 			<input type="submit" value="<spring:message code="label.table_page.eventgames.addeventgames"/>"/>
 		</td>
 	</tr>
+	--%>
 </table>	
 </form:form>
 
