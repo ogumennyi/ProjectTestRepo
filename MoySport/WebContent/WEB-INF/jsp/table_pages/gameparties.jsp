@@ -36,35 +36,6 @@
 
 <h2>Gameparties List</h2>
 
-<form:form method="post" action="gameparties/add" commandName="gameparties">
-
-	<table>
-	<%-- 
-	<tr>
-		<td><form:label path="idevent"><spring:message code="label.table_page.eventgames.idevent"/></form:label></td>
-		<td><form:input path="idevent" /></td> 
-	</tr>
-	<tr>
-		<td><form:label path="starttime"><spring:message code="label.table_page.eventgames.starttime"/></form:label></td>
-		<td><form:input path="starttime" type="date"/></td>
-	</tr>
-	<tr>
-		<td><form:label path="endtime"><spring:message code="label.table_page.eventgames.endtime"/></form:label></td>
-		<td><form:input path="endtime" type="date"/></td>
-	</tr>
-	<tr>
-		<td><form:label path="comments"><spring:message code="label.table_page.eventgames.comments"/></form:label></td>
-		<td><form:input path="comments" /></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-			<input type="submit" value="<spring:message code="label.table_page.eventgames.addeventgames"/>"/>
-		</td>
-	</tr>
-	--%>
-</table>	
-</form:form>
-
 <c:if  test="${!empty gamepartiesList}">
 	<table class="data">
 		<tr>
@@ -84,7 +55,7 @@
 				<td>${gameparties.visited}</td>
 				<td>${gameparties.mark}</td>
 				<td>${gameparties.idteam}</td>
-				<td><form method="post" action="eventgames/delete"><input type="hidden" name="idGame" value="${gameparties.idgp}"/><input type="submit" value="Delete"/></form></td>
+				<td><form method="post" action="eventgames/delete"><input type="hidden" name="idGP" value="${gameparties.idgp}"/><input type="submit" value="Delete"/></form></td>
 			</tr>
 		</c:forEach>
 	</table>

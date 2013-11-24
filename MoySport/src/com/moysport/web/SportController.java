@@ -33,14 +33,14 @@ public class SportController {
 		return "redirect:/sport";
 	}
 
-	@RequestMapping("/sport/delete/{sportId}/deleteSport.html")
+	/*@RequestMapping("/sport/delete/{sportId}/deleteSport.html")
 	public String deleteContact(@PathVariable("sportId") Integer sportId) {
 		sportService.removeSport(sportId);
 		return "redirect:/sport";
-	}
-	// my test comments 3
+	}*/
+	
 	@RequestMapping(value = "/sport/delete", method = RequestMethod.POST)
-	public String deleteContact2(@RequestParam("sportId") Integer sportId) {
+	public String deleteSport(@RequestParam("sportId") Integer sportId) {
 		sportService.removeSport(sportId);
 		return "redirect:/sport";
 	}

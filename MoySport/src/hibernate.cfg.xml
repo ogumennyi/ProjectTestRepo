@@ -9,6 +9,8 @@
         <mapping class="com.moysport.model.Sport" />
         <mapping class="com.moysport.model.Eventgames" />
         <mapping class="com.moysport.model.Gameparties" />
+        <mapping class="com.moysport.model.Trainingplan" />
+        <mapping class="com.moysport.model.Userskill" />
         <mapping class="com.moysport.model.User" />
     </session-factory>
 	    
