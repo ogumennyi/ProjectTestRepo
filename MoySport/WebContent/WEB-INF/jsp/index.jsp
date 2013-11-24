@@ -46,6 +46,7 @@ You can currently access "/admin" URLs.
 <br><a href="<%= getServletContext().getContextPath()%>/table_pages/trainingplan">Welcome to TrainingPlan</a>
 <br><a href="<%= getServletContext().getContextPath()%>/table_pages/userskill">Welcome to UserSkill</a>
 <br><a href="<%= getServletContext().getContextPath()%>/table_pages/users">Welcome to Users</a>
+<br><a href="<%= getServletContext().getContextPath()%>/table_pages/sport">Welcome to Sport</a>
 
 </div>
 </body>
