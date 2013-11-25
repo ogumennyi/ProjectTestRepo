@@ -25,14 +25,14 @@
 </head>
 <body>
 
-<c:if test="${'fail' eq param.auth}">
+<c:if test="${'fail' eq auth}">
     <div style="color:red">
             Login Failed!!!<br />
             Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
      </div>
 </c:if>
-<c:if test="${empty auth}">
-<form action="j_spring_security_check" method="post">
+<c:if test="${empty auth or 'fail' eq auth}">
+<form action="<%= getServletContext().getContextPath()%>/j_spring_security_check" method="post">
     <table>
         <tr>
             <td>Username:</td>

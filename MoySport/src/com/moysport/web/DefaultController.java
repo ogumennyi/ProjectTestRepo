@@ -14,7 +14,7 @@ public class DefaultController {
 
 	@RequestMapping("/")
 	public ModelAndView helloWorld() {
-		return new ModelAndView("index");
+		return new ModelAndView("login");
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -26,6 +26,11 @@ public class DefaultController {
 	public String loginerror(ModelMap model) {
 		model.addAttribute("auth", "fail");
 		return "login";
+	}
+	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(ModelMap model) {
+		return "index";
 	}
 	
 	@RequestMapping(value = "/accessdenied")
@@ -40,7 +45,7 @@ public class DefaultController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
-		return "index";
+		return "login";
 	}
 
 	@RequestMapping("/employee/list.html")

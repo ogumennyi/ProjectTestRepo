@@ -3,6 +3,7 @@ package com.moysport.web;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -52,5 +53,12 @@ public class UserController {
 		userService.removeUser(idUser);
 		return "redirect:/table_pages/users";
 	}
+	
+	@RequestMapping(value = "/userhome", method = RequestMethod.GET)
+	public String userhome(ModelMap model) {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("user", user);
+		return "user/userData";
+	}	
 
 }
