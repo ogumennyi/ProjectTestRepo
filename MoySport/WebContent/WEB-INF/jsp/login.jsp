@@ -22,8 +22,32 @@
 			color: white;
 		}
 	</style>
+	<script type="text/javascript" src="<c:url value="/js/jquery_1_6_4.js"/>"></script>
 </head>
 <body>
+	<script type="text/javascript">
+		function onChangeNickname () {
+			var chNickname = document.getElementById('nickname').value;
+			$.ajaxSetup({ 
+				beforeSend: function() { $("#nickname_rez").html("Begin send to service ...");},   
+				complete: function(){},
+				success: function() {} ,
+				scriptCharset: "utf-8" 
+			});
+			$.post("<%= getServletContext().getContextPath()%>/user/check_nickname", {nickname: chNickname}, onRequestSuccess);
+		}
+		function onRequestSuccess (inObj) {
+			//alert('Hello');
+			//alert(inObj);
+			$("#nickname_rez").html('check result:'+inObj+' img will be: ');
+			var imgPath = "<%= getServletContext().getContextPath()%>/img/100pxNO.png";
+			if (inObj == 'ok') var imgPath = "<%= getServletContext().getContextPath()%>/img/100pxOK.png";
+			$('<img src="'+ imgPath +'">').load(function() {
+												$(this).width(30).height(30).appendTo('#nickname_rez');
+											}
+			);
+		}
+	</script>
 
 <c:if test="${'fail' eq auth}">
     <div style="color:red">
@@ -54,7 +78,9 @@
 		<table>
 			<tr>
 				<td><form:label path="nickname"><spring:message code="label.login.nickname"/></form:label></td>
-				<td><form:input path="nickname" /></td> 
+				<!-- onkeypress="onRequestSuccess(this)"-->
+				<td><form:input path="nickname" onchange="onChangeNickname()"/></td>
+				<td><div id="nickname_rez"> </div></td>
 			</tr>
 			<tr>
 				<td><form:label path="pwd"><spring:message code="label.login.pwd"/></form:label></td>

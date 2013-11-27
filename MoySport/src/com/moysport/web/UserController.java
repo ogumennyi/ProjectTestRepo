@@ -1,5 +1,6 @@
 package com.moysport.web;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.moysport.model.User;
 import com.moysport.model.Userskill;
@@ -33,6 +35,19 @@ public class UserController {
 	public String addUser(@ModelAttribute("user") User user, BindingResult result) {
 		userService.addUser(user);
 		return "redirect:/login";
+	}
+	
+	@RequestMapping(value = "/user/check_nickname", method = RequestMethod.POST)
+	@ResponseBody
+	public String checkNickname(@RequestParam("nickname") String sNickname) {
+		System.out.println("UserController.checkNickname(): sNickname="+sNickname);
+		List<User> lUsers = userService.listUser();
+		if(sNickname==null) return "error"; 
+		for (int i=0; i < lUsers.size(); i++) {
+			User uOneUser = lUsers.get(i);
+			if (sNickname.equals(uOneUser.getNickname())) return "error";
+		}
+		return "ok";
 	}
 	
 	@RequestMapping("/table_pages/users")
