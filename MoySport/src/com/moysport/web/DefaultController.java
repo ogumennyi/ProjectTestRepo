@@ -3,6 +3,7 @@ package com.moysport.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,7 +51,34 @@ public class DefaultController {
 	@RequestMapping(value = "/pages/mainpage", method = RequestMethod.GET)
 	public String mainpage(ModelMap model) {
 		return "pages/mainpage";
-	}	
+	}
+	
+	@RequestMapping(value = "/pages/user/home", method = RequestMethod.GET)
+	public String userhome(ModelMap model) {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("user", user);
+		return "pages/user/home";
+	}
+
+	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
+	public String searchevents(ModelMap model) {
+		return "pages/events/searchevents";
+	}
+
+	@RequestMapping(value = "/pages/players/searchplayers", method = RequestMethod.GET)
+	public String searchplayers(ModelMap model) {
+		return "pages/players/searchplayers";
+	}
+	
+	@RequestMapping(value = "/pages/locations/searchlocations", method = RequestMethod.GET)
+	public String searchlocations(ModelMap model) {
+		return "pages/locations/searchlocations";
+	}
+	
+	@RequestMapping(value = "/pages/search", method = RequestMethod.GET)
+	public String search(ModelMap model) {
+		return "pages/search";
+	}
 	
 	@RequestMapping(value = "/accessdenied")
 	public String accessdenied(ModelMap model) {
