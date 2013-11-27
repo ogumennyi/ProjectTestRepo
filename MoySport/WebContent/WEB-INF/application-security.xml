@@ -8,13 +8,14 @@ http://www.springframework.org/schema/security http://www.springframework.org/sc
 
 	<http use-expressions="true" access-denied-page="/accessdenied">
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/pages/**" access="isAuthenticated()" />
 		<intercept-url pattern="/employee/**" access="isAuthenticated()" />
 		<intercept-url pattern="/sport/**" access="isAuthenticated()" />
 		<intercept-url pattern="/table_pages/**" access="isAuthenticated()" />
 		<!-- Allow all other requests. In a real application you should adopt a 
 			whitelisting approach where access is not allowed by default -->
 		<intercept-url pattern="/**" access="permitAll" />
-		<form-login login-page="/login" default-target-url="/index" authentication-failure-url="/loginfailed"/>
+		<form-login login-page="/login" default-target-url="/pages/mainpage" authentication-failure-url="/loginfailed"/>
 		
 		<logout logout-success-url="/logout" />
 		

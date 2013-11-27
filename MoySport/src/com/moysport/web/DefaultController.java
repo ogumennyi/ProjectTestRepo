@@ -9,29 +9,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.moysport.model.User;
+
 @Controller
 public class DefaultController {
 
 	@RequestMapping("/")
-	public ModelAndView helloWorld() {
-		return new ModelAndView("login");
+	public ModelAndView welcome() {
+		return new ModelAndView("authorization");
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
-		return "login";
+		return "authorization";
 	}
 
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(ModelMap model) {
 		model.addAttribute("auth", "fail");
-		return "login";
+		return "authorization";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(ModelMap model) {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/authorization", method = RequestMethod.GET)
+	public String authorozation(ModelMap model) {
+		return "authorization";
+	}
+	
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String registration(ModelMap model) {
+		model.addAttribute("user", new User());
+		model.addAttribute("auth", "new");
+		return "registration";
+	}
+
+	@RequestMapping(value = "/pages/mainpage", method = RequestMethod.GET)
+	public String mainpage(ModelMap model) {
+		return "pages/mainpage";
+	}	
 	
 	@RequestMapping(value = "/accessdenied")
 	public String accessdenied(ModelMap model) {
@@ -45,7 +64,7 @@ public class DefaultController {
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
-		return "login";
+		return "authorization";
 	}
 
 	@RequestMapping("/employee/list.html")
