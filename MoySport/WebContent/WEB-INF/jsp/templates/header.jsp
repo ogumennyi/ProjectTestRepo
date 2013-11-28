@@ -3,12 +3,8 @@
 <div id="head">
 	<div id="logo">
 		<a href="<%= getServletContext().getContextPath()%>/pages/mainpage" class="block">&nbsp;</a>
-		<h1>
-			<a href="<%= getServletContext().getContextPath()%>/pages/mainpage">Moy<span>Sport</span></a>
-		</h1>
-		<h2>
-			<a href="<%= getServletContext().getContextPath()%>/pages/mainpage">my Hobby, my Passion, my Life</a>
-		</h2>
+		<h1><a href="<%= getServletContext().getContextPath()%>/pages/mainpage">Moy<span>Sport</span></a></h1>
+		<h2><a href="<%= getServletContext().getContextPath()%>/pages/mainpage">my Hobby, my Passion, my Life</a></h2>
 	</div>
 	<div id="mainMenu">
 		<ul>

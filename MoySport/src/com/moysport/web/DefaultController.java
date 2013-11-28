@@ -54,15 +54,45 @@ public class DefaultController {
 	}
 	
 	@RequestMapping(value = "/pages/user/home", method = RequestMethod.GET)
-	public String userhome(ModelMap model) {
+	public String home(ModelMap model) {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("user", user);
 		return "pages/user/home";
 	}
+	
+	@RequestMapping(value = "/pages/user/events", method = RequestMethod.GET)
+	public String events(ModelMap model) {
+		return "pages/user/events";
+	}
+	
+	@RequestMapping(value = "/pages/user/friends", method = RequestMethod.GET)
+	public String friends(ModelMap model) {
+		return "pages/user/friends";
+	}
 
+	@RequestMapping(value = "/pages/user/trainings", method = RequestMethod.GET)
+	public String trainings(ModelMap model) {
+		return "pages/user/trainings";
+	}
+	
+	@RequestMapping(value = "/pages/user/settings", method = RequestMethod.GET)
+	public String settings(ModelMap model) {
+		return "pages/user/settings";
+	}
+	
+	@RequestMapping(value = "/pages/user/help", method = RequestMethod.GET)
+	public String help(ModelMap model) {
+		return "pages/user/help";
+	}
+	
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
 	public String searchevents(ModelMap model) {
 		return "pages/events/searchevents";
+	}
+	
+	@RequestMapping(value = "/pages/events/view_event", method = RequestMethod.GET)
+	public String view_event(ModelMap model) {
+		return "pages/events/view_event";
 	}
 
 	@RequestMapping(value = "/pages/players/searchplayers", method = RequestMethod.GET)
@@ -70,9 +100,19 @@ public class DefaultController {
 		return "pages/players/searchplayers";
 	}
 	
+	@RequestMapping(value = "/pages/players/view_player", method = RequestMethod.GET)
+	public String view_player(ModelMap model) {
+		return "pages/players/view_player";
+	}
+	
 	@RequestMapping(value = "/pages/locations/searchlocations", method = RequestMethod.GET)
 	public String searchlocations(ModelMap model) {
 		return "pages/locations/searchlocations";
+	}
+	
+	@RequestMapping(value = "/pages/locations/view_location", method = RequestMethod.GET)
+	public String view_location(ModelMap model) {
+		return "pages/locations/view_location";
 	}
 	
 	@RequestMapping(value = "/pages/search", method = RequestMethod.GET)

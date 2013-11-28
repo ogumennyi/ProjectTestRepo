@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <title>Мой Спорт</title>
@@ -11,24 +8,18 @@
 </head>
 <body>
 	<div id="view">
-		<jsp:include page="../../templates/header.jsp"/>
+		<jsp:include page="../../templates/header.jsp">
+			<jsp:param name="page" value="searchplayers" />
+		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
 				<table class="regular">
 					<tr>
-						<td valign=top><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" alt="" class="left shadow" style="border: 0; width: 200px" align="middle" /></td>
+						<td><img src="<%=getServletContext().getContextPath()%>/img/ivan.jpg" alt="" class="left shadow" style="border: 0; width: 200px" align="middle" /></td>
 						<td width="100%" valign="top">
-							<table class="textFont regular" style="padding: 10px">
+							<table class="regular textFont" style="padding: 10px">
 								<tr>
-									<th class="heading" colspan="2" align="left">Личная информация</th>
-								</tr>
-								<tr>
-									<td class="fldName">Имя:</td>
-									<td class="fldText">${user.firstname}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Фамилия:</td>
-									<td class="fldText">${user.lastname}</td>
+									<th class="heading" colspan="2" align="left">Игрок: ${user.firstname} ${user.lastname}</th>
 								</tr>
 								<tr>
 									<td class="fldName">Никнейм:</td>
@@ -43,6 +34,14 @@
 									<td class="fldText">кол-во игр</td>
 								</tr>
 								<tr>
+									<td class="fldName">Локация:</td>
+									<td class="fldText">локация</td>
+								</tr>
+								<tr>
+									<td class="fldName">Виды спорта:</td>
+									<td class="fldText">Виды спорта</td>
+								</tr>
+								<tr>
 									<td class="fldName">Телефон:</td>
 									<td class="fldText">${user.mphone}</td>
 								</tr>
@@ -50,17 +49,12 @@
 									<td class="fldName">E-mail:</td>
 									<td class="fldText">${user.email}</td>
 								</tr>
-								<tr>
-									<td class="fldName" colspan="2"><a href="edit_userhome.html"><br>Редактировать данные</a></td>
-								</tr>
 							</table>
 						</td>
 					</tr>
 				</table>
 			</div>
-			<jsp:include page="../../templates/cabinet.jsp">
-				<jsp:param name="page" value="home" />
-			</jsp:include>
+			<jsp:include page="../../templates/cabinet.jsp"/>
 		</div>
 		<jsp:include page="../../templates/footer.jsp"/>
 	</div>

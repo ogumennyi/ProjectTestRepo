@@ -102,23 +102,29 @@
 
 					<p>Пример вывода результатов поиска игроков</p>
 					<p>
+				</div>
+				
+				<div class="box boxText">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/oleg.jpg" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="view_public.html">Олег Гуменной</a></strong><br /> Игры:&nbsp;23<br /> Рейтинг:&nbsp;<img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Нападающий <br /> Локация:&nbsp;Киев<br /> Виды
-								спорта:&nbsp;Футбол,Баскетбол,Волейбол <br /> <br /> <br /> <a href="#content">Добавить в Друзья</a>
-								</p></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/oleg.jpg" width="150px" alt="" class="left" /></a><br /></td>
+							<td width=300px valign=top>
+								<strong><a href="<%=getServletContext().getContextPath()%>/pages/players/view_player">Олег Гуменной</a></strong>
+								<br>Игры:&nbsp;23<br>Рейтинг:&nbsp;
+								<img src="../../images/star7.png" alt="" class="left" style="border: 0" align="middle" />
+								<br>Позиция:&nbsp; Нападающий <br> Локация:&nbsp;Киев<br> 
+								Виды спорта:&nbsp;Футбол, Баскетбол, Волейбол<br><br><br>
+								<a href="#content">Добавить в Друзья</a>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
 
 				<div class="box boxText">
 					<p>
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/ivan.jpg" width="150px" alt="" class="left" /></a><br /></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/ivan.jpg" width="150px" alt="" class="left" /></a><br /></td>
 							<td width=300px valign=top><strong><a href="view_public.html">Иван Громский</a></strong><br /> Игры:&nbsp;30<br /> Рейтинг:&nbsp; <img
 								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
 								class="left" /> <br /> Позиция:&nbsp; Полузащитник <br /> Локация:&nbsp;Киев<br /> Виды спорта:&nbsp;Футбол,Баскетбол,Волейбол<br /> <br /> <br />
@@ -131,7 +137,7 @@
 					<p>
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/aleks.jpg" width="150px" alt="" class="left" /></a><br /></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" width="150px" alt="" class="left" /></a><br /></td>
 							<td width=300px valign=top><strong><a href="userhome.html">Александр Мединский</a></strong><br /> Игры:&nbsp;10<br /> Рейтинг:&nbsp; <img
 								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
 								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /> <br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Киев<br /> Виды
@@ -144,7 +150,7 @@
 					<p>
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
 							<td width=300px valign=top><strong><a href="view_public.html">Сергей Щербань</a></strong><br /> Игры:&nbsp;10<br /> Рейтинг:&nbsp; <img
 								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
 								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Киев<br /> Виды
@@ -158,7 +164,7 @@
 					<p>
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
 							<td width=300px valign=top><strong><a href="view_public.html">Алексей Монятовский</a></strong><br /> Игры:&nbsp;40<br /> Рейтинг:&nbsp; <img
 								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
 								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Нападающий <br /> Локация:&nbsp;Киев<br /> Виды
@@ -172,7 +178,7 @@
 					<p>
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
+							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
 							<td width=300px valign=top><strong><a href="view_public.html">Надежда Закревская</a></strong><br /> Игры:&nbsp;60<br /> Рейтинг:&nbsp; <img
 								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
 								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Донецк<br /> Виды
