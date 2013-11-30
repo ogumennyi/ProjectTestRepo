@@ -35,9 +35,9 @@
 								<div style="float: left; margin-right: 25px">
 									<div>Навыки</div>
 									<select name="sport_type" class="inputText">
-										<option selected>Мастер ( > 50 игр)
+										<option selected>Мастер ( больше 50 игр)
 										<option>Любитель ( 10 - 50 игр)
-										<option>Новичок ( < 10игр )
+										<option>Новичок ( меньше 10игр )
 										<option>Любой уровень
 									</select>
 								</div>
@@ -96,6 +96,7 @@
 								<p>
 									<input type="submit" class="submit" value="Найти">
 								</p>
+							</div>
 						</fieldset>
 						<br>
 					</form>
@@ -104,88 +105,118 @@
 					<p>
 				</div>
 				
-				<div class="box boxText">
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/oleg.jpg" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top>
-								<strong><a href="<%=getServletContext().getContextPath()%>/pages/players/view_player">Олег Гуменной</a></strong>
-								<br>Игры:&nbsp;23<br>Рейтинг:&nbsp;
-								<img src="../../images/star7.png" alt="" class="left" style="border: 0" align="middle" />
-								<br>Позиция:&nbsp; Нападающий <br> Локация:&nbsp;Киев<br> 
-								Виды спорта:&nbsp;Футбол, Баскетбол, Волейбол<br><br><br>
-								<a href="#content">Добавить в Друзья</a>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/oleg.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Олег Гуменный</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star8.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">23</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Нападающий</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол, Баскетбол, Волейбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
 							</td>
 						</tr>
 					</table>				
 				</div>
-
-				<div class="box boxText">
-					<p>
+				
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/ivan.jpg" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="view_public.html">Иван Громский</a></strong><br /> Игры:&nbsp;30<br /> Рейтинг:&nbsp; <img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /> <br /> Позиция:&nbsp; Полузащитник <br /> Локация:&nbsp;Киев<br /> Виды спорта:&nbsp;Футбол,Баскетбол,Волейбол<br /> <br /> <br />
-								<br /> <a href="#content">У вас в Друзьях</a>
-								</p></td>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/ivan.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Иван Громский</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star4.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">30</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Полузащитник</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол, Баскетбол, Волейбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
-				<div class="box boxText">
-					<p>
+				
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="userhome.html">Александр Мединский</a></strong><br /> Игры:&nbsp;10<br /> Рейтинг:&nbsp; <img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /> <br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Киев<br /> Виды
-								спорта:&nbsp;Футбол,Плавание,Волейбол<br /> <br /> <br /> <br /> <a href="#content">Это Вы</a>
-								</p></td>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Александр Мединский</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star4.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол,Плавание,Волейбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
-				<div class="box boxText">
-					<p>
+				
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="view_public.html">Сергей Щербань</a></strong><br /> Игры:&nbsp;10<br /> Рейтинг:&nbsp; <img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Киев<br /> Виды
-								спорта:&nbsp;Футбол<br /> <br /> <br /> <br /> <a href="#content">Добавить в Друзья</a>
-								</p></td>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Сергей Щербань</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star5.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
-
-				<div class="box boxText">
-					<p>
+				
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="view_public.html">Алексей Монятовский</a></strong><br /> Игры:&nbsp;40<br /> Рейтинг:&nbsp; <img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Нападающий <br /> Локация:&nbsp;Киев<br /> Виды
-								спорта:&nbsp;Футбол<br /> <br /> <br /> <br /> <a href="#content">У вас в Друзьях</a>
-								</p></td>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Алексей Монятовский</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star8.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
-
-				<div class="box boxText">
-					<p>
+				
+				<div class="box boxText usr_tmplt usr_tmplt_bg">
 					<table class="regular">
 						<tr>
-							<td><a href="#content"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" width="150px" alt="" class="left" /></a><br /></td>
-							<td width=300px valign=top><strong><a href="view_public.html">Надежда Закревская</a></strong><br /> Игры:&nbsp;60<br /> Рейтинг:&nbsp; <img
-								src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><img src="img/ball.jpg" width="20" alt=""
-								class="left" /><img src="img/ball.jpg" width="20" alt="" class="left" /><br /> Позиция:&nbsp; Защитник <br /> Локация:&nbsp;Донецк<br /> Виды
-								спорта:&nbsp;Футбол,Баскетбол,Волейбол<br /> <br /> <br /> <br /> <a href="#content">У вас в Друзьях</a>
-								</p></td>
+							<td class="usr_tmplt_ph">
+								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+							</td>
+							<td class="usr_tmplt_txt">
+								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Надежда Закревская</a></strong></div>
+								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star5.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
+								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Локация:</div> <div class="usr_tmplt_txt_r">Киев</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="margin_5000"><div class="usr_tmplt_txt_l">Виды спорта:</div><div class="usr_tmplt_txt_r">Футбол,Баскетбол,Волейбол</div><div class="usr_tmplt_txt_clr"></div></div>
+								<div class="usr_tmplt_txt_f"><a class="small" href=".">Добавить в Друзья</a></div>
+							</td>
 						</tr>
-					</table>
+					</table>				
 				</div>
 
 				<a href="#"><b>Вернуться к поиску Игроков</b></a>

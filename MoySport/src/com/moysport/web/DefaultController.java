@@ -60,6 +60,16 @@ public class DefaultController {
 		return "pages/user/home";
 	}
 	
+	@RequestMapping(value = "/pages/user/editprofile", method = RequestMethod.GET)
+	public String editprofile(ModelMap model) {
+		return "pages/user/editprofile";
+	}
+	
+	@RequestMapping(value = "/pages/user/saveprofile", method = RequestMethod.POST)
+	public String saveprofile(ModelMap model) {
+		return "pages/user/home";
+	}
+	
 	@RequestMapping(value = "/pages/user/events", method = RequestMethod.GET)
 	public String events(ModelMap model) {
 		return "pages/user/events";
@@ -90,9 +100,19 @@ public class DefaultController {
 		return "pages/events/searchevents";
 	}
 	
-	@RequestMapping(value = "/pages/events/view_event", method = RequestMethod.GET)
-	public String view_event(ModelMap model) {
-		return "pages/events/view_event";
+	@RequestMapping(value = "/pages/events/viewevent", method = RequestMethod.GET)
+	public String viewevent(ModelMap model) {
+		return "pages/events/viewevent";
+	}
+	
+	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.GET)
+	public String createevent(ModelMap model) {
+		return "pages/events/createevent";
+	}
+	
+	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
+	public String addevent(ModelMap model) {
+		return "pages/events/viewevent";
 	}
 
 	@RequestMapping(value = "/pages/players/searchplayers", method = RequestMethod.GET)
@@ -100,9 +120,9 @@ public class DefaultController {
 		return "pages/players/searchplayers";
 	}
 	
-	@RequestMapping(value = "/pages/players/view_player", method = RequestMethod.GET)
-	public String view_player(ModelMap model) {
-		return "pages/players/view_player";
+	@RequestMapping(value = "/pages/players/viewplayer", method = RequestMethod.GET)
+	public String viewplayer(ModelMap model) {
+		return "pages/players/viewplayer";
 	}
 	
 	@RequestMapping(value = "/pages/locations/searchlocations", method = RequestMethod.GET)
@@ -110,10 +130,20 @@ public class DefaultController {
 		return "pages/locations/searchlocations";
 	}
 	
-	@RequestMapping(value = "/pages/locations/view_location", method = RequestMethod.GET)
-	public String view_location(ModelMap model) {
-		return "pages/locations/view_location";
+	@RequestMapping(value = "/pages/locations/viewlocation", method = RequestMethod.GET)
+	public String viewlocation(ModelMap model) {
+		return "pages/locations/viewlocation";
 	}
+	
+	@RequestMapping(value = "/pages/locations/createlocation", method = RequestMethod.GET)
+	public String createlocation(ModelMap model) {
+		return "pages/locations/createlocation";
+	}
+	
+	@RequestMapping(value = "/pages/locations/addlocation", method = RequestMethod.POST)
+	public String addlocation(ModelMap model) {
+		return "pages/locations/viewlocation";
+	}	
 	
 	@RequestMapping(value = "/pages/search", method = RequestMethod.GET)
 	public String search(ModelMap model) {

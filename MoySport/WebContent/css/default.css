@@ -44,7 +44,7 @@ p   { line-height: 20px; }
 
 h1, h2, h3, h4, h5, h6  { color: #3e3533; }
 
-table           { border-collapse: collapse; width: 100%; }
+table           { border-collapse: collapse; width: 100%; font-size: 1em; }
 table th        { text-align: left; }
 table td.right  { padding-left: 5px; }
 table th.right  { padding-left: 5px; }
@@ -186,3 +186,19 @@ img.right { margin-right: 0 !important; }
 .textFont {font-family: Tahoma, Geneva, sans-serif}
 
 .regular { font-size: 1em; }
+
+.margin_5000 { margin: 5px 0px 0px 0px }
+
+.usr_tmplt_bg 		{ background-color: #FDFDFB; }
+.usr_tmplt div 		{ display: block; }
+.usr_tmplt_ph 		{ width: 25%; }
+.usr_tmplt_ph_img 	{ width: 125px; text-align: left !important; }
+.usr_tmplt_txt_h	{ padding-bottom: 10px; }
+.usr_tmplt_txt 		{ width: 75%; valign: top; }
+.usr_tmplt_txt_lt 	{ float: left; width: 107px; color: grey; vertical-align:middle; }
+.usr_tmplt_txt_l 	{ float: left; width: 115px; color: grey; }
+.usr_tmplt_txt_r 	{ float: left; }
+.usr_tmplt_txt_r_rg { text-align: left !important; border: 0; vertical-align:middle; }
+.usr_tmplt_txt_clr 	{ clear: both; visibility: hidden; }
+.usr_tmplt_txt_f	{ padding-top: 20px; padding-bottom: 5px; }
+

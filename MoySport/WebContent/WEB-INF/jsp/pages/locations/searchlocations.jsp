@@ -64,7 +64,7 @@
 						</div>
 						<br style="clear: both;"> <br style="clear: both;">
 						<p>
-							<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="create_location.html"><b>Создать новую локацию</b></a>
+							<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=getServletContext().getContextPath()%>/pages/locations/createlocation"><b>Создать новую локацию</b></a>
 						</p>
 					</fieldset>
 					<br>
@@ -79,61 +79,61 @@
 						<td><b>Кол-во игр</b></td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">КПИ</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">КПИ</a></td>
 						<td>Киев</td>
 						<td>ул.Шевченка 15</td>
 						<td>12</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">КИСИ</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">КИСИ</a></td>
 						<td>Киев</td>
 						<td>ул.Ленина 11</td>
 						<td>3</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">унив.Шевченика</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">унив.Шевченика</a></td>
 						<td>Киев</td>
 						<td>ул.Манютки 5</td>
 						<td>10</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">НУХТ</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">НУХТ</a></td>
 						<td>Киев</td>
 						<td>ул.Малютки 7</td>
 						<td>4</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Поплавского</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Поплавского</a></td>
 						<td>Киев</td>
 						<td>ул.Победы 88</td>
 						<td>20</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Школа №23</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Школа №23</a></td>
 						<td>Харьков</td>
 						<td>ул.Заводская 115</td>
 						<td>8</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Школа №43</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Школа №43</a></td>
 						<td>Донецк</td>
 						<td>ул.Шахтерская 10</td>
 						<td>8</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Стадион Спартак</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Стадион Спартак</a></td>
 						<td>Одесса</td>
 						<td>ул.Приморская 3</td>
 						<td>12</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Зал НСК Олимпийский</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Зал НСК Олимпийский</a></td>
 						<td>Киев</td>
 						<td>ул.Олимпийская 21</td>
 						<td>16</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/view_location">Школа №1</a></td>
+						<td><a href="<%=getServletContext().getContextPath()%>/pages/locations/viewlocation">Школа №1</a></td>
 						<td>Львов</td>
 						<td>ул.Бандеры 8</td>
 						<td>14</td>

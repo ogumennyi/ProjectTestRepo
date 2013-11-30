@@ -51,7 +51,7 @@
 									<td class="fldText">${user.email}</td>
 								</tr>
 								<tr>
-									<td class="fldName" colspan="2"><a href="edit_userhome.html"><br>Редактировать данные</a></td>
+									<td class="fldName" colspan="2"><a href="<%=getServletContext().getContextPath()%>/pages/user/editprofile"><br>Редактировать данные</a></td>
 								</tr>
 							</table>
 						</td>
