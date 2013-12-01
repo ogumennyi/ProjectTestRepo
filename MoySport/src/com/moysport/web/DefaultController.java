@@ -3,7 +3,6 @@ package com.moysport.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +23,11 @@ public class DefaultController {
 	public String login(ModelMap model) {
 		return "authorization";
 	}
+	
+	@RequestMapping(value = "/loginold", method = RequestMethod.GET)
+	public String loginold(ModelMap model) {
+		return "temp/login";
+	}
 
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(ModelMap model) {
@@ -33,7 +37,7 @@ public class DefaultController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(ModelMap model) {
-		return "index";
+		return "temp/index";
 	}
 	
 	@RequestMapping(value = "/authorization", method = RequestMethod.GET)
@@ -51,48 +55,6 @@ public class DefaultController {
 	@RequestMapping(value = "/pages/mainpage", method = RequestMethod.GET)
 	public String mainpage(ModelMap model) {
 		return "pages/mainpage";
-	}
-	
-	@RequestMapping(value = "/pages/user/home", method = RequestMethod.GET)
-	public String home(ModelMap model) {
-		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("user", user);
-		return "pages/user/home";
-	}
-	
-	@RequestMapping(value = "/pages/user/editprofile", method = RequestMethod.GET)
-	public String editprofile(ModelMap model) {
-		return "pages/user/editprofile";
-	}
-	
-	@RequestMapping(value = "/pages/user/saveprofile", method = RequestMethod.POST)
-	public String saveprofile(ModelMap model) {
-		return "pages/user/home";
-	}
-	
-	@RequestMapping(value = "/pages/user/events", method = RequestMethod.GET)
-	public String events(ModelMap model) {
-		return "pages/user/events";
-	}
-	
-	@RequestMapping(value = "/pages/user/friends", method = RequestMethod.GET)
-	public String friends(ModelMap model) {
-		return "pages/user/friends";
-	}
-
-	@RequestMapping(value = "/pages/user/trainings", method = RequestMethod.GET)
-	public String trainings(ModelMap model) {
-		return "pages/user/trainings";
-	}
-	
-	@RequestMapping(value = "/pages/user/settings", method = RequestMethod.GET)
-	public String settings(ModelMap model) {
-		return "pages/user/settings";
-	}
-	
-	@RequestMapping(value = "/pages/user/help", method = RequestMethod.GET)
-	public String help(ModelMap model) {
-		return "pages/user/help";
 	}
 	
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
@@ -150,14 +112,19 @@ public class DefaultController {
 		return "pages/search";
 	}
 	
+	@RequestMapping(value = "/pages/quicksearch", method = RequestMethod.POST)
+	public String quicksearch(ModelMap model) {
+		return "pages/search";
+	}
+	
 	@RequestMapping(value = "/accessdenied")
 	public String accessdenied(ModelMap model) {
-		return "accessDenied";
+		return "temp/accessDenied";
 	}
 	
 	@RequestMapping(value = "/timeout")
 	public String timeout(ModelMap model) {
-		return "timeout";
+		return "temp/timeout";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -167,13 +134,13 @@ public class DefaultController {
 
 	@RequestMapping("/employee/list.html")
 	public ModelAndView gotoEmployee(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		ModelAndView mav = new ModelAndView("employee/list");
+		ModelAndView mav = new ModelAndView("temp/employee/list");
 		return mav;
 	}
 
 	@RequestMapping("/admin/home.html")
 	public ModelAndView gotoAdmin(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
-		ModelAndView mav = new ModelAndView("admin/home");
+		ModelAndView mav = new ModelAndView("temp/admin/home");
 		return mav;
 	}
 

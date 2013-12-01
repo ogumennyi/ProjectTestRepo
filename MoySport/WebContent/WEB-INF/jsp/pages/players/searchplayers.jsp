@@ -2,12 +2,13 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
 </head>
 <body>
 	<div id="view">
@@ -109,10 +110,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/oleg.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/oleg.jpg" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Олег Гуменный</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Олег Гуменный</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star8.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">23</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Нападающий</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -128,10 +129,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/ivan.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/ivan.jpg" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Иван Громский</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Иван Громский</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star4.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">30</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Полузащитник</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -147,10 +148,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/aleks.jpg" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Александр Мединский</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Александр Мединский</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star4.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -166,10 +167,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Сергей Щербань</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Сергей Щербань</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star5.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -185,10 +186,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Алексей Монятовский</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Алексей Монятовский</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star8.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -204,10 +205,10 @@
 					<table class="regular">
 						<tr>
 							<td class="usr_tmplt_ph">
-								<a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer"><img src="<%=getServletContext().getContextPath()%>/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer"><img src="${pageContext.request.contextPath}/img/image.gif" alt="" class="usr_tmplt_ph_img" /></a>
 							</td>
 							<td class="usr_tmplt_txt">
-								<div class="usr_tmplt_txt_h"><strong><a href="<%=getServletContext().getContextPath()%>/pages/players/viewplayer">Надежда Закревская</a></strong></div>
+								<div class="usr_tmplt_txt_h"><strong><a href="${pageContext.request.contextPath}/pages/players/viewplayer">Надежда Закревская</a></strong></div>
 								<div><div class="usr_tmplt_txt_lt margin_5000">Рейтинг:</div><div class="usr_tmplt_txt_r"><img src="../../images/star5.png" alt="" class="usr_tmplt_txt_r_rg" /></div><div class="usr_tmplt_txt_clr"></div></div>
 								<div><div class="usr_tmplt_txt_l">Игры:</div><div class="usr_tmplt_txt_r">10</div><div class="usr_tmplt_txt_clr"></div></div>
 								<div class="margin_5000"><div class="usr_tmplt_txt_l">Позиция:</div> <div class="usr_tmplt_txt_r">Защитник</div><div class="usr_tmplt_txt_clr"></div></div>

@@ -2,7 +2,8 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -13,7 +14,7 @@
 	<div id="view">
 		<div id="head">
 			<div id="logo">
-				<a href="<%= getServletContext().getContextPath()%>/authorization" class="block">&nbsp;</a>
+				<a href="${pageContext.request.contextPath}/authorization" class="block">&nbsp;</a>
 				<h1>
 					<a href="http://web-mastery.info/">Moy<span>Sport</span></a>
 				</h1>
@@ -24,8 +25,8 @@
 			<hr class="hidden" />
 			<div id="mainMenu">
 				<ul>
-					<li><a href="<%= getServletContext().getContextPath()%>/authorization">Авторизация<span></span></a></li>
-					<li class="active"><a href="<%= getServletContext().getContextPath()%>/registration">Регистрация<span></span></a></li>
+					<li><a href="${pageContext.request.contextPath}/authorization">Авторизация<span></span></a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/registration">Регистрация<span></span></a></li>
 				</ul>
 			</div>
 			<hr class="hidden" />
@@ -33,7 +34,7 @@
 		<div id="content">
 			<div id="contentBlock">
 				<h2>Регистрация</h2>
-				<br>
+				<br/>
 				<form:form method="post" action="user/new" commandName="user">
 					<fieldset>
 						<div>
@@ -50,46 +51,34 @@
 								<form:input path="lastname" cssClass="inputText" />
 							</div>
 						</div>
-						<br style="clear: both;">
+						<br style="clear: both;"/>
 						<div style="padding-top: 5px;">
 							<div style="float: left;">
 								<div>Пароль</div>
 								<form:input path="pwd" cssClass="inputText" />
 							</div>
-							<div style="float: left; margin-left: 25px"">
+							<div style="float: left; margin-left: 25px">
 								<div>Повторите пароль</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 						</div>
-						<br style="clear: both;">
+						<br style="clear: both;"/>
 						<div style="padding-top: 5px;">Дата рождения</div>
 						<form:input path="birthdate" cssClass="inputText" type="date" />
 						<div style="padding-top: 5px;">Телефон</div>
 						<form:input path="mphone" cssClass="inputText" />
 						<div style="padding-top: 5px;">email</div>
 						<form:input path="email" cssClass="inputText" />
-						<br><br>
+						<br/><br/>
 						<p>
-							<input type="submit" class="submit" value="Зарегистрироваться" style="cursor: pointer;">
+							<input type="submit" class="submit" value="Зарегистрироваться" style="cursor: pointer;"/>
 						</p>
 					</fieldset>
-					<br>
+					<br/>
 				</form:form>
 			</div>
 		</div>
-		<hr class="hidden" />
-		<ul class="hidden">
-			<li><a href="#view">Nahoru</a></li>
-			<li><a href="#content">Zpět na obsah</a></li>
-		</ul>
-		<hr class="hidden" />
-		<div id="foot">
-			<p class="fl">&copy; all rights reserved</p>
-			<p class="fr">
-				<a target="_blank" rel="nofollow" href="http://www.breezy.cz/reference/webove-sablony-zdarma">Free template</a> created by <a target="_blank" rel="nofollow"
-					href="http://www.breezy.cz" class="ico ico-breezy">Breezy New Media</a>
-			</p>
-		</div>
+		<jsp:include page="templates/footer.jsp"/>
 	</div>
 </body>
 </html>

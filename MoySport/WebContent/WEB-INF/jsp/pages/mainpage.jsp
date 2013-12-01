@@ -2,12 +2,13 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
 </head>
 <body>
 	<div id="view">
@@ -18,7 +19,7 @@
 			<div id="contentBlock">
 				<div class="item last">
 					<h2>Мои Игры</h2>
-					<br>
+					<br/>
 					<table class="regular">
 						<tr>
 							<td><b>Название</b></td>
@@ -42,10 +43,10 @@
 							<td>3/8</td>
 						</tr>
 					</table>
-					<br>
+					<br/>
 
 					<h2>Игры друзей</h2>
-					<br>
+					<br/>
 					<table class="regular">
 						<tr>
 							<td><b>Название</b></td>
@@ -72,29 +73,29 @@
 							<td>1/10</td>
 						</tr>
 					</table>
-					<br>
+					<br/>
 				</div>
 				<div class="col1">
 					<div class="item">
 						<h3>Статья 1</h3>
 						<p class="info">
-							02.02.2008 - <a href="http://web-mastery.info/">article tag</a> - <a href="http://web-mastery.info/">14 comments</a>
+							02.02.2008 - <a href=".">article tag</a> - <a href=".">14 comments</a>
 						</p>
 						<p>A spatial point is a concept used to define an exact location in space. It has no volume, area or length, making it a zero dimensional object.</p>
 					</div>
 					<div class="item last">
 						<h3>Статья 2</h3>
 						<p class="info">
-							02.02.2008 - <a href="http://web-mastery.info/">article tag</a> - <a href="http://web-mastery.info/">14 comments</a>
+							02.02.2008 - <a href=".">article tag</a> - <a href=".">14 comments</a>
 						</p>
 						<p>A spatial point is a concept used to define an exact location in space. It has no volume, area or length, making it a zero dimensional object.</p>
 					</div>
 				</div>
 				<div class="col2 right">
-					<a href="#content"><img src="<%= getServletContext().getContextPath()%>/img/basket.jpg" width="123" height="81" alt="" class="left" /></a> 
-					<a href="#content"><img src="<%= getServletContext().getContextPath()%>/img/soccer.jpg" width="123" height="81" alt="" class="right" /></a> 
-					<a href="#content"><img src="<%= getServletContext().getContextPath()%>/img/velo.jpg" width="123" height="81" alt="" class="left" /></a> 
-					<a href="#content"><img src="<%= getServletContext().getContextPath()%>/img/volleyball.jpg" width="123" height="81" alt="" class="right" /></a>
+					<a href="#content"><img src="${pageContext.request.contextPath}/img/basket.jpg" width="123" height="81" alt="" class="left" /></a> 
+					<a href="#content"><img src="${pageContext.request.contextPath}/img/soccer.jpg" width="123" height="81" alt="" class="right" /></a> 
+					<a href="#content"><img src="${pageContext.request.contextPath}/img/velo.jpg" width="123" height="81" alt="" class="left" /></a> 
+					<a href="#content"><img src="${pageContext.request.contextPath}/img/volleyball.jpg" width="123" height="81" alt="" class="right" /></a>
 				</div>
 			</div>
 			<jsp:include page="../templates/cabinet.jsp"/>

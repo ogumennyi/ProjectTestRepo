@@ -2,18 +2,19 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="<%= getServletContext().getContextPath()%>/css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<%= getServletContext().getContextPath()%>/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
 </head>
 <body>
 	<div id="view">
 		<div id="head">
 			<div id="logo">
-				<a href="<%= getServletContext().getContextPath()%>/authorization" class="block">&nbsp;</a>
+				<a href="${pageContext.request.contextPath}/authorization" class="block">&nbsp;</a>
 				<h1>
 					<a href=".">Moy<span>Sport</span></a>
 				</h1>
@@ -24,8 +25,8 @@
 			<hr class="hidden" />
 			<div id="mainMenu">
 				<ul>
-					<li class="active"><a href="<%= getServletContext().getContextPath()%>/authorization">Авторизация<span></span></a></li>
-					<li><a href="<%= getServletContext().getContextPath()%>/registration">Регистрация<span></span></a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/authorization">Авторизация<span></span></a></li>
+					<li><a href="${pageContext.request.contextPath}/registration">Регистрация<span></span></a></li>
 				</ul>
 			</div>
 			<hr class="hidden" />
@@ -34,7 +35,7 @@
 			<div id="contentBlock">
 				<div class="item last">
 					<h2>Мой Спорт</h2>
-					<br>
+					<br/>
 					<p>"Мой спорт" это спортивная социальная сеть, предназначена для улучшения жизни каждого человека, который занимается спортом. Сеть позволяет людям
 						найти новых спортивных партнеров, расписание спортивных мероприятий, спортивные объекты в любой точке мира.</p>
 					<p>
@@ -57,15 +58,14 @@
 			<div id="menuBlockAu">
 				<div class="box firstBox subMenu boxText">
 					<h3>Авторизация:</h3>
-					<br>
-					<form action="<%= getServletContext().getContextPath()%>/j_spring_security_check" method="post">
+					<br/>
+					<form action="${pageContext.request.contextPath}/j_spring_security_check" method="post">
 						<div>email</div>
-						<input type="text" name='j_username' class="inputText">
+						<div><input type="text" name='j_username' class="inputText"/></div>
 						<div style="padding-top: 5px;">Пароль</div>
-						<input type="text" name='j_password' class="inputText">
-						<br><br>
-						<p>
-							<input type="submit" class="submit" value="Войти" style="cursor: pointer;">
+						<div><input type="password" name='j_password' class="inputText"/></div>
+						<p class="margin_5000">
+							<input type="submit" class="submit" value="Войти" style="cursor: pointer;"/>
 						</p>
 					</form>
 					<c:if test="${'fail' eq auth}">
@@ -77,15 +77,7 @@
 				</div>
 			</div>
 		</div>
-		<hr class="hidden" />
-		<hr class="hidden" />
-		<div id="foot">
-			<p class="fl">&copy; all rights reserved</p>
-			<p class="fr">
-				<a target="_blank" rel="nofollow" href="http://www.breezy.cz/reference/webove-sablony-zdarma">Free template</a> created by <a target="_blank" rel="nofollow"
-					href="http://www.breezy.cz" class="ico ico-breezy">Breezy New Media</a>
-			</p>
-		</div>
+		<jsp:include page="templates/footer.jsp"/>
 	</div>
 </body>
 </html>

@@ -2,12 +2,13 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
 </head>
 <body>
 	<div id="view">
@@ -16,7 +17,7 @@
 			<div id="dataBlock">
 				<table class="regular">
 					<tr>
-						<td valign=top><img src="<%=getServletContext().getContextPath()%>/img/aleks.jpg" alt="" class="left shadow" style="border: 0; width: 200px" align="middle" /></td>
+						<td valign=top><img src="${pageContext.request.contextPath}/img/aleks.jpg" alt="" class="left shadow" style="border: 0; width: 200px" align="middle" /></td>
 						<td width="100%" valign="top">
 							<table class="textFont regular" style="padding: 10px">
 								<tr>
@@ -51,7 +52,7 @@
 									<td class="fldText">${user.email}</td>
 								</tr>
 								<tr>
-									<td class="fldName" colspan="2"><a href="<%=getServletContext().getContextPath()%>/pages/user/editprofile"><br>Редактировать данные</a></td>
+									<td class="fldName" colspan="2"><a href="${pageContext.request.contextPath}/pages/user/editprofile"><br>Редактировать данные</a></td>
 								</tr>
 							</table>
 						</td>
