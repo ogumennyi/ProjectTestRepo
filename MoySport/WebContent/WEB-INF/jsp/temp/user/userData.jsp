@@ -3,27 +3,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
-	<head>
-	    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	    <title>User data page</title>
-	    <style type="text/css">
-	    	a {text-decoration: none; color:#B32233;}
-	    	table {font-size:13px;}
-	    	.heading {padding: 0px 0px 15px 25px; font-weight: bold; color: #056B76}
-	    	.fldName {padding: 5px 0px 5px 25px; color: #69A3AA}
-	    	.fldText {padding: 5px 0px 5px 5px; color: #056B76}
-	    	.textFont {font-family: Tahoma, Geneva, sans-serif}
-	    </style>
-	</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>User data page</title>
+    <style type="text/css">
+    	a {text-decoration: none; color:#B32233;}
+    	table {font-size:13px;}
+    	.heading {padding: 0px 0px 15px 25px; font-weight: bold; color: #056B76}
+    	.fldName {padding: 5px 0px 5px 25px; color: #69A3AA}
+    	.fldText {padding: 5px 0px 5px 5px; color: #056B76}
+    	.textFont {font-family: Tahoma, Geneva, sans-serif}
+    </style>
+</head>
 <body style="font-family: Georgia, serif; padding:0px; margin:0px;">
 
 <div style="width:100%; height:50px; background-color:#8DC57D; text-align:center;">
 	<table width="800px" align="center">
 		<tr>
-			<td style="font-size:30; font-weight:bold; padding-top: 2px" width="40%"><a style="color:#5D6CDA" href="<%= getServletContext().getContextPath()%>/userhome">Moy Sport</a></td>
+			<td style="font-size:30; font-weight:bold; padding-top: 2px" width="40%"><a style="color:#5D6CDA" href="${pageContext.request.contextPath}/userhome">Moy Sport</a></td>
 			<td style="font-size:18; font-weight:bold; padding-top: 5px" width="20%"><a href="">Events</a></td>
 			<td style="font-size:18; font-weight:bold; padding-top: 5px" width="30%"><a href="">Locations</a></td>
 			<td style="font-size:14; font-weight:bold; padding-top: 5px" width="10%"><a href="j_spring_security_logout">Sign out</a></td>

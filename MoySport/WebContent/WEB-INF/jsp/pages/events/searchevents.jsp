@@ -2,12 +2,13 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="<%=getServletContext().getContextPath()%>/css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
 </head>
 <body>
 	<div id="view">
@@ -65,7 +66,7 @@
 
 						<br style="clear: both;"> <br style="clear: both;">
 						<p>
-							<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<%=getServletContext().getContextPath()%>/pages/events/createevent"><b>Создать новую игру</b></a>
+							<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новую игру</b></a>
 						</p>
 					</fieldset>
 					<br>
@@ -81,70 +82,70 @@
 						<td><b>Участники</b></td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Лайф vs Киевстар</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Лайф vs Киевстар</a></td>
 						<td>КПИ</td>
 						<td>3 часа</td>
 						<td>футбол</td>
 						<td>12/14</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Встреча 2</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Встреча 2</a></td>
 						<td>КИСИ</td>
 						<td>8 часа</td>
 						<td>футбол</td>
 						<td>3/8</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Встреча побегать</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Встреча побегать</a></td>
 						<td>унив.Шевченика</td>
 						<td>1 день</td>
 						<td>футбол</td>
 						<td>10/20</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Встреча нубов</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Встреча нубов</a></td>
 						<td>НУХТ</td>
 						<td>3 дня</td>
 						<td>футбол</td>
 						<td>4/14</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра века</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра века</a></td>
 						<td>Поплавского</td>
 						<td>8 дней</td>
 						<td>футбол</td>
 						<td>5/20</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра в школе 23</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра в школе 23</a></td>
 						<td>Школа №23</td>
 						<td>2 недели</td>
 						<td>футбол</td>
 						<td>4/8</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра в школе 43</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра в школе 43</a></td>
 						<td>Школа №43</td>
 						<td>16 дней</td>
 						<td>баскетбол</td>
 						<td>2/8</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра на Спартаке</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра на Спартаке</a></td>
 						<td>Стадион Спартак</td>
 						<td>месяц</td>
 						<td>футбол</td>
 						<td>6/12</td>
 					</tr>
 					<tr class="add">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра на Олимпийском</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра на Олимпийском</a></td>
 						<td>Зал НСК Олимпийский</td>
 						<td>пол-года</td>
 						<td>футбол</td>
 						<td>8/16</td>
 					</tr>
 					<tr class="even">
-						<td><a href="<%=getServletContext().getContextPath()%>/pages/events/viewevent">Игра в школе №1</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/events/viewevent">Игра в школе №1</a></td>
 						<td>Школа №1</td>
 						<td>Заморожено</td>
 						<td>велопробег</td>

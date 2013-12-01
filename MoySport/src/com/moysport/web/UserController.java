@@ -59,6 +59,48 @@ public class UserController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		model.addAttribute("user", user);
 		return "user/userData";
+	}
+	
+	@RequestMapping(value = "/pages/user/home", method = RequestMethod.GET)
+	public String home(ModelMap model) {
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("user", user);
+		return "pages/user/home";
+	}
+	
+	@RequestMapping(value = "/pages/user/editprofile", method = RequestMethod.GET)
+	public String editprofile(ModelMap model) {
+		return "pages/user/editprofile";
+	}
+	
+	@RequestMapping(value = "/pages/user/saveprofile", method = RequestMethod.POST)
+	public String saveprofile(ModelMap model) {
+		return "pages/user/home";
+	}
+	
+	@RequestMapping(value = "/pages/user/events", method = RequestMethod.GET)
+	public String events(ModelMap model) {
+		return "pages/user/events";
+	}
+	
+	@RequestMapping(value = "/pages/user/friends", method = RequestMethod.GET)
+	public String friends(ModelMap model) {
+		return "pages/user/friends";
+	}
+
+	@RequestMapping(value = "/pages/user/trainings", method = RequestMethod.GET)
+	public String trainings(ModelMap model) {
+		return "pages/user/trainings";
+	}
+	
+	@RequestMapping(value = "/pages/user/settings", method = RequestMethod.GET)
+	public String settings(ModelMap model) {
+		return "pages/user/settings";
+	}
+	
+	@RequestMapping(value = "/pages/user/help", method = RequestMethod.GET)
+	public String help(ModelMap model) {
+		return "pages/user/help";
 	}	
 
 }
