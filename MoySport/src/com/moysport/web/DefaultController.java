@@ -56,26 +56,6 @@ public class DefaultController {
 	public String mainpage(ModelMap model) {
 		return "pages/mainpage";
 	}
-	
-	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
-	public String searchevents(ModelMap model) {
-		return "pages/events/searchevents";
-	}
-	
-	@RequestMapping(value = "/pages/events/viewevent", method = RequestMethod.GET)
-	public String viewevent(ModelMap model) {
-		return "pages/events/viewevent";
-	}
-	
-	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.GET)
-	public String createevent(ModelMap model) {
-		return "pages/events/createevent";
-	}
-	
-	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
-	public String addevent(ModelMap model) {
-		return "pages/events/viewevent";
-	}
 
 	@RequestMapping(value = "/pages/players/searchplayers", method = RequestMethod.GET)
 	public String searchplayers(ModelMap model) {
