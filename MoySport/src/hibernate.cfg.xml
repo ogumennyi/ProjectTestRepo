@@ -12,6 +12,7 @@
         <mapping class="com.moysport.model.Trainingplan" />
         <mapping class="com.moysport.model.Userskill" />
         <mapping class="com.moysport.model.User" />
+        <mapping class="com.moysport.model.Events" />
     </session-factory>
 	    
 </hibernate-configuration>

@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.jmx.snmp.Timestamp;
+
 @Entity
 @Table(name = "EVENTS")
 public class Events {
@@ -16,7 +18,7 @@ public class Events {
 	private Integer idevent;
 	
 	@Column(name = "NAME")
-	private Integer name;
+	private String name;
 	
 	@Column(name = "IDLOCATION")
 	private Integer idlocation;
@@ -27,8 +29,8 @@ public class Events {
 	@Column(name = "IDCHANGEBY")
 	private Integer idchangeby;
 	
-	@Column(name = "CHANGEDATE")
-	private Integer changedate;
+	/*@Column(name = "CHANGEDATE")
+	private Timestamp changedate;*/
 	
 	@Column(name = "MARK")
 	private Integer mark;
@@ -47,11 +49,11 @@ public class Events {
 		this.idevent = idevent;
 	}
 
-	public Integer getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -79,13 +81,13 @@ public class Events {
 		this.idchangeby = idchangeby;
 	}
 
-	public Integer getChangedate() {
+	/*public Timestamp getChangedate() {
 		return changedate;
 	}
 
-	public void setChangedate(Integer changedate) {
+	public void setChangedate(Timestamp changedate) {
 		this.changedate = changedate;
-	}
+	}*/
 
 	public Integer getMark() {
 		return mark;
