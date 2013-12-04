@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +16,10 @@ import com.moysport.service.EventsService;
 
 @Controller
 public class EventsController {
-	
-	@Autowired
-	private EventsService eventsService;
 
+	@Autowired
+	EventsService eventsService;
+	
 	@RequestMapping("/table_pages/events")
 	public String listEvents(Map<String, Object> map) {
 		map.put("events", new Events());
@@ -37,20 +37,7 @@ public class EventsController {
 	public String deleteEvents(@RequestParam("idevent") Integer idevent) {
 		eventsService.removeEvents(idevent);
 		return "redirect:/table_pages/events";
-	}
-
-=======
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.moysport.service.EventsService;
-
-@Controller
-public class EventsController {
-
-	@Autowired
-	EventsService eventsService;
+	}	
 	
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
 	public String searchevents(Map<String, Object> map) {
@@ -73,5 +60,4 @@ public class EventsController {
 		return "pages/events/viewevent";
 	}
 	
->>>>>>> refs/heads/nb15
 }
