@@ -1,5 +1,6 @@
 package com.moysport.web;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,14 @@ public class EventsController {
 	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
 	public String addevent(ModelMap model) {
 		return "pages/events/viewevent";
+	}
+	
+	@RequestMapping(value = "/events/search", method = RequestMethod.POST)
+	public String searchevents(@RequestParam("sport") String sport, Map<String, Object> map) {
+		HashMap<String, String> params = new HashMap<String, String>();
+		if(sport!=null && sport.length()>0) params.put("s.idsport", sport);
+		map.put("eventsList", eventsService.searchEvents(params));
+		return "pages/events/searchevents";
 	}
 	
 }

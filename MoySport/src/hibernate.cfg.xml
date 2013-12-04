@@ -13,7 +13,10 @@
         <mapping class="com.moysport.model.Userskill" />
         <mapping class="com.moysport.model.User" />
         <mapping class="com.moysport.model.Events" />
-        <mapping class="com.moysport.model.Location" />
+        <mapping class="com.moysport.model.Gameratings" />
+        <mapping class="com.moysport.model.Locations" />
+        <mapping class="com.moysport.model.Trainings" />
+        <mapping class="com.moysport.model.Trainingweek" />
     </session-factory>
 	    
 </hibernate-configuration>
