@@ -1,7 +1,5 @@
 package com.moysport.dao;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.moysport.model.Events;
@@ -20,16 +18,9 @@ public class EventsDAOImpl implements EventsDAO {
 		sessionFactory.getCurrentSession().save(event);
 	}
 
-	//@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public List<Events> listEvents() {
-		List<Events> l = new ArrayList<Events>();
-		List<Object> lo = sessionFactory.getCurrentSession().createQuery("select e.name, e.idlocation, s.rules from Events e, Sport s where e.idsport=s.idsport").list();
-		Iterator<Object> i = lo.iterator();
-		while(i.hasNext()){
-			System.out.println(i.next());
-			l.add((Events) i.next());
-		}
-		return l;
+		return sessionFactory.getCurrentSession().createQuery("select e.name, l.name location, s.name as sport from Events e, Sport s, Locations l where e.idsport=s.idsport and e.idlocation=l.idlocation").list();
 	}
 
 	public void removeEvents(Integer id) {

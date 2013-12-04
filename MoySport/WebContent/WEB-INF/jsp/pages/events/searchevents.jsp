@@ -84,9 +84,9 @@
 							</tr>
 							<c:forEach items="${eventsList}" var="event">
 								<tr>
-									<td>${event.name}</td>
-									<td>${event.idlocation}</td>
-									<td>${event.rules}</td>
+									<td>${event[0]}</td>
+									<td>${event[1]}</td>
+									<td>${event[2]}</td>
 								</tr>
 							</c:forEach>
 						</table>
