@@ -55,6 +55,7 @@ public class DefaultController {
 	@RequestMapping(value = "/pages/mainpage", method = RequestMethod.GET)
 	public String mainpage(ModelMap model) {
 		return "pages/mainpage";
+<<<<<<< HEAD
 	}
 	
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
@@ -75,6 +76,8 @@ public class DefaultController {
 	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
 	public String addevent(ModelMap model) {
 		return "pages/events/viewevent";
+=======
+>>>>>>> refs/heads/nb15
 	}
 
 	@RequestMapping(value = "/pages/players/searchplayers", method = RequestMethod.GET)

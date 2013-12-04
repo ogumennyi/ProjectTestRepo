@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EventsServiceImpl implements EventsService {
+<<<<<<< HEAD
 	
 	@Autowired
 	private EventsDAO EventsDAO;
@@ -31,3 +32,25 @@ public class EventsServiceImpl implements EventsService {
 	}
 
 }
+=======
+
+	@Autowired
+	private EventsDAO eventsDAO;
+
+	@Transactional
+	public void addEvents(Events events) {
+		eventsDAO.addEvents(events);
+	}
+	
+	@Transactional
+	public List<Events> listEvents() {
+		return eventsDAO.listEvents();
+	}
+
+	@Transactional
+	public void removeEvents(Integer id) {
+		eventsDAO.removeEvents(id);
+	}
+
+}
+>>>>>>> refs/heads/nb15

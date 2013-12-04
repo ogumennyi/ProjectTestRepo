@@ -18,61 +18,84 @@
 		<div id="content">
 			<div id="contentBlock">
 				<h2>Поиск игры</h2>
-				<br>
-				<form action="#" method="post">
-					<fieldset>
+				<br/>
+				<form action="" method="post">
+					<div>
 						<div>
 							<div style="float: left; margin-right: 25px">
 								<div>Вид Спорта</div>
 								<select name="sport_type" class="inputText">
-									<option selected>Все виды
-									<option>Футбол
-									<option>Баскетбол
-									<option>Хоккей
-									<option>Плавание
+									<option selected="selected">Все виды</option>
+									<option>Футбол</option>
+									<option>Баскетбол</option>
+									<option>Хоккей</option>
+									<option>Плавание</option>
 								</select>
 							</div>
 							<div style="float: left; margin-right: 25px">
 								<div>Локация</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 							<div style="float: left; margin-right: 25px">
 								<div>Ключевое слово (Напр. Название игры )</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 						</div>
-
-						<br style="clear: both;">
-						<br style="clear: both;">
+	
+						<br style="clear: both;"/>
+						<br style="clear: both;"/>
 						<div>
 							<div style="float: left; margin-right: 25px">
 								<div>Город</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 							<div style="float: left;">
 								<div>Улица</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 						</div>
-
-						<br style="clear: both;"> <br style="clear: both;">
-
+	
+						<br style="clear: both;"/> 
+						<br style="clear: both;"/>
+	
 						<div>
 							<div style="float: left;">
 								<div>Дата (день/месяц/год)</div>
-								<input type="text" value="" class="inputText">
+								<input type="text" value="" class="inputText"/>
 							</div>
 						</div>
-
-						<br style="clear: both;"> <br style="clear: both;">
+	
+						<br style="clear: both;"/> 
+						<br style="clear: both;"/>
 						<p>
+<<<<<<< HEAD
 							<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новую игру</b></a>
+=======
+							<input type="submit" class="submit" value="Найти"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новую игру</b></a>
+>>>>>>> refs/heads/nb15
 						</p>
-					</fieldset>
-					<br>
+					</div>
 				</form>
 
 				<p>Пример вывода результатов поиска игры</p>
+				<table class="regular">
+					<c:if  test="${!empty eventsList}">
+						<table class="data">
+							<tr>
+								<th>Название</th>
+								<th>Локация</th>
+								<th>Вид игры</th>
+							</tr>
+							<c:forEach items="${eventsList}" var="event">
+								<tr>
+									<td>${event[0]}</td>
+									<td>${event[1]}</td>
+									<td>${event[2]}</td>
+								</tr>
+							</c:forEach>
+						</table>
+					</c:if>				
+				</table>
 				<table class="regular">
 					<tr>
 						<td><b>Название</b></td>

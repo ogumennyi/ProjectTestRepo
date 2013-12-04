@@ -13,10 +13,13 @@
         <mapping class="com.moysport.model.Userskill" />
         <mapping class="com.moysport.model.User" />
         <mapping class="com.moysport.model.Events" />
+<<<<<<< HEAD
         <mapping class="com.moysport.model.Gameratings" />
         <mapping class="com.moysport.model.Locations" />
         <mapping class="com.moysport.model.Trainings" />
         <mapping class="com.moysport.model.Trainingweek" />
+=======
+>>>>>>> refs/heads/nb15
     </session-factory>
 	    
 </hibernate-configuration>
