@@ -24,36 +24,36 @@ public class Sport {
 	@Column(name = "HTTPLINK")
 	private String httplink;
 
-	public String getHttplink() {
-		return httplink;
+	public Integer getIdsport() {
+		return idsport;
 	}
 
-	public void setHttplink(String httplink) {
-		this.httplink = httplink;
+	public void setIdsport(Integer idsport) {
+		this.idsport = idsport;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public String getRules() {
-		return rules;
-	}
-
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRules() {
+		return rules;
 	}
 
 	public void setRules(String rules) {
 		this.rules = rules;
 	}
 
-	public Integer getId() {
-		return idsport;
+	public String getHttplink() {
+		return httplink;
 	}
 
-	public void setId(Integer id) {
-		this.idsport = id;
+	public void setHttplink(String httplink) {
+		this.httplink = httplink;
 	}
 
 }

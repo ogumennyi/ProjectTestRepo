@@ -19,7 +19,7 @@
 						<td width="100%" valign="top">
 							<table class="textFont regular" style="padding: 10px">
 								<tr>
-									<th class="heading" colspan="2" align="left">Игра: ${events.name}</th>
+									<th class="heading" colspan="2" align="left">Игра: ${event[0].name}</th>
 								</tr>
 								<tr>
 									<td class="fldName">Организатор</td>

@@ -202,3 +202,4 @@ img.right { margin-right: 0 !important; }
 .usr_tmplt_txt_clr 	{ clear: both; visibility: hidden; }
 .usr_tmplt_txt_f	{ padding-top: 20px; padding-bottom: 5px; }
 
+.searchfield {border-color: #A4A4A4; height: 15px; padding:1px 3px 2px 3px; }

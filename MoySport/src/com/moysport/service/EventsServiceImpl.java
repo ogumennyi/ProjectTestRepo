@@ -1,6 +1,6 @@
 package com.moysport.service;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.moysport.dao.EventsDAO;
@@ -27,7 +27,12 @@ public class EventsServiceImpl implements EventsService {
 	}
 	
 	@Transactional
-	public List<Events> searchEvents(HashMap<String, String> params) {
+	public List<Events> viewEvent(int idevent) {
+		return eventsDAO.viewEvent(idevent);
+	}
+	
+	@Transactional
+	public List<Events> searchEvents(ArrayList<String> params) {
 		return eventsDAO.searchEvents(params);
 	}
 

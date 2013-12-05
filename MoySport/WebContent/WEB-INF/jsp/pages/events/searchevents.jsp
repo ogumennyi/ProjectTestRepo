@@ -24,50 +24,44 @@
 						<div>
 							<div style="float: left; margin-right: 25px">
 								<div>Вид Спорта</div>
-								<select name="sport" class="inputText">
-									<option selected="selected" value="">Все виды</option>
-									<option value="1">Футбол</option>
-									<option value="2">Баскетбол</option>
-									<option value="3">Хоккей</option>
-									<option value="4">Плавание</option>
-								</select>
+								<div>
+									<select name="idsport" class="inputText" style="margin: 0px;">
+										<option <c:if test="${idsport == ''}">selected="selected"</c:if> value="">Все виды</option>
+										<c:forEach items="${sportList}" var="sport">
+											<option <c:if test="${sport.idsport == idsport}">selected="selected"</c:if> value="${sport.idsport}">${sport.name}</option>
+										</c:forEach>
+									</select>
+								</div>
 							</div>
 							<div style="float: left; margin-right: 25px">
-								<div>Локация</div>
-								<input type="text" value="" class="inputText"/>
-							</div>
-							<div style="float: left; margin-right: 25px">
-								<div>Ключевое слово (Напр. Название игры )</div>
-								<input type="text" value="" class="inputText"/>
+								<div>Ключевое слово</div>
+								<input name="keyword" type="text" value="${keyword}" class="inputText searchfield" style="width: 200px;"/>
 							</div>
 						</div>
-	
 						<br style="clear: both;"/>
+						<div style="padding-top:5px">
+							<div style="float: left; margin-right: 25px">
+								<div>Локация</div>
+								<input name="location" type="text" value="${location}" class="inputText searchfield"/>
+							</div>
+							<div style="float: left;">
+								<div>Дата</div>
+								<input name="ev_date" type="text" value="" class="inputText searchfield"/>
+							</div>
+						</div>	
 						<br style="clear: both;"/>
-						<div>
+						<div style="padding-top:5px">
 							<div style="float: left; margin-right: 25px">
 								<div>Город</div>
-								<input type="text" value="" class="inputText"/>
+								<input type="text" value="" class="inputText searchfield"/>
 							</div>
 							<div style="float: left;">
 								<div>Улица</div>
-								<input type="text" value="" class="inputText"/>
+								<input type="text" value="" class="inputText searchfield"/>
 							</div>
 						</div>
-	
-						<br style="clear: both;"/> 
 						<br style="clear: both;"/>
-	
-						<div>
-							<div style="float: left;">
-								<div>Дата (день/месяц/год)</div>
-								<input type="text" value="" class="inputText"/>
-							</div>
-						</div>
-	
-						<br style="clear: both;"/> 
-						<br style="clear: both;"/>
-						<p>
+						<p style="padding-top:20px">
 							<input type="submit" class="submit" value="Найти" style="cursor: pointer;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новую игру</b></a>
 						</p>
 					</div>
@@ -80,12 +74,14 @@
 								<th>Название</th>
 								<th>Локация</th>
 								<th>Вид игры</th>
+								<th>Ссылка</th>
 							</tr>
 							<c:forEach items="${eventsList}" var="event">
 								<tr>
 									<td>${event[0]}</td>
 									<td>${event[1]}</td>
 									<td>${event[2]}</td>
+									<td><a href="${pageContext.request.contextPath}/pages/events/viewevent/${event[3]}">Перейти</a></td>
 								</tr>
 							</c:forEach>
 						</table>

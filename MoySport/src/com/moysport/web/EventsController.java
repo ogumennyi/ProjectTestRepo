@@ -1,6 +1,6 @@
 package com.moysport.web;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.moysport.model.Events;
 import com.moysport.service.EventsService;
+import com.moysport.service.SportService;
 
 @Controller
 public class EventsController {
 
 	@Autowired
 	EventsService eventsService;
+	@Autowired
+	SportService sportService;
 	
 	@RequestMapping("/table_pages/events")
 	public String listEvents(Map<String, Object> map) {
@@ -43,11 +47,18 @@ public class EventsController {
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
 	public String searchevents(Map<String, Object> map) {
 		map.put("eventsList", eventsService.listEvents());
+		map.put("sportList", sportService.listSport());
 		return "pages/events/searchevents";
 	}
 	
 	@RequestMapping(value = "/pages/events/viewevent", method = RequestMethod.GET)
 	public String viewevent(ModelMap model) {
+		return "pages/events/viewevent";
+	}
+	
+	@RequestMapping(value = "/pages/events/viewevent/{idevent}", method = RequestMethod.GET)
+	public String viewexectevent(@PathVariable int idevent, Map<String, Object> map) {
+		map.put("event", eventsService.viewEvent(idevent));
 		return "pages/events/viewevent";
 	}
 	
@@ -62,10 +73,16 @@ public class EventsController {
 	}
 	
 	@RequestMapping(value = "/events/search", method = RequestMethod.POST)
-	public String searchevents(@RequestParam("sport") String sport, Map<String, Object> map) {
-		HashMap<String, String> params = new HashMap<String, String>();
-		if(sport!=null && sport.length()>0) params.put("s.idsport", sport);
+	public String searchevents(@RequestParam("idsport") String idsport, @RequestParam("location") String location, @RequestParam("keyword") String keyword, Map<String, Object> map) {
+		map.put("sportList", sportService.listSport());
+		ArrayList<String> params = new ArrayList<String>();
+		if(idsport!=null && idsport.length()>0) params.add("s.idsport = '"+idsport+"'");
+		if(location!=null && location.length()>0) params.add("l.name like '%"+location+"%'");
+		if(keyword!=null && keyword.length()>0) params.add("e.name like '%"+keyword+"%'");
 		map.put("eventsList", eventsService.searchEvents(params));
+		map.put("idsport", idsport);
+		map.put("location", location);
+		map.put("keyword", keyword);
 		return "pages/events/searchevents";
 	}
 	
