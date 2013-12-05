@@ -10,8 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import com.sun.xml.rpc.processor.modeler.j2ee.xml.string;
-
 public class CreateDB {
 	
 	/*jdbc.driverClassName= com.mysql.jdbc.Driver
