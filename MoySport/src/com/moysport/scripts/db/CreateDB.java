@@ -1,8 +1,10 @@
 package com.moysport.scripts.db;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -10,10 +12,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Scanner;
 
@@ -21,12 +21,10 @@ public class CreateDB {
 	
 	private static String JDBC_PROPERTIES_URL = "./WebContent/WEB-INF/jdbc.properties";
 	private static String SQL_DB_CREATION = "./src/com/moysport/scripts/db/CreateDB.sql";
-	private static String SQL_DB_TEST = "./src/com/moysport/scripts/db/SQLTemp.sql";
 	
 	public static void main(String[] args) throws IOException {
-		//String sSQLCreation = readFile("./src/com/moysport/scripts/db/SQLTemp.sql", StandardCharsets.UTF_8);
-		//String sSQLCreation = readFile(SQL_DB_CREATION, StandardCharsets.UTF_8);
-		//System.out.println(sSQLCreation);
+		System.out.println("Database creation is Start!!!");
+		Date dStart = new Date();
 		
 		ArrayList<String> alSQL= getSqlFromFile(SQL_DB_CREATION);
 		
@@ -40,10 +38,7 @@ public class CreateDB {
 			stmt = con.createStatement();
 			
 			for (String sRow : alSQL) {
-				//i++;
-				System.out.println(">>>"+sRow);
-				boolean res = stmt.execute(sRow);
-				System.out.println("res="+res);
+				stmt.execute(sRow);
 			}
 
 			releaseDB(con, stmt, rs);
@@ -59,6 +54,11 @@ public class CreateDB {
 		} finally {
 			releaseDB(con, stmt, rs);
 		}
+		
+		long lResult = new Date().getTime() - dStart.getTime();
+		System.out.println("Database creation is Complete!!!");
+		System.out.println("Execute Sql Count: " + alSQL.size());
+		System.out.println("Execute time: " + lResult + "ms");
 		
 	}
 	
@@ -78,7 +78,7 @@ public class CreateDB {
 		fileIS.close();
 		
 		sDriverName = prop.getProperty("jdbc.driverClassName");
-		sDBUrl = "jdbc:mysql://localhost:3306";//prop.getProperty("jdbc.databaseurl");
+		sDBUrl = prop.getProperty("jdbc.databaseurlshort");
 		sUserName = prop.getProperty("jdbc.username");
 		sUserPassword = prop.getProperty("jdbc.password");
 		
