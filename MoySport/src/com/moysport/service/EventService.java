@@ -10,6 +10,7 @@ import com.moysport.model.Gameparties;
 public interface EventService {
 	
 	public void addEvents(Event event);
+	public void updateEvent (Event event);
 	public List<Event> listEvents();
 	public List<Event> viewEvent(int idevent);
 	public List<Game> game(int idevent);

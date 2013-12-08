@@ -19,6 +19,16 @@ public class EventDAOImpl implements EventDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	public void updateEvent(Event event) {
+		
+		Event existingEvent = (Event) sessionFactory.getCurrentSession().get(Event.class, event.getIdevent());
+		existingEvent.setChangedate(event.getChangedate());
+		existingEvent.setLocations(event.getLocations());
+		existingEvent.setName(event.getName());
+		existingEvent.setSport(event.getSport());
+		sessionFactory.getCurrentSession().save(existingEvent);
+	}
+	
 	public void addEvents(Event event) {
 		sessionFactory.getCurrentSession().save(event);
 	}

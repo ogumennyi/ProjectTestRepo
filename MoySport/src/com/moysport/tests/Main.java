@@ -51,6 +51,7 @@ public class Main {
 	   			//		System.out.println(" Username: " + user.getUsername());
 	      			//}
 	   			EventService eventService;
+	   			
 	   			Event event = (Event)session.get(Event.class, 1);
 
 

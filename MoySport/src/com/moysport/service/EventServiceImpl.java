@@ -19,6 +19,11 @@ public class EventServiceImpl implements EventService {
 	private EventDAO eventDAO;
 
 	@Transactional
+	public void updateEvent(Event event) {
+		eventDAO.updateEvent(event);
+	}
+
+	@Transactional
 	public void addEvents(Event event) {
 		eventDAO.addEvents(event);
 	}

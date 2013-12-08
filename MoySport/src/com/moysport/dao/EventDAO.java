@@ -9,6 +9,7 @@ import com.moysport.model.Gameparties;
 
 public interface EventDAO {
 
+	public void updateEvent (Event event);
 	public void addEvents(Event event);
 	public List<Event> listEvents();
 	public List<Event> viewEvent(int idevent);
