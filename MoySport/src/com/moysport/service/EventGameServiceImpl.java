@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class GameServiceImpl implements GameService {
+public class EventGameServiceImpl implements EventGameService {
 	
 
 	@Autowired
@@ -30,7 +30,7 @@ public class GameServiceImpl implements GameService {
 	public void addGame(EventGame eventGame,int idevent) {
 		Event event = eventDAO.getEventId(idevent);
 		eventGame.setEvents(event);
-		gameDAO.addGame(eventGame);
+	//	gameDAO.addGame(eventGame);
 	}
 	
 	///@Transactional
@@ -54,7 +54,7 @@ public class GameServiceImpl implements GameService {
 
 	@Transactional
 	public void removeEventgames(Integer id) {
-		gameDAO.removeEventgames(id);
+		//gameDAO.removeEventgames(id);
 	}
 
 }

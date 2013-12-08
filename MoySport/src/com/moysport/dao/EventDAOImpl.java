@@ -20,19 +20,69 @@ public class EventDAOImpl implements EventDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void updateEvent(Event event) {
-		
-		Event existingEvent = (Event) sessionFactory.getCurrentSession().get(Event.class, event.getIdevent());
-		existingEvent.setChangedate(event.getChangedate());
-		existingEvent.setLocations(event.getLocations());
-		existingEvent.setName(event.getName());
-		existingEvent.setSport(event.getSport());
-		sessionFactory.getCurrentSession().save(existingEvent);
+	@SuppressWarnings("unchecked")
+	public List<Event> getAll() {
+		   
+	     // Retrieve all events
+	 Query query = sessionFactory.getCurrentSession().createQuery("FROM Event");
+		   
+	 // Retrieve all
+	  return  query.list();
+	 }
+
+	@SuppressWarnings("unchecked")
+	public Event get( Integer id ) {
+	     // Retrieve existing event
+	  Event event = (Event) sessionFactory.getCurrentSession().get(Event.class, id);
+	  return event;
+	 }
+		  
+	/**
+	 * Adds a new evet
+	 */
+	@SuppressWarnings("unchecked")
+	public void add(Event event) {
+			 
+		  // Persists to db
+	  sessionFactory.getCurrentSession().save(event);
 	}
-	
-	public void addEvents(Event event) {
-		sessionFactory.getCurrentSession().save(event);
+		  
+	 /**
+	  * Deletes an existing event
+	  * @param id the id of the existing event
+	  */
+	@SuppressWarnings("unchecked")
+	public void delete(Integer id) {
+		   
+		// Retrieve existing person
+		 Event event = (Event) sessionFactory.getCurrentSession().get(Event.class, id);
+		   
+		 // Delete 
+		 sessionFactory.getCurrentSession().delete(event);
+	 }
+		  
+	 /**
+	 * Edits an existing event
+	 */
+	@SuppressWarnings("unchecked")
+
+	public void edit(Event event) {
+		   
+		  // Retrieve existing event via id
+	  Event existingEvent = (Event) sessionFactory.getCurrentSession().get(Event.class, event.getIdevent());
+	   
+	  // Assign updated values to this event
+	  //existingEvent.setChangedate(event.getChangedate());
+	  existingEvent.setLocations(event.getLocations());
+	  existingEvent.setMark(event.getMark());
+	  existingEvent.setName(event.getName());
+	  existingEvent.setSport(event.getSport());
+	  existingEvent.setMarkcnt(event.getMarkcnt());
+	  // Save updates
+	  sessionFactory.getCurrentSession().save(existingEvent);
 	}
+		 
+		 
 
 	@SuppressWarnings("unchecked")
 	public List<Event> viewEvent(int idevent) {
@@ -76,8 +126,9 @@ public class EventDAOImpl implements EventDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Event> listEvents() {
-		String sql =
-			"select e from Event e order by e.idevent";
+		//String sql = "select e from Event e order by e.idevent";
+		String sql = "FROM Event";
+
 			/*"select e.name, l.name as location, s.name as sport, e.idevent, eg.starttime, eg.endtime, eg.idgame " + 
 			"from Event e, Sport s, Location l, EventGame eg " + 
 			"where e.idsport=s.idsport and e.idlocation=l.idlocation and e.idevent=eg.idevent " + 
@@ -110,6 +161,8 @@ public class EventDAOImpl implements EventDAO {
 		List<Event> eventlist = query.list();
 		return eventlist.size() > 0 ? (Event) eventlist.get(0) : null;
 	}
+
+
 	
 }
 

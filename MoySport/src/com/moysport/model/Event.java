@@ -39,7 +39,7 @@ public class Event {
 	private Integer idchangeby;
 	
 	@Column(name = "CHANGEDATE")
-	private Timestamp changedate;	
+	private Timestamp changedate;
 	
 	@Column(name = "MARK")
 	private Integer mark;

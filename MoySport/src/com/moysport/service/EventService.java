@@ -20,4 +20,7 @@ public interface EventService {
 	public List<Event> searchEvents(ArrayList<String> params);
 	public void removeEvents(Integer id);
 
+	
+	public void add(Event event, int idlocation, int idsport);
+	
 }

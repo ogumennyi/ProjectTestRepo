@@ -10,8 +10,7 @@ import com.moysport.model.Location;
 
 public interface EventDAO {
 
-	public void updateEvent (Event event);
-	public void addEvents(Event event);
+
 	public List<Event> listEvents();
 	public List<Event> viewEvent(int idevent);
 	public List<EventGame> eventGame(int idevent);
@@ -20,6 +19,10 @@ public interface EventDAO {
 	public void removeEvents(Integer id);
 
 	public Event getEventId(int idevent);
-
+	
+	public void add(Event event);
+	public void delete(Integer id);
+	public void edit(Event event);
+	public List<Event> getAll();
 
 }

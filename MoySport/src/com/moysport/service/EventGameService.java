@@ -5,7 +5,7 @@ import java.util.List;
 import com.moysport.model.Event;
 import com.moysport.model.EventGame;
 
-public interface GameService {
+public interface EventGameService {
 
 	//Changed by Medynskyy
 	public void addGame(EventGame eventGame,int idevent);

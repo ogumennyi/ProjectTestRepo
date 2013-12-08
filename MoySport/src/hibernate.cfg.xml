@@ -7,7 +7,7 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.moysport.model.Sport" />
-        <mapping class="com.moysport.model.Game" />
+        <mapping class="com.moysport.model.EventGame" />
         <mapping class="com.moysport.model.Gameparties" />
         <mapping class="com.moysport.model.Trainingplan" />
         <mapping class="com.moysport.model.Userskill" />

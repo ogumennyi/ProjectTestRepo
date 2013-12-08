@@ -34,6 +34,7 @@ public class EventGame {
 	@JoinColumn(name = "IDEVENT", nullable = false)
 	private Event event;
 	
+	
 	//public EventGame(Integer eventID) {
 		// TODO Auto-generated constructor stub
 	//	this.idevent = eventID;
