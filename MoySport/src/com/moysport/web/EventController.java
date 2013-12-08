@@ -77,6 +77,13 @@ public class EventController {
 		return "pages/events/viewevent";
 	}
 	
+	@RequestMapping(value = "/pages/events/editevent/{id}", method = RequestMethod.POST)
+	public String editEvent(@PathVariable int idevent, @ModelAttribute("event") Event event) {
+
+		return "pages/events/viewevent";
+
+	}
+	
 	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.GET)
 	public String createevent(ModelMap model) {
 		return "pages/events/createevent";
