@@ -14,7 +14,7 @@ import com.moysport.model.Location;
 import com.moysport.service.LocationService;
 
 @Controller
-public class LocationsController {
+public class LocationController {
 	
 	@Autowired
 	private LocationService locationService;
