@@ -3,7 +3,7 @@ package com.moysport.service;
 import java.util.List;
 
 import com.moysport.dao.TrainingsDAO;
-import com.moysport.model.Training;
+import com.moysport.model.Trainings;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,12 +16,12 @@ public class TrainingsServiceImpl implements TrainingsService {
 	private TrainingsDAO TrainingsDAO;
 
 	@Transactional
-	public void addTrainings(Training training) {
-		TrainingsDAO.addTrainings(training);
+	public void addTrainings(Trainings trainings) {
+		TrainingsDAO.addTrainings(trainings);
 	}
 
 	@Transactional
-	public List<Training> listTrainings() {
+	public List<Trainings> listTrainings() {
 		return TrainingsDAO.listTrainings();
 	}
 

@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.moysport.model.Training;
+import com.moysport.model.Trainings;
 
 @Repository
 public class TrainingsDAOImpl implements TrainingsDAO {
@@ -14,19 +14,19 @@ public class TrainingsDAOImpl implements TrainingsDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void addTrainings(Training Training) {
-		sessionFactory.getCurrentSession().save(Training);
+	public void addTrainings(Trainings Trainings) {
+		sessionFactory.getCurrentSession().save(Trainings);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Training> listTrainings() {
-		return sessionFactory.getCurrentSession().createQuery("from Training").list();
+	public List<Trainings> listTrainings() {
+		return sessionFactory.getCurrentSession().createQuery("from Trainings").list();
 	}
 
 	public void removeTrainings(Integer id) {
-		Training Training = (Training) sessionFactory.getCurrentSession().load(Training.class, id);
-		if (null != Training) {
-			sessionFactory.getCurrentSession().delete(Training);
+		Trainings Trainings = (Trainings) sessionFactory.getCurrentSession().load(Trainings.class, id);
+		if (null != Trainings) {
+			sessionFactory.getCurrentSession().delete(Trainings);
 		}
 	}
 

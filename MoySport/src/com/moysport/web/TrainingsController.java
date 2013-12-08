@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.moysport.model.Training;
+import com.moysport.model.Trainings;
 import com.moysport.service.TrainingsService;
 
 @Controller
@@ -22,14 +22,14 @@ public class TrainingsController {
 
 	@RequestMapping("/table_pages/trainings")
 	public String listTrainings(Map<String, Object> map) {
-		map.put("trainings", new Training());
+		map.put("trainings", new Trainings());
 		map.put("trainingsList", trainingsService.listTrainings());
 		return "table_pages/trainings";
 	}
 
 	@RequestMapping(value = "/table_pages/trainings/add", method = RequestMethod.POST)
-	public String addTrainings(@ModelAttribute("trainings") Training training, BindingResult result) {
-		trainingsService.addTrainings(training);
+	public String addTrainings(@ModelAttribute("trainings") Trainings trainings, BindingResult result) {
+		trainingsService.addTrainings(trainings);
 		return "redirect:/table_pages/trainings";
 	}
 
