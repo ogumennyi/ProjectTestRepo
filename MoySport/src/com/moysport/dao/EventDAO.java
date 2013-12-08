@@ -7,7 +7,7 @@ import com.moysport.model.Game;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
 
-public interface EventsDAO {
+public interface EventDAO {
 
 	public void addEvents(Event event);
 	public List<Event> listEvents();

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.moysport.model.Location;
 
-public interface LocationsDAO {
+public interface LocationDAO {
 
 	public void addLocations(Location location);
 	

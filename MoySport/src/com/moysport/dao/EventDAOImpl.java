@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class EventsDAOImpl implements EventsDAO {
+public class EventDAOImpl implements EventDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;

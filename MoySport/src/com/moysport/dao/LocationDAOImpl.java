@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.moysport.model.Location;
 
 @Repository
-public class LocationsDAOImpl implements LocationsDAO {
+public class LocationDAOImpl implements LocationDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;

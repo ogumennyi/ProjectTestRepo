@@ -6,28 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.moysport.dao.LocationsDAO;
+import com.moysport.dao.LocationDAO;
 import com.moysport.model.Location;
 
 @Service
 public class LocationServiceImpl implements LocationService {
 	
 	@Autowired
-	private LocationsDAO LocationsDAO;
+	private LocationDAO LocationDAO;
 
 	@Transactional
 	public void addLocations(Location location) {
-		LocationsDAO.addLocations(location);
+		LocationDAO.addLocations(location);
 	}
 
 	@Transactional
 	public List<Location> listLocations() {
-		return LocationsDAO.listLocations();
+		return LocationDAO.listLocations();
 	}
 
 	@Transactional
 	public void removeLocations(Integer id) {
-		LocationsDAO.removeLocations(id);
+		LocationDAO.removeLocations(id);
 	}
 
 }

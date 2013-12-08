@@ -13,7 +13,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 
 
-import com.moysport.model.Eventgames;
+import com.moysport.model.Game;
 import com.moysport.model.Event;
 //import com.moysport.model.Game;
 //import com.moysport.model.Event;
