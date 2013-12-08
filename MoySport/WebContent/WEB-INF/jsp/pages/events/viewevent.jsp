@@ -16,9 +16,9 @@
 		<div id="content">
 			<div id="dataBlock">
 				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
-					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event[0][0]}</b></div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event[0][2]}&nbsp;${event[0][1]}</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event[0][3]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event[0]}</b></div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event[2]}&nbsp;${event[1]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event[3]}</div><div class="usr_tmplt_txt_clr"></div></div>
 				</div>
 				<div style="margin-top: 10px;"><b>Игры:</b></div>
 				<c:forEach items="${eventgames}" var="eventgame">

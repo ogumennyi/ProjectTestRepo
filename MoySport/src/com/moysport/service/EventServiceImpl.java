@@ -6,7 +6,7 @@ import java.util.List;
 import com.moysport.dao.EventDAO;
 import com.moysport.dao.LocationDAO;
 import com.moysport.dao.SportDAO;
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
 import com.moysport.model.Location;
@@ -53,8 +53,8 @@ public class EventServiceImpl implements EventService {
 	}
 	
 	@Transactional
-	public List<Game> game(int idevent) {
-		return eventDAO.game(idevent);
+	public List<EventGame> eventGame(int idevent) {
+		return eventDAO.eventGame(idevent);
 	}
 	
 	@Transactional

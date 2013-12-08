@@ -85,7 +85,9 @@
 							<div style="float: left; width: 260px;">${eventgame.endtime}</div>
 							<div style="float: left;">
 								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}">
-								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
+								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a>&nbsp;
+								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/editgame/${eventgame.idgame}">
+								<img src="${pageContext.request.contextPath}/images/Edit-icon.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
 							<br style="clear: both;"/>
 						</div>
 						</c:forEach>

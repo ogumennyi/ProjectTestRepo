@@ -57,14 +57,14 @@ public class Event {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDEVENT")
-	private Set<Game> game;
+	private Set<EventGame> eventGame;
 	
-	public Set<Game> getEventgames() {
-		return game;
+	public Set<EventGame> getEventgames() {
+		return eventGame;
 	}
 
-	public void setEventgames(Set<Game> game) {
-		this.game = game;
+	public void setEventgames(Set<EventGame> eventGame) {
+		this.eventGame = eventGame;
 	}
 
 	public Location getLocations() {

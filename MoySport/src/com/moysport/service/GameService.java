@@ -3,15 +3,15 @@ package com.moysport.service;
 import java.util.List;
 
 import com.moysport.model.Event;
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 
 public interface GameService {
 
 	//Changed by Medynskyy
-	public void addGame(Game game,int idevent);
+	public void addGame(EventGame eventGame,int idevent);
 	
-	public List<Game> listEventgames();
-	public List<Game> viewEventgame(int idgame);
+	public List<EventGame> listEventgames();
+	public List<EventGame> viewEventgame(int idgame);
 	public void removeEventgames(Integer id);
 
 }

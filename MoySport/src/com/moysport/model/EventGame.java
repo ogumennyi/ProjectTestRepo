@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "EVENTGAMES")
-public class Game {
+public class EventGame {
 	@Id
 	@Column(name = "IDGAME")
 	@GeneratedValue
@@ -20,7 +20,7 @@ public class Game {
 	
 	//@Column(name = "IDEVENT")
 	//private Integer idevent;
-	
+
 	@Column(name = "STARTTIME")
 	private Timestamp starttime;
 	
@@ -34,7 +34,7 @@ public class Game {
 	@JoinColumn(name = "IDEVENT", nullable = false)
 	private Event event;
 	
-	//public Game(Integer eventID) {
+	//public EventGame(Integer eventID) {
 		// TODO Auto-generated constructor stub
 	//	this.idevent = eventID;
 	//}

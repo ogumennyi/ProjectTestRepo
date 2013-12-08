@@ -2,7 +2,7 @@ package com.moysport.dao;
 
 import java.util.List;
 
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -15,26 +15,26 @@ public class GameDAOImpl implements GameDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void addGame(Game game) {
-		sessionFactory.getCurrentSession().save(game);
+	public void addGame(EventGame eventGame) {
+		sessionFactory.getCurrentSession().save(eventGame);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Game> listEventgames() {
-		return sessionFactory.getCurrentSession().createQuery("from Game").list();
+	public List<EventGame> listEventgames() {
+		return sessionFactory.getCurrentSession().createQuery("from EventGame").list();
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Game> viewEventgame(int idgame) {
-		Query query = sessionFactory.getCurrentSession().createQuery("from Game where idgame=:idgame");
+	public List<EventGame> viewEventgame(int idgame) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from EventGame where idgame=:idgame");
 		query.setParameter("idgame",idgame);
 		return query.list();
 	}
 
 	public void removeEventgames(Integer id) {
-		Game game = (Game) sessionFactory.getCurrentSession().load(Game.class, id);
-		if (null != game) {
-			sessionFactory.getCurrentSession().delete(game);
+		EventGame eventGame = (EventGame) sessionFactory.getCurrentSession().load(EventGame.class, id);
+		if (null != eventGame) {
+			sessionFactory.getCurrentSession().delete(eventGame);
 		}
 	}
 

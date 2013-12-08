@@ -13,9 +13,9 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 
 
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 import com.moysport.model.Event;
-//import com.moysport.model.Game;
+//import com.moysport.model.EventGame;
 //import com.moysport.model.Event;
 import com.moysport.model.User;
 import com.moysport.service.EventService;
@@ -66,10 +66,10 @@ public class Main {
 	   	//		events.setName("Moy test event");
 	   	////		eventID = (Integer) session.save(events); 
 	   	//		System.out.print("eventID created " + eventID); 
-	   	//	    Game game1 = new Game();
+	   	//	    EventGame game1 = new EventGame();
 	   	//	    game1.setIdgame(idgame);
 
-	   	//	game1.setsetEventgames(Set<Game> eventgames) {
+	   	//	game1.setsetEventgames(Set<EventGame> eventgames) {
 	   		//	this.eventgames = eventgames;
    			tx.commit(); 
 	   	}
@@ -79,7 +79,7 @@ public class Main {
 	   finally { session.close(); }
 	   
 	   
-	   //Game game2 = new Game();
+	   //EventGame game2 = new EventGame();
 	   
 	 //  game1.setComments("test comments, game1");
 	  // game1.setComments("test comments, game2");

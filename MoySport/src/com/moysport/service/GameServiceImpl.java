@@ -8,7 +8,7 @@ import com.moysport.dao.SportDAO;
 import com.moysport.dao.GameDAO;
 
 import com.moysport.model.Event;
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 import com.moysport.model.Location;
 import com.moysport.model.Sport;
 
@@ -27,19 +27,28 @@ public class GameServiceImpl implements GameService {
 
 	// Changed by Medynskyy
 	@Transactional
-	public void addGame(Game game,int idevent) {
+	public void addGame(EventGame eventGame,int idevent) {
 		Event event = eventDAO.getEventId(idevent);
-		game.setEvents(event);
-		gameDAO.addGame(game);
+		eventGame.setEvents(event);
+		gameDAO.addGame(eventGame);
 	}
 	
+	///@Transactional
+	//public EventGame getGame(int idgame) {
+		//EventGame game = gameDAO.getGameId(idgame);
+		//game.s(event);
+	//	gameDAO.viewEventgame(idgame)
+	//	gameDAO.addGame(game);
+	//}
+	
+	
 	@Transactional
-	public List<Game> listEventgames() {
+	public List<EventGame> listEventgames() {
 		return gameDAO.listEventgames();
 	}
 	
 	@Transactional
-	public List<Game> viewEventgame(int idgame){
+	public List<EventGame> viewEventgame(int idgame){
 		return gameDAO.viewEventgame(idgame);
 	}
 

@@ -2,13 +2,13 @@ package com.moysport.dao;
 
 import java.util.List;
 
-import com.moysport.model.Game;
+import com.moysport.model.EventGame;
 
 public interface GameDAO {
 
-	public void addGame(Game game);
-	public List<Game> listEventgames();
-	public List<Game> viewEventgame(int idgame);
+	public void addGame(EventGame eventGame);
+	public List<EventGame> listEventgames();
+	public List<EventGame> viewEventgame(int idgame);
 	public void removeEventgames(Integer id);
 
 }
