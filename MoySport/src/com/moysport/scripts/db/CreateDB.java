@@ -22,16 +22,17 @@ public class CreateDB {
 	private static String JDBC_PROPERTIES_URL = "./WebContent/WEB-INF/jdbc.properties";
 	private static String SQL_DB_CREATION = "./src/com/moysport/scripts/db/CreateDB.sql";
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		System.out.println("Database creation is Start!!!");
 		Date dStart = new Date();
 		
-		ArrayList<String> alSQL= getSqlFromFile(SQL_DB_CREATION);
-		
+		ArrayList<String> alSQL = null;
 		Connection con = null;
 		ResultSet rs = null;
 		Statement stmt = null;
+		boolean endWithError = false;
 		try {
+			alSQL = getSqlFromFile(SQL_DB_CREATION);
 
 			con = getConnection();
 						
@@ -45,21 +46,27 @@ public class CreateDB {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			// Could not find the database driver
+			endWithError = true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// Could not connect to the database
+			endWithError = true;
 		} catch (IOException e) {
 			e.printStackTrace();
 			// Could not find/read properties file
+			endWithError = true;
 		} finally {
 			releaseDB(con, stmt, rs);
 		}
 		
 		long lResult = new Date().getTime() - dStart.getTime();
-		System.out.println("Database creation is Complete!!!");
-		System.out.println("Execute Sql Count: " + alSQL.size());
-		System.out.println("Execute time: " + lResult + "ms");
-		
+		if (endWithError) {
+			System.out.println("Database creation end with ERROR!!!");
+		} else {
+			System.out.println("Database creation is Complete!!!");
+			System.out.println("Execute Sql Count: " + alSQL.size());
+			System.out.println("Execute time: " + lResult + "ms");
+		}
 	}
 	
 	
@@ -98,7 +105,7 @@ public class CreateDB {
 	    try {
 	        while(scanner.hasNextLine()) {
 	        	String sTemp = scanner.nextLine();
-	        	if (sTemp.length()>0 || sTemp.startsWith("--")) {
+	        	if (sTemp.length()>0 && !sTemp.startsWith("--")) {
 	        		if (sTemp.indexOf(";")!=-1) {
 		        		sSQL.append(sTemp);
 		        		alRes.add(sSQL.toString());
