@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.moysport.model.Eventgames;
-import com.moysport.model.Events;
+import com.moysport.model.Game;
+import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
 
 import org.hibernate.Query;
@@ -19,15 +19,15 @@ public class EventsDAOImpl implements EventsDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void addEvents(Events event) {
+	public void addEvents(Event event) {
 		sessionFactory.getCurrentSession().save(event);
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Events> viewEvent(int idevent) {
+	public List<Event> viewEvent(int idevent) {
 		String sql = 
 			"select e.name, u.lastname, u.firstname, l.name as location " + 
-			"from Events e, User u, Locations l " + 
+			"from Event e, User u, Location l " + 
 			"where e.idcreatedby=u.iduser and e.idlocation=l.idlocation and e.idevent=:idevent";
 		Query query = sessionFactory.getCurrentSession().createQuery(sql);
 		query.setParameter("idevent",idevent);
@@ -35,8 +35,8 @@ public class EventsDAOImpl implements EventsDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Eventgames> eventgames(int idevent) {
-		String sql = "from Eventgames where idevent=:idevent";
+	public List<Game> game(int idevent) {
+		String sql = "from Game where idevent=:idevent";
 		Query query = sessionFactory.getCurrentSession().createQuery(sql);
 		query.setParameter("idevent",idevent);
 		return query.list();
@@ -46,7 +46,7 @@ public class EventsDAOImpl implements EventsDAO {
 	public List<Gameparties> gameparties(int idevent) {
 		String sql = 
 			"select u.lastname, u.firstname, u.iduser " + 
-			"from Eventgames e, Gameparties g, User u " + 
+			"from Game e, Gameparties g, User u " + 
 			"where e.idgame=g.idgame and g.iduser=u.iduser and e.idevent=:idevent";
 		Query query = sessionFactory.getCurrentSession().createQuery(sql);
 		query.setParameter("idevent",idevent);
@@ -54,19 +54,19 @@ public class EventsDAOImpl implements EventsDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Events> listEvents() {
+	public List<Event> listEvents() {
 		String sql =
-			"select e from Events e order by e.idevent";
+			"select e from Event e order by e.idevent";
 			/*"select e.name, l.name as location, s.name as sport, e.idevent, eg.starttime, eg.endtime, eg.idgame " + 
-			"from Events e, Sport s, Locations l, Eventgames eg " + 
+			"from Event e, Sport s, Location l, Game eg " + 
 			"where e.idsport=s.idsport and e.idlocation=l.idlocation and e.idevent=eg.idevent " + 
 			"order by e.idevent";*/
 		return sessionFactory.getCurrentSession().createQuery(sql).list();
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Events> searchEvents(ArrayList<String> params) {
-		String sql = "select e.name, l.name as location, s.name as sport, e.idevent from Events e, Sport s, Locations l where e.idsport=s.idsport and e.idlocation=l.idlocation";
+	public List<Event> searchEvents(ArrayList<String> params) {
+		String sql = "select e.name, l.name as location, s.name as sport, e.idevent from Event e, Sport s, Location l where e.idsport=s.idsport and e.idlocation=l.idlocation";
 		Iterator<String> i = params.iterator();
 		while(i.hasNext()){
 			sql+=" and "+i.next();
@@ -75,7 +75,7 @@ public class EventsDAOImpl implements EventsDAO {
 	}
 
 	public void removeEvents(Integer id) {
-		Events event = (Events) sessionFactory.getCurrentSession().load(Events.class, id);
+		Event event = (Event) sessionFactory.getCurrentSession().load(Event.class, id);
 		if (null != event) {
 			sessionFactory.getCurrentSession().delete(event);
 		}

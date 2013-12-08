@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "TRAININGS")
-public class Trainings {
+public class Training {
 	@Id
 	@Column(name = "IDT")
 	@GeneratedValue
@@ -26,7 +26,7 @@ public class Trainings {
 	private Integer idtp;
 	
 	@Column(name = "IDCREATEDBY")
-	private String idcreatedby;	
+	private Integer idcreatedby;	
 	
 	@Column(name = "CREATIONDATE")
 	private Timestamp creationdate;
@@ -84,11 +84,11 @@ public class Trainings {
 		this.idtp = idtp;
 	}
 
-	public String getIdcreatedby() {
+	public Integer getIdcreatedby() {
 		return idcreatedby;
 	}
 
-	public void setIdcreatedby(String idcreatedby) {
+	public void setIdcreatedby(Integer idcreatedby) {
 		this.idcreatedby = idcreatedby;
 	}
 

@@ -16,7 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "EVENTS")
-public class Events {
+public class Event {
 	
 	@Id
 	@Column(name = "IDEVENT")
@@ -49,7 +49,7 @@ public class Events {
 	
 	@ManyToOne
 	@JoinColumn(name = "IDLOCATION", nullable = false)
-	private Locations locations;
+	private Location location;
 	
 	@ManyToOne
 	@JoinColumn(name = "IDSPORT", nullable = false)
@@ -57,22 +57,22 @@ public class Events {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name="IDEVENT")
-	private Set<Eventgames> eventgames;
+	private Set<Game> game;
 	
-	public Set<Eventgames> getEventgames() {
-		return eventgames;
+	public Set<Game> getEventgames() {
+		return game;
 	}
 
-	public void setEventgames(Set<Eventgames> eventgames) {
-		this.eventgames = eventgames;
+	public void setEventgames(Set<Game> game) {
+		this.game = game;
 	}
 
-	public Locations getLocations() {
-		return locations;
+	public Location getLocations() {
+		return location;
 	}
 
-	public void setLocations(Locations locations) {
-		this.locations = locations;
+	public void setLocations(Location location) {
+		this.location = location;
 	}
 
 	public Sport getSport() {

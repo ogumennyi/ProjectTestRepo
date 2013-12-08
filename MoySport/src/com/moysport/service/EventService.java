@@ -1,4 +1,4 @@
-package com.moysport.dao;
+package com.moysport.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,8 @@ import com.moysport.model.Game;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
 
-public interface EventsDAO {
-
+public interface EventService {
+	
 	public void addEvents(Event event);
 	public List<Event> listEvents();
 	public List<Event> viewEvent(int idevent);

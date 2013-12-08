@@ -13,46 +13,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.moysport.model.Events;
-import com.moysport.service.EventgamesService;
-import com.moysport.service.EventsService;
+import com.moysport.model.Event;
+import com.moysport.service.GameService;
+import com.moysport.service.EventService;
 import com.moysport.service.GamepartiesService;
 import com.moysport.service.SportService;
 
 @Controller
-public class EventsController {
+public class EventController {
 
 	@Autowired
-	EventsService eventsService;
+	EventService eventService;
 	@Autowired
 	SportService sportService;
 	@Autowired
-	EventgamesService eventgamesService;
+	GameService gameService;
 	@Autowired
 	GamepartiesService gamepartiesService;
 	
 	@RequestMapping("/table_pages/events")
 	public String listEvents(Map<String, Object> map) {
-		map.put("events", new Events());
-		map.put("eventsList", eventsService.listEvents());
+		map.put("events", new Event());
+		map.put("eventsList", eventService.listEvents());
 		return "table_pages/events";
 	}
 
 	@RequestMapping(value = "/table_pages/events/add", method = RequestMethod.POST)
-	public String addEvents(@ModelAttribute("events") Events events, BindingResult result) {
-		eventsService.addEvents(events);
+	public String addEvents(@ModelAttribute("events") Event event, BindingResult result) {
+		eventService.addEvents(event);
 		return "redirect:/table_pages/events";
 	}
 
 	@RequestMapping(value = "/table_pages/events/delete", method = RequestMethod.POST)
 	public String deleteEvents(@RequestParam("idevent") Integer idevent) {
-		eventsService.removeEvents(idevent);
+		eventService.removeEvents(idevent);
 		return "redirect:/table_pages/events";
 	}	
 	
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
 	public String searchevents(Map<String, Object> map) {
-		map.put("eventsList", eventsService.listEvents());
+		map.put("eventsList", eventService.listEvents());
 		map.put("sportList", sportService.listSport());
 		return "pages/events/searchevents";
 	}
@@ -64,16 +64,16 @@ public class EventsController {
 	
 	@RequestMapping(value = "/pages/events/viewgame/{idgame}", method = RequestMethod.GET)
 	public String viewgame(@PathVariable int idgame, Map<String, Object> map) {
-		map.put("eventgame", eventgamesService.viewEventgame(idgame));
+		map.put("eventgame", gameService.viewEventgame(idgame));
 		map.put("gameparties", gamepartiesService.listGameparties(idgame));
 		return "pages/events/viewgame";
 	}	
 	
 	@RequestMapping(value = "/pages/events/viewevent/{idevent}", method = RequestMethod.GET)
 	public String viewexectevent(@PathVariable int idevent, Map<String, Object> map) {
-		map.put("event", eventsService.viewEvent(idevent));
-		map.put("eventgames", eventsService.eventgames(idevent));
-		map.put("gameparties", eventsService.gameparties(idevent));
+		map.put("event", eventService.viewEvent(idevent));
+		map.put("eventgames", eventService.game(idevent));
+		map.put("gameparties", eventService.gameparties(idevent));
 		return "pages/events/viewevent";
 	}
 	
@@ -94,7 +94,7 @@ public class EventsController {
 		if(idsport!=null && idsport.length()>0) params.add("s.idsport = '"+idsport+"'");
 		if(location!=null && location.length()>0) params.add("l.name like '%"+location+"%'");
 		if(keyword!=null && keyword.length()>0) params.add("e.name like '%"+keyword+"%'");
-		map.put("eventsList", eventsService.searchEvents(params));
+		map.put("eventsList", eventService.searchEvents(params));
 		map.put("idsport", idsport);
 		map.put("location", location);
 		map.put("keyword", keyword);

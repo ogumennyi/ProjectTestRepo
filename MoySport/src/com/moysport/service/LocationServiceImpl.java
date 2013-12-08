@@ -7,21 +7,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.moysport.dao.LocationsDAO;
-import com.moysport.model.Locations;
+import com.moysport.model.Location;
 
 @Service
-public class LocationsServiceImpl implements LocationsService {
+public class LocationServiceImpl implements LocationService {
 	
 	@Autowired
 	private LocationsDAO LocationsDAO;
 
 	@Transactional
-	public void addLocations(Locations locations) {
-		LocationsDAO.addLocations(locations);
+	public void addLocations(Location location) {
+		LocationsDAO.addLocations(location);
 	}
 
 	@Transactional
-	public List<Locations> listLocations() {
+	public List<Location> listLocations() {
 		return LocationsDAO.listLocations();
 	}
 

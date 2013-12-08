@@ -10,31 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.moysport.model.Eventgames;
-import com.moysport.service.EventgamesService;
+import com.moysport.model.Game;
+import com.moysport.service.GameService;
 
 @Controller
-public class EventgamesController {
+public class GameController {
 	
 	@Autowired
-	private EventgamesService eventgamesService;
+	private GameService gameService;
 
 	@RequestMapping("/table_pages/eventgames")
 	public String listEventgames(Map<String, Object> map) {
-		map.put("eventgames", new Eventgames());
-		map.put("eventgamesList", eventgamesService.listEventgames());
+		map.put("eventgames", new Game());
+		map.put("eventgamesList", gameService.listEventgames());
 		return "table_pages/eventgames";
 	}
 
 	@RequestMapping(value = "/table_pages/eventgames/add", method = RequestMethod.POST)
-	public String addEventgames(@ModelAttribute("eventgames") Eventgames eventgames, BindingResult result) {
-		eventgamesService.addEventgames(eventgames);
+	public String addEventgames(@ModelAttribute("eventgames") Game game, BindingResult result) {
+		gameService.addEventgames(game);
 		return "redirect:/table_pages/eventgames";
 	}
 
 	@RequestMapping(value = "/table_pages/eventgames/delete", method = RequestMethod.POST)
 	public String deleteEventgames(@RequestParam("idGame") Integer idGame) {
-		eventgamesService.removeEventgames(idGame);
+		gameService.removeEventgames(idGame);
 		return "redirect:/table_pages/eventgames";
 	}
 

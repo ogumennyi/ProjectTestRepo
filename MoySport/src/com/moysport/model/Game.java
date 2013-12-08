@@ -12,14 +12,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "EVENTGAMES")
-public class Eventgames {
+public class Game {
 	@Id
 	@Column(name = "IDGAME")
 	@GeneratedValue
 	private Integer idgame;
 	
-	/*@Column(name = "IDEVENT")
-	private Integer idevent;*/
+	//@Column(name = "IDEVENT")
+	//private Integer idevent;
 	
 	@Column(name = "STARTTIME")
 	private Timestamp starttime;
@@ -32,14 +32,19 @@ public class Eventgames {
 	
 	@ManyToOne
 	@JoinColumn(name = "IDEVENT", nullable = false)
-	private Events events;
+	private Event event;
 	
-	public Events getEvents() {
-		return events;
+	//public Game(Integer eventID) {
+		// TODO Auto-generated constructor stub
+	//	this.idevent = eventID;
+	//}
+
+	public Event getEvents() {
+		return event;
 	}
 
-	public void setEvents(Events events) {
-		this.events = events;
+	public void setEvents(Event event) {
+		this.event = event;
 	}
 
 	public Integer getIdgame() {

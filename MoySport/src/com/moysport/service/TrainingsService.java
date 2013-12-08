@@ -2,13 +2,13 @@ package com.moysport.service;
 
 import java.util.List;
 
-import com.moysport.model.Trainings;
+import com.moysport.model.Training;
 
 public interface TrainingsService {
 
-	public void addTrainings(Trainings Trainings);
+	public void addTrainings(Training Training);
 
-	public List<Trainings> listTrainings();
+	public List<Training> listTrainings();
 
 	public void removeTrainings(Integer id);
 

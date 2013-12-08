@@ -2,13 +2,13 @@ package com.moysport.dao;
 
 import java.util.List;
 
-import com.moysport.model.Trainings;
+import com.moysport.model.Training;
 
 public interface TrainingsDAO {
 
-	public void addTrainings(Trainings events);
+	public void addTrainings(Training events);
 	
-	public List<Trainings> listTrainings();
+	public List<Training> listTrainings();
 	
 	public void removeTrainings(Integer id);
 	
