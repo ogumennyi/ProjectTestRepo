@@ -15,7 +15,7 @@
         <mapping class="com.moysport.model.Event" />
         <mapping class="com.moysport.model.Gameratings" />
         <mapping class="com.moysport.model.Location" />
-        <mapping class="com.moysport.model.Trainings" />
+      <!--    <mapping class="com.moysport.model.Trainings" /> --> 
         <mapping class="com.moysport.model.Trainingweek" />
     </session-factory>
 	    

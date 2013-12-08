@@ -19,56 +19,36 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
-				<form:form action="${pageContext.request.contextPath}/pages/events/addevent" method="post" modelAttribute="event">
+				<form:form action="${pageContext.request.contextPath}/pages/events/addgame" method="post" modelAttribute="game">
 					<table>
 						<tr>
 							<td width="100%" valign="top">
 								<table class="textFont" style="padding: 10px">
 									<tr>
-										<th class="heading" colspan="2" align="left">Создание События</th>
+										<th class="heading" colspan="2" align="left">Создание игры</th>
 									</tr>
 									<tr>
-										<td class="fldName">Вид спорта:</td>
+										<td class="fldName">Выберите ивент:</td>
 										<td class="fldText">
-										<select name="idSport"  class="inputText searchselect" style="margin: 0px;">
-											<c:forEach items="${sportList}" var="sport">
-												<option <c:if test="${sport.idsport == idsport}">selected="selected"</c:if> value="${sport.idsport}">${sport.name}</option>
+										<select name="idevent"  class="inputText searchselect" style="margin: 0px;">
+											<c:forEach items="${eventList}" var="event">
+												<option <c:if test="${event.idevent == idevent}">selected="selected"</c:if> value="${event.idevent}">${event.name}</option>
 											</c:forEach>
 										</select></td>
 									</tr>
-<%--
-								<tr>
-										<td class="fldName">Max Кол-во участников:</td>
-										<td class="fldText"><input type="text" value="" class="inputText"/>кол-во участников</td>
-									</tr>
- --%>
 									<tr>
-										<td class="fldName">Название события:</td>
-										<td class="fldText"><form:input type="text" path="name"  class="inputText" /></td>
-									</tr>
-<tr>
-										<td class="fldName">Локация:</td>
-										<td class="fldText">
-										<select  name="idlocation" class="inputText" style="margin: 0px;">
-												<c:forEach items="${locationList}" var="location">
-													<option	<c:if test="${location.idlocation == idlocation}">selected="selected"</c:if> value="${location.idlocation}">${location.name}</option>
-												</c:forEach>
-										</select></td>
-									</tr>
-	<%--								
-									<tr>
-										<td class="fldName">Время начала:</td>
-										<td class="fldText"><input type="text" value="" class="inputText"/>${eventgames.starttime}</td>
+										<td class="fldName">Время начала: [Формат: 13.02.2012 21:04]</td>
+										<td class="fldText"><form:input type="datetime"  path="starttime" cssClass="inputText" /></td>
 									</tr>
 									<tr>
 										<td class="fldName">Время окончания:</td>
-										<td class="fldText"><input type="text" value="" class="inputText"/>${eventgames.endtime}</td>
+										<td class="fldText"><form:input type="datetime" path="endtime" cssClass="inputText" /></td>
 									</tr>
 									<tr>
-										<td class="fldName">Комментарии окончания:</td>
-										<td class="fldText"><input type="text" value="" class="inputText"/>${eventgames.comments}</td>
+										<td class="fldName">Комментарии:</td>
+										<td class="fldText"><form:textarea type="text" path="comments"	cols="50" rows="10" class="inputText" /></td>
 									</tr>
- --%>
+
 									<tr>
 										<td class="fldName" colspan="2" align="left"><input type="submit" class="submit" value="Создать" style="cursor: pointer;"/></td>
 									</tr>

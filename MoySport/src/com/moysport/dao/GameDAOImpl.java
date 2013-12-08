@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class EventgamesDAOImpl implements EventgamesDAO {
+public class GameDAOImpl implements GameDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public void addEventgames(Game game) {
+	public void addGame(Game game) {
 		sessionFactory.getCurrentSession().save(game);
 	}
 

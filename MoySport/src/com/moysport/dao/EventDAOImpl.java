@@ -7,6 +7,7 @@ import java.util.List;
 import com.moysport.model.Game;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
+import com.moysport.model.Location;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -91,5 +92,14 @@ public class EventDAOImpl implements EventDAO {
 		}
 	}
 
+	// Added by Medynskyy. Search for Event via idevent key 
+	@SuppressWarnings("unchecked")
+	public Event getEventId(int idevent) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Event where idevent=:idevent");
+		query.setParameter("idevent",idevent);
+		List<Event> eventlist = query.list();
+		return eventlist.size() > 0 ? (Event) eventlist.get(0) : null;
+	}
+	
 }
 

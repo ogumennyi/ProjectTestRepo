@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.moysport.model.Event;
 import com.moysport.model.Game;
 import com.moysport.service.GameService;
 
@@ -26,16 +27,20 @@ public class GameController {
 		return "table_pages/eventgames";
 	}
 
-	@RequestMapping(value = "/table_pages/eventgames/add", method = RequestMethod.POST)
-	public String addEventgames(@ModelAttribute("eventgames") Game game, BindingResult result) {
-		gameService.addEventgames(game);
-		return "redirect:/table_pages/eventgames";
-	}
+	//@RequestMapping(value = "/table_pages/eventgames/add", method = RequestMethod.POST)
+	//public String addEventgames(@ModelAttribute("eventgames") Game game, BindingResult result) {
+	//	gameService.addEventgames(game);
+	//	return "redirect:/table_pages/eventgames";
+	//}
 
 	@RequestMapping(value = "/table_pages/eventgames/delete", method = RequestMethod.POST)
 	public String deleteEventgames(@RequestParam("idGame") Integer idGame) {
 		gameService.removeEventgames(idGame);
 		return "redirect:/table_pages/eventgames";
 	}
+	
+	
+
+
 
 }

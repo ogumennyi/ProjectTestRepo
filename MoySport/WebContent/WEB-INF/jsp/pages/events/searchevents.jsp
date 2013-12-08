@@ -59,6 +59,7 @@
 						</div>
 						<div style="padding: 15px 0px 15px 0px">
 							<input type="submit" class="submit" value="Найти" style="cursor: pointer;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новое событие</b></a>
+							&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/events/creategame"><b>Создать игру</b></a>
 						</div>
 					</form>
 				</div>

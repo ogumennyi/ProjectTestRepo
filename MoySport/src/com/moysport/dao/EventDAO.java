@@ -6,6 +6,7 @@ import java.util.List;
 import com.moysport.model.Game;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
+import com.moysport.model.Location;
 
 public interface EventDAO {
 
@@ -17,5 +18,8 @@ public interface EventDAO {
 	public List<Gameparties> gameparties(int idevent);
 	public List<Event> searchEvents(ArrayList<String> params);
 	public void removeEvents(Integer id);
+
+	public Event getEventId(int idevent);
+
 
 }

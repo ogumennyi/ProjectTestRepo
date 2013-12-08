@@ -4,9 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.moysport.dao.EventDAO;
+import com.moysport.dao.LocationDAO;
+import com.moysport.dao.SportDAO;
 import com.moysport.model.Game;
 import com.moysport.model.Event;
 import com.moysport.model.Gameparties;
+import com.moysport.model.Location;
+import com.moysport.model.Sport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,14 +21,24 @@ public class EventServiceImpl implements EventService {
 
 	@Autowired
 	private EventDAO eventDAO;
+	@Autowired
+	private LocationDAO locationDAO;
+	@Autowired
+	private SportDAO sportDAO;
+
 
 	@Transactional
 	public void updateEvent(Event event) {
 		eventDAO.updateEvent(event);
 	}
 
+	// Changed by Medynskyy
 	@Transactional
-	public void addEvents(Event event) {
+	public void addEvents(Event event,int idsport, int idlocation) {
+		Location location = locationDAO.getLocationId(idlocation);
+		Sport sport = sportDAO.getSportId(idsport);
+		event.setLocations(location);
+		event.setSport(sport);
 		eventDAO.addEvents(event);
 	}
 	
