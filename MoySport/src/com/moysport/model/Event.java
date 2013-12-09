@@ -1,5 +1,6 @@
 package com.moysport.model;
 
+import org.apache.log4j.Logger;
 import java.sql.Timestamp;
 import java.util.Set;
 
@@ -18,6 +19,8 @@ import javax.persistence.Table;
 @Table(name = "EVENTS")
 public class Event {
 	
+	protected static Logger logger = Logger.getLogger("service");
+	 
 	@Id
 	@Column(name = "IDEVENT")
 	@GeneratedValue

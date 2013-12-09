@@ -21,7 +21,7 @@ public interface EventService {
 
 	public void add(Event event, int idlocation, int idsport);
 	public void delete(Integer id);
-	public void edit(Event event);
+	public void update(Event event);
 	public List<Event> getAll();
 
 	public Event get( int id );

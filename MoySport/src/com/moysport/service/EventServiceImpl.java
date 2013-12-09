@@ -68,36 +68,32 @@ public class EventServiceImpl implements EventService {
 		eventDAO.removeEvents(id);
 	}
 
-	@Override
+	@Transactional
 	public void addEvents(Event event, int idsport, int idlocation) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	@Transactional
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void edit(Event event) {
+	@Transactional
+	public void update(Event event) {
 
-		eventDAO.edit(event);
-		//Location location = locationDAO.getLocationId(event.getLocations());
-		//Sport sport = sportDAO.getSportId(idsport);
-		//event.setLocations(location);
-		//event.setSport(sport);
-		//eventDAO.add(event);
-		
+		eventDAO.update(event);
+
 	}
 
-	@Override
+	@Transactional
 	public List<Event> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Transactional
 	public Event get(int idevent){
 
 		return eventDAO.getEventId(idevent);

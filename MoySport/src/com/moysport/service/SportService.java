@@ -2,6 +2,7 @@ package com.moysport.service;
 
 import java.util.List;
 
+import com.moysport.model.Location;
 import com.moysport.model.Sport;
 import com.moysport.model.User;
 
@@ -11,6 +12,7 @@ public interface SportService {
 	public List<Sport> listSport();
 	public void removeSport(Integer id);
 	// Added by Medynskyy. Search for Sport via sportId key 
-	public Sport getSportId(int idsport);
+	public Sport get(int idsport);
+
 
 }

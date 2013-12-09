@@ -5,7 +5,7 @@ import java.util.List;
 import com.moysport.dao.EventDAO;
 import com.moysport.dao.LocationDAO;
 import com.moysport.dao.SportDAO;
-import com.moysport.dao.GameDAO;
+import com.moysport.dao.EventGameDAO;
 
 import com.moysport.model.Event;
 import com.moysport.model.EventGame;
@@ -21,7 +21,7 @@ public class EventGameServiceImpl implements EventGameService {
 	
 
 	@Autowired
-	private GameDAO gameDAO;
+	private EventGameDAO eventGameDAO;
 	@Autowired
 	private EventDAO eventDAO;
 
@@ -30,31 +30,31 @@ public class EventGameServiceImpl implements EventGameService {
 	public void addGame(EventGame eventGame,int idevent) {
 		Event event = eventDAO.getEventId(idevent);
 		eventGame.setEvents(event);
-	//	gameDAO.addGame(eventGame);
+	//	eventGameDAO.addGame(eventGame);
 	}
 	
 	///@Transactional
 	//public EventGame getGame(int idgame) {
-		//EventGame game = gameDAO.getGameId(idgame);
+		//EventGame game = eventGameDAO.getGameId(idgame);
 		//game.s(event);
-	//	gameDAO.viewEventgame(idgame)
-	//	gameDAO.addGame(game);
+	//	eventGameDAO.viewEventgame(idgame)
+	//	eventGameDAO.addGame(game);
 	//}
 	
 	
 	@Transactional
 	public List<EventGame> listEventgames() {
-		return gameDAO.listEventgames();
+		return eventGameDAO.listEventgames();
 	}
 	
 	@Transactional
 	public List<EventGame> viewEventgame(int idgame){
-		return gameDAO.viewEventgame(idgame);
+		return eventGameDAO.viewEventgame(idgame);
 	}
 
 	@Transactional
 	public void removeEventgames(Integer id) {
-		//gameDAO.removeEventgames(id);
+		//eventGameDAO.removeEventgames(id);
 	}
 
 }

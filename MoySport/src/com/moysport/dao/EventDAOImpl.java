@@ -65,19 +65,20 @@ public class EventDAOImpl implements EventDAO {
 	 * Edits an existing event
 	 */
 	@SuppressWarnings("unchecked")
-
-	public void edit(Event event) {
+	public void update(Event event) {
 		   
-		  // Retrieve existing event via id
+	// Retrieve existing event via id
 	  Event existingEvent = (Event) sessionFactory.getCurrentSession().get(Event.class, event.getIdevent());
 	   
 	  // Assign updated values to this event
-	  //existingEvent.setChangedate(event.getChangedate());
-	  existingEvent.setLocations(event.getLocations());
-	  existingEvent.setMark(event.getMark());
-	  existingEvent.setName(event.getName());
-	  existingEvent.setSport(event.getSport());
-	  existingEvent.setMarkcnt(event.getMarkcnt());
+	  
+	  if(event.getChangedate()!=null) existingEvent.setChangedate(event.getChangedate());
+	  if(event.getLocations()!=null) existingEvent.setLocations(event.getLocations());
+	  if(event.getMark()!=null) existingEvent.setMark(event.getMark());
+	  if(event.getName()!=null) existingEvent.setName(event.getName());
+	  if(event.getSport()!=null) existingEvent.setSport(event.getSport());
+	  if(event.getMarkcnt()!=null) existingEvent.setMarkcnt(event.getMarkcnt());
+	  
 	  // Save updates
 	  sessionFactory.getCurrentSession().save(existingEvent);
 	}
@@ -146,6 +147,7 @@ public class EventDAOImpl implements EventDAO {
 		return sessionFactory.getCurrentSession().createQuery(sql).list();
 	}
 
+	@SuppressWarnings("unchecked")
 	public void removeEvents(Integer id) {
 		Event event = (Event) sessionFactory.getCurrentSession().load(Event.class, id);
 		if (null != event) {

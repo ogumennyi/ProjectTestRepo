@@ -29,5 +29,11 @@ public class LocationServiceImpl implements LocationService {
 	public void removeLocations(Integer id) {
 		LocationDAO.removeLocations(id);
 	}
+	
+	@Transactional
+	public Location get( int idlocation ){
+		return LocationDAO.getLocationId(idlocation);
+	}
+
 
 }

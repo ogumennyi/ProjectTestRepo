@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.moysport.model.EventGame;
 
-public interface GameDAO {
+public interface EventGameDAO {
 
 	public List<EventGame> listEventgames();
 	public List<EventGame> viewEventgame(int idgame);
@@ -15,7 +15,7 @@ public interface GameDAO {
 	public void add(Integer idevent, EventGame eventGame);
 	public void delete(Integer id);
 	public void deleteAll(Integer idevent);
-	public void edit(EventGame eventGame);
+	public void update(EventGame eventGame);
 	 
 
 }

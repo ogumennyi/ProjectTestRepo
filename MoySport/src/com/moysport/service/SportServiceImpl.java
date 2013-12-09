@@ -32,7 +32,7 @@ public class SportServiceImpl implements SportService {
 	
 	// Added by Medynskyy. Search for Sport via sportId key 
 	@Transactional
-	public Sport getSportId(int idsport){
+	public Sport get(int idsport){
 		return sportDAO.getSportId(idsport);
 	}
 }

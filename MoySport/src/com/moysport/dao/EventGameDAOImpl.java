@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class GameDAOImpl implements GameDAO {
+public class EventGameDAOImpl implements EventGameDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -96,19 +96,20 @@ public class GameDAOImpl implements GameDAO {
 	  * Edits an existing game
 	  */
 	 
-	 public void edit(EventGame eventGame) {
+	 public void update(EventGame eventGame) {
 
 		 // Retrieve existing credit card via id
 		 EventGame existingEventGame = (EventGame) sessionFactory.getCurrentSession().get(EventGame.class, eventGame.getIdgame());
 		   
 		 // Assign updated values to this eventGame
-		 existingEventGame.setComments(eventGame.getComments());
-		 existingEventGame.setEndtime(eventGame.getEndtime());
-		 existingEventGame.setStarttime(eventGame.getStarttime());
+		 if(eventGame.getComments()!=null) existingEventGame.setComments(eventGame.getComments());
+		 if(eventGame.getEndtime()!=null) existingEventGame.setEndtime(eventGame.getEndtime());
+		 if(eventGame.getStarttime()!=null) existingEventGame.setStarttime(eventGame.getStarttime());
 		  // Save updates
 		 sessionFactory.getCurrentSession().save(existingEventGame);
 	}
-	 
+
+		
 	 
 	 
 

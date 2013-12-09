@@ -22,7 +22,7 @@ public interface EventDAO {
 	
 	public void add(Event event);
 	public void delete(Integer id);
-	public void edit(Event event);
+	public void update(Event event);
 	public List<Event> getAll();
 
 }

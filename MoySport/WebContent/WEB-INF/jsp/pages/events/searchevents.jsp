@@ -72,10 +72,13 @@
 							<div style="float: left; width: 100px; padding-left: 10px; height: 16px; ">${event.sport.name}</div>					
 							<div style="float: left; width: 120px; height: 16px;">${event.locations.name}</div>
 							<div style="float: left; width: 200px; height: 16px;">${event.name}</div>
-							<div style="float: left; width: 80px; height: 16px;">1/10</div>
-							<div style="float: left;">
+<!-- 							<div style="float: left; width: 80px; height: 16px;">1/10</div> -->
+							<div style="float: right; width: 80px;  padding-left: 10px; height: 16px;">
 								<a style="text-decoration: none;" href="${pageContext.request.contextPath}/pages/events/viewevent/${event.idevent}">
-								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
+								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a>
+								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/editevent/${event.idevent}">
+								<img src="${pageContext.request.contextPath}/images/Edit-icon.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a>
+							</div>
 							<br style="clear: both;"/>
 						</div>
 						<c:forEach items="${event.eventgames}" var="eventgame">
