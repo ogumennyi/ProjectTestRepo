@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 import com.moysport.model.Event;
@@ -62,18 +64,7 @@ public class EventController {
 	    });
 	}
 	
-	@RequestMapping("/table_pages/events")
-	public String listEvents(Map<String, Object> map) {
-		map.put("events", new Event());
-		map.put("eventsList", eventService.listEvents());
-		return "table_pages/events";
-	}
 
-	@RequestMapping(value = "/table_pages/events/delete", method = RequestMethod.POST)
-	public String deleteEvents(@RequestParam("idevent") Integer idevent) {
-		eventService.removeEvents(idevent);
-		return "redirect:/table_pages/events";
-	}	
 
 	@RequestMapping(value = "/pages/events/searchevents", method = RequestMethod.GET)
 	public String searchevents(Map<String, Object> map) {
@@ -86,13 +77,7 @@ public class EventController {
 	public String viewevent(ModelMap model) {
 		return "pages/events/viewevent";
 	}
-	
-	//@RequestMapping(value = "/pages/events/viewgame/{idgame}", method = RequestMethod.GET)
-	//public String viewgame(@PathVariable int idgame, Map<String, Object> map) {
-	//	map.put("eventgame", eventGameService.viewEventgame(idgame));
-		//map.put("gameparties", gamepartiesService.listGameparties(idgame));
-	//	return "pages/events/viewgame";
-	//}	
+
     @RequestMapping(value = "/pages/events/viewgame/{idgame}", method = RequestMethod.GET)
     public String viewgame(@PathVariable int idgame, Map<String, Object> map) {
             map.put("game", eventGameService.viewEventgame(idgame).get(0));
@@ -110,55 +95,42 @@ public class EventController {
 		return "pages/events/viewevent";
 	//return "pages/events/searchevents";
 	}
-	
-//	@RequestMapping(value = "/pages/events/editevent/{idevent}", method = RequestMethod.POST)
-	//public String editEvent(@PathVariable int idevent, @ModelAttribute("event") Event event) {
-	//	return "pages/events/viewevent";
-	//}
-		
-	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
-	//public String addEvents(@ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {		
-	public String addEvents(@RequestParam("idSport") int idsport, @RequestParam("idlocation") int idlocation, @ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {
-		//eventService.addEvents(event,idsport,idlocation);
-		eventService.add(event,idlocation,idsport);
-		//map.put("event", eventService.viewEvent(event.getIdevent()).get(0)); // send EVENT object(not LIST ) to VIEW
-		//return "pages/events/viewevent";
-		//return "pages/events/searchevents";
-		return "pages/events/searchevents";
-		   
-		   
-		 //  public String postAdd(@ModelAttribute("personAttribute") Person person) {
-		 
-		 // personService.add(person);
-		 
-		 // return "redirect:/krams/main/record/list";
-  
 
-	}
-	
+     
 	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.GET)
-	public String CreateEventForm(Map<String, Object> map) {
+	public String getCreateEvent(Map<String, Object> map) {
 		map.put("sportList", sportService.listSport());
 		map.put("locationList", locationService.listLocations());
         map.put("event", new Event());
 		return "pages/events/createevent";
 	}
-		
+	
+	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.POST)
+	public String postCreateEvent(@RequestParam("idSport") int idsport, @RequestParam("idlocation") int idlocation, @ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {
+		eventService.add(event,idlocation,idsport);
+		//map.put("event", eventService.viewEvent(event.getIdevent()).get(0)); // send EVENT object(not LIST ) to VIEW
+		//return "pages/events/viewevent";
+		return "pages/events/searchevents";
+
+	}
+	
+
 	@RequestMapping(value = "/pages/events/creategame", method = RequestMethod.GET)
-	public String CreateGameForm(Map<String, Object> map) {
+	public String getCreateGame(Map<String, Object> map) {
 		map.put("eventList", eventService.listEvents());
         map.put("game", new EventGame());
 		return "pages/events/creategame";
 	}
 	
 	
-	@RequestMapping(value = "/pages/events/addgame", method = RequestMethod.POST)
-	public String addEvents(@RequestParam("idevent") int idevent, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
+	@RequestMapping(value = "/pages/events/creategame", method = RequestMethod.POST)
+	public String postCreateGame(@RequestParam("idevent") int idevent, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
 		eventGameService.addGame(eventGame,idevent);
 		map.put("game", eventGameService.viewEventgame(eventGame.getIdgame()).get(0)); // send GAME object(not LIST ) to VIEW
 		map.put("gameparties", gamepartiesService.listGameparties(eventGame.getIdgame()));
 		return "pages/events/viewgame";
 	}
+	
 	
 	@RequestMapping(value = "/pages/events/editgame", method = RequestMethod.POST)
 	public String saveEvent(@RequestParam("idgame") int idgame, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
@@ -174,6 +146,27 @@ public class EventController {
         //KCSUser user = service.find(userId);
 		return "pages/events/editgame";
 	}
+	
+    @RequestMapping(value = "/pages/events/editevent/{idevent}", method = RequestMethod.GET)
+    public String getEventEdit(@RequestParam("idevent") int idevent,  Map<String, Object> map) {
+      
+     // Retrieve event by id
+     Event existingEvent = eventService.get(idevent);
+ 
+     // Add to model
+     map.put("event", existingEvent);
+     int idlocation = existingEvent.getLocations().getIdlocation();
+     int idsport = existingEvent.getSport().getIdsport();
+
+     map.put("idlocation", idlocation);
+     map.put("idsport", idsport);
+     
+     map.put("sportList", sportService.listSport());
+	 map.put("locationList", locationService.listLocations());
+     // This will resolve to /WEB-INF/jsp/edit-record.jsp
+	 return "pages/events/editgame";
+    }
+    
 	
 	@RequestMapping(value = "/events/search", method = RequestMethod.POST)
 	public String searchevents(@RequestParam("idsport") String idsport, @RequestParam("location") String location, @RequestParam("keyword") String keyword, Map<String, Object> map) {

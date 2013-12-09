@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EventServiceImpl implements EventService {
 
+	
 	@Autowired
 	private EventDAO eventDAO;
 	@Autowired
@@ -26,22 +27,6 @@ public class EventServiceImpl implements EventService {
 	@Autowired
 	private SportDAO sportDAO;
 
-
-	@Transactional
-	public void updateEvent(Event event) {
-	//	eventDAO.updateEvent(event);
-	}
-
-//	// Changed by Medynskyy
-//	@Transactional
-//	public void addEvents(Event event,int idsport, int idlocation) {
-//		Location location = locationDAO.getLocationId(idlocation);
-//		Sport sport = sportDAO.getSportId(idsport);
-//		event.setLocations(location);
-//		event.setSport(sport);
-//		//eventDAO.addEvents(event);
-//	}
-//	
 	@Transactional
 	public void add(Event event, int idlocation, int idsport) {
 		
@@ -89,5 +74,36 @@ public class EventServiceImpl implements EventService {
 		
 	}
 
+	@Override
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void edit(Event event) {
+
+		eventDAO.edit(event);
+		//Location location = locationDAO.getLocationId(event.getLocations());
+		//Sport sport = sportDAO.getSportId(idsport);
+		//event.setLocations(location);
+		//event.setSport(sport);
+		//eventDAO.add(event);
+		
+	}
+
+	@Override
+	public List<Event> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Event get(int idevent){
+
+		return eventDAO.getEventId(idevent);
+		
+	}
+
+	
 
 }

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,16 +18,33 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
+			<form:form action="${pageContext.request.contextPath}/pages/events/editevent" method="post" modelAttribute="event">
 				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
-					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event[0][0]}</b></div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event[0][2]}&nbsp;${event[0][1]}</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event[0][3]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><form:input type="text" path="name"  class="inputText" /></div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${idcreatedby}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;">
+						<div class="usr_tmplt_txt_l" style="width:30%">Локация:</div>
+						<div class="usr_tmplt_txt_r">
+									<select  name="idlocation" class="inputText" style="margin: 0px;">
+											<c:forEach items="${locationList}" var="location">
+												<option	<c:if test="${location.idlocation == idlocation}">selected="selected"</c:if> value="${location.idlocation}">${location.name}</option>
+											</c:forEach>
+									</select>
+						</div><div class="usr_tmplt_txt_clr"></div>
+					</div>				
 				</div>
 				<div style="margin-top: 10px;"><b>Игры:</b></div>
 				<c:forEach items="${eventgames}" var="eventgame">
 					<hr/>
 					<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
-						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame.starttime}</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 0px 20px;">
+							<div class="usr_tmplt_txt_l" style="width:30%">Вид спорта:</div>
+							<div class="usr_tmplt_txt_r">
+											<c:forEach items="${sportList}" var="sport">
+												<c:if test="${sport.idsport == idsport}"> <input  name="idSport"  class="inputText searchselect" style="margin: 0px;" value="${sport.idsport}">${sport.name}</input> </c:if>
+											</c:forEach>
+							</div><div class="usr_tmplt_txt_clr"></div>
+						</div>
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время окончания:</div><div class="usr_tmplt_txt_r">${eventgame.endtime}</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Max Кол-во участников:</div><div class="usr_tmplt_txt_r">кол-во участников</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame.comments}</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -39,6 +59,7 @@
 						</div>
 					</div>
 				</c:forEach>
+				</form:form>
 			</div>
 			<jsp:include page="../../templates/cabinet.jsp"/>
 		</div>

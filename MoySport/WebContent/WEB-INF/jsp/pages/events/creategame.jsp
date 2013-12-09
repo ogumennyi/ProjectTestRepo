@@ -19,7 +19,7 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
-				<form:form action="${pageContext.request.contextPath}/pages/events/addgame" method="post" modelAttribute="game">
+				<form:form action="${pageContext.request.contextPath}/pages/events/creategame" method="post" modelAttribute="game">
 					<table>
 						<tr>
 							<td width="100%" valign="top">
