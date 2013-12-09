@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -138,6 +140,13 @@ public class EventController {
 
 	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.POST)
 	public String postCreateEvent(@RequestParam("idSport") int idsport, @RequestParam("idlocation") int idlocation, @ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {
+		
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		event.setIdchangeby(user.getIduser());
+		event.setIdcreatedby(user.getIduser());
+		event.setMark(0);
+		event.setMarkcnt(0);
+		
 		eventService.add(event,idlocation,idsport);
 		return "pages/events/searchevents";
 
@@ -166,7 +175,10 @@ public class EventController {
     @RequestMapping(value = "/pages/events/editevent", method = RequestMethod.POST)
     public String postEventEdit(@RequestParam("idsport") int idsport, @RequestParam("idlocation") int idlocation, @ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {
 	
-    	event.setLocations(locationService.get(idlocation));
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		event.setIdchangeby(user.getIduser());
+		
+	    event.setLocations(locationService.get(idlocation));
     	event.setSport(sportService.get(idsport));
       	eventService.update(event);
   
@@ -178,6 +190,7 @@ public class EventController {
 
 	@RequestMapping(value = "/pages/events/creategame", method = RequestMethod.GET)
 	public String getCreateEventGame(Map<String, Object> map) {
+
 		map.put("eventList", eventService.listEvents());
         map.put("game", new EventGame());
 		return "pages/events/creategame";
@@ -187,6 +200,7 @@ public class EventController {
 	
 	@RequestMapping(value = "/pages/events/creategame", method = RequestMethod.POST)
 	public String postCreateEventGame(@RequestParam("idevent") int idevent, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
+		
 		eventGameService.add(eventGame,idevent);
 
 		return "pages/events/searchevents";
@@ -199,7 +213,10 @@ public class EventController {
 		// need to rewrite gameparties service and DAO methods to get specific gameparties instance (see locationService.get etc,)
 		
 		EventGame existingEventGame = eventGameService.get(idgame);
-
+		
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    String username = user.getUsername(); //get logged in username
+	    
 		String firstname = userService.getplayer(existingEventGame.getEvents().getIdcreatedby()).getFirstname();
 		String lastname = userService.getplayer(existingEventGame.getEvents().getIdcreatedby()).getLastname();
 		String phone = userService.getplayer(existingEventGame.getEvents().getIdcreatedby()).getMphone();
@@ -213,7 +230,10 @@ public class EventController {
 		map.put("phone",phone);
 		map.put("creatorId", existingEventGame.getEvents().getIdcreatedby());
 		map.put("eventgame", existingEventGame);
+		map.put("username", username);
+
 		
+	      
 		//if(!gamepartiesService.listGameparties(idgame).isEmpty()) {
 			 map.put("gameparties", gamepartiesService.listGameparties(idgame));
 		 //}
@@ -227,14 +247,10 @@ public class EventController {
 	@RequestMapping(value = "/pages/events/editgame", method = RequestMethod.POST)
 	public String postEditEventGame(@RequestParam("idgame") int idgame, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
 		
-    	//event.setLocations(locationService.get(idlocation));
-    	//event.setSport(sportService.get(idsport));
-      	//eventService.update(event);
-      	
-		eventGameService.update(eventGame,idgame);
-		
-		//map.put("game", eventGameService.viewEventgame(eventGame.getIdgame()).get(0)); // send GAME object(not LIST ) to VIEW
-		//map.put("gameparties", gamepartiesService.listGameparties(eventGame.getIdgame()));
+		//User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	    //String username = user.getUsername(); //get logged in username
+
+	    eventGameService.update(eventGame,idgame);
 		
 		return "pages/events/searchevents";
 	}
