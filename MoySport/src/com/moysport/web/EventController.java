@@ -141,12 +141,16 @@ public class EventController {
 	@RequestMapping(value = "/pages/events/createevent", method = RequestMethod.POST)
 	public String postCreateEvent(@RequestParam("idSport") int idsport, @RequestParam("idlocation") int idlocation, @ModelAttribute("event") Event event, BindingResult result,Map<String, Object> map) {
 		
+		java.util.Date date= new java.util.Date();
+		long time = date.getTime();
+		
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		event.setIdchangeby(user.getIduser());
 		event.setIdcreatedby(user.getIduser());
 		event.setMark(0);
 		event.setMarkcnt(0);
-		
+		Timestamp changedate;
+		event.setChangedate(new Timestamp(time));
 		eventService.add(event,idlocation,idsport);
 		return "pages/events/searchevents";
 
@@ -178,6 +182,10 @@ public class EventController {
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		event.setIdchangeby(user.getIduser());
 		
+		java.util.Date date= new java.util.Date();
+		long time = date.getTime();
+		event.setChangedate(new Timestamp(time));
+
 	    event.setLocations(locationService.get(idlocation));
     	event.setSport(sportService.get(idsport));
       	eventService.update(event);
@@ -231,8 +239,6 @@ public class EventController {
 		map.put("creatorId", existingEventGame.getEvents().getIdcreatedby());
 		map.put("eventgame", existingEventGame);
 		map.put("username", username);
-
-		
 	      
 		//if(!gamepartiesService.listGameparties(idgame).isEmpty()) {
 			 map.put("gameparties", gamepartiesService.listGameparties(idgame));
@@ -247,9 +253,6 @@ public class EventController {
 	@RequestMapping(value = "/pages/events/editgame", method = RequestMethod.POST)
 	public String postEditEventGame(@RequestParam("idgame") int idgame, @ModelAttribute("game") EventGame eventGame, BindingResult result,Map<String, Object> map) {
 		
-		//User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	    //String username = user.getUsername(); //get logged in username
-
 	    eventGameService.update(eventGame,idgame);
 		
 		return "pages/events/searchevents";
