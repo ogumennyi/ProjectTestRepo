@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.moysport.dao.EventsDAO;
+import com.moysport.model.Eventgames;
 import com.moysport.model.Events;
+import com.moysport.model.Gameparties;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,16 @@ public class EventsServiceImpl implements EventsService {
 	@Transactional
 	public List<Events> viewEvent(int idevent) {
 		return eventsDAO.viewEvent(idevent);
+	}
+	
+	@Transactional
+	public List<Eventgames> eventgames(int idevent) {
+		return eventsDAO.eventgames(idevent);
+	}
+	
+	@Transactional
+	public List<Gameparties> gameparties(int idevent) {
+		return eventsDAO.gameparties(idevent);
 	}
 	
 	@Transactional

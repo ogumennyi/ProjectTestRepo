@@ -9,5 +9,6 @@ public interface UserService {
 	public void addUser(User user);
 	public List<User> listUser();
 	public void removeUser(Integer id);
+	public User getplayer(int iduser);
 
 }

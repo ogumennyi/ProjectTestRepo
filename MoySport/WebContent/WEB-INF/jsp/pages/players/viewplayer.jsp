@@ -16,8 +16,8 @@
 			<div id="dataBlock">
 				<table class="regular">
 					<tr>
-						<td><img src="${pageContext.request.contextPath}/img/ivan.jpg" alt="" class="left shadow" style="border: 0; width: 200px" align="middle" /></td>
-						<td width="100%" valign="top">
+						<td><img src="${pageContext.request.contextPath}/img/ivan.jpg" alt="" class="left shadow" style="border: 0; width: 200px" /></td>
+						<td style="width: 100%" valign="top">
 							<table class="regular textFont" style="padding: 10px">
 								<tr>
 									<th class="heading" colspan="2" align="left">Игрок: ${user.firstname} ${user.lastname}</th>

@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.moysport.model.Events;
+import com.moysport.service.EventgamesService;
 import com.moysport.service.EventsService;
+import com.moysport.service.GamepartiesService;
 import com.moysport.service.SportService;
 
 @Controller
@@ -24,6 +26,10 @@ public class EventsController {
 	EventsService eventsService;
 	@Autowired
 	SportService sportService;
+	@Autowired
+	EventgamesService eventgamesService;
+	@Autowired
+	GamepartiesService gamepartiesService;
 	
 	@RequestMapping("/table_pages/events")
 	public String listEvents(Map<String, Object> map) {
@@ -56,9 +62,18 @@ public class EventsController {
 		return "pages/events/viewevent";
 	}
 	
+	@RequestMapping(value = "/pages/events/viewgame/{idgame}", method = RequestMethod.GET)
+	public String viewgame(@PathVariable int idgame, Map<String, Object> map) {
+		map.put("eventgame", eventgamesService.viewEventgame(idgame));
+		map.put("gameparties", gamepartiesService.listGameparties(idgame));
+		return "pages/events/viewgame";
+	}	
+	
 	@RequestMapping(value = "/pages/events/viewevent/{idevent}", method = RequestMethod.GET)
 	public String viewexectevent(@PathVariable int idevent, Map<String, Object> map) {
 		map.put("event", eventsService.viewEvent(idevent));
+		map.put("eventgames", eventsService.eventgames(idevent));
+		map.put("gameparties", eventsService.gameparties(idevent));
 		return "pages/events/viewevent";
 	}
 	

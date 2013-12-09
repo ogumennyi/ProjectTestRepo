@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html>
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -14,68 +15,33 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
-				<table class="regular">
-					<tr>
-						<td width="100%" valign="top">
-							<table class="textFont regular" style="padding: 10px">
-								<tr>
-									<th class="heading" colspan="2" align="left">Игра: ${event[0].name}</th>
-								</tr>
-								<tr>
-									<td class="fldName">Организатор</td>
-									<td class="fldText">${events.idcreatedby}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Локация:</td>
-									<td class="fldText">${locations.name}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Время начала:</td>
-									<td class="fldText">${eventgames.starttime}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Время окончания:</td>
-									<td class="fldText">${eventgames.endtime}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Комментарии:</td>
-									<td class="fldText">${eventgames.comments}</td>
-								</tr>
-								<tr>
-									<td class="fldName">Max Кол-во участников:</td>
-									<td class="fldText">кол-во участников</td>
-								</tr>
-								<tr>
-									<td class="fldName">Участники:</td>
-									<td class="fldText">
-										<table class="regular" style="padding: 10px">
-											<tr>
-												<td class="fldText"><a href="userhome.html">Александр Мединский</a>(если ссылка на себя - userhome.html)</td>
-											</tr>
-											<tr>
-												<td class="fldText"><a href="view_public.html">Иван Громский</a>(ссылка на публичный профайл)</td>
-											</tr>
-											<tr>
-												<td class="fldText"><a href="view_public.html">Олег Гуменной</a>(ссылка на публичный профайл)</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td class="fldName" colspan="2"><a href="#">Принять участие</a> (доступно для тех, кто еще не в списках участников)</td>
-								</tr>
-								<tr>
-									<td class="fldName" colspan="2"><a href="edit_event.html">Редактировать Игру</a>( Доступно только для Создателя)</td>
-								</tr>
-								<tr>
-									<td class="fldName" colspan="2" align="center"><br>
-									<br>
-									<br>Блок Переписки пользователей</td>
-								</tr>
-							</table>
-						</td>
-					</tr>
-				</table>
+				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
+					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event[0][0]}</b></div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event[0][2]}&nbsp;${event[0][1]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event[0][3]}</div><div class="usr_tmplt_txt_clr"></div></div>
+				</div>
+				<div style="margin-top: 10px;"><b>Игры:</b></div>
+				<c:forEach items="${eventgames}" var="eventgame">
+					<hr/>
+					<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
+						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame.starttime}</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время окончания:</div><div class="usr_tmplt_txt_r">${eventgame.endtime}</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Max Кол-во участников:</div><div class="usr_tmplt_txt_r">кол-во участников</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame.comments}</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Участники:</div><div class="usr_tmplt_txt_r" style="width:70%">
+							<c:forEach items="${gameparties}" var="gameparty">
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty[2]}">${gameparty[0]}&nbsp;${gameparty[1]}</a>, 
+							</c:forEach>
+						</div><div class="usr_tmplt_txt_clr"></div></div>
+						<div style="padding: 5px 20px 10px 20px;">
+							<input type="submit" class="submit small" value="Принять участие" style="cursor: pointer;"/>
+							<input type="submit" class="submit small" value="Редактировать Игру" style="cursor: pointer; margin-left: 20px"/>
+							<a style="margin-left: 20px" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}"><b>Просмотреть игру</b></a>
+						</div>
+						<div style="margin-top: 10px;"><b>Комментарии:</b></div>
+						<div style="margin-top: 10px;">Блок Переписки пользователей</div>
+					</div>
+				</c:forEach>
 			</div>
 			<jsp:include page="../../templates/cabinet.jsp"/>
 		</div>

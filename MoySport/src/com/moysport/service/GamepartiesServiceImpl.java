@@ -24,6 +24,11 @@ public class GamepartiesServiceImpl implements GamepartiesService {
 	public List<Gameparties> listGameparties() {
 		return gamepartiesDAO.listGameparties();
 	}
+	
+	@Transactional
+	public List<Gameparties> listGameparties(int idgame) {
+		return gamepartiesDAO.listGameparties(idgame);
+	}
 
 	@Transactional
 	public void removeGameparties(Integer id) {

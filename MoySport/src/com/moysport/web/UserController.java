@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -41,6 +42,12 @@ public class UserController {
 		map.put("userList", userService.listUser());
 		return "table_pages/users";
 	}
+	
+	@RequestMapping(value = "/pages/players/viewplayer/{iduser}", method = RequestMethod.GET)
+	public String viewuser(@PathVariable int iduser, Map<String, Object> map) {
+		map.put("user", userService.getplayer(iduser));
+		return "pages/players/viewplayer";
+	}	
 
 	@RequestMapping(value = "/table_pages/users/add", method = RequestMethod.POST)
 	public String addUserskill(@ModelAttribute("user") User user, BindingResult result) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.moysport.model.Gameparties;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,13 @@ public class GamepartiesDAOImpl implements GamepartiesDAO {
 	@SuppressWarnings("unchecked")
 	public List<Gameparties> listGameparties() {
 		return sessionFactory.getCurrentSession().createQuery("from Gameparties").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Gameparties> listGameparties(int idgame) {
+		Query query = sessionFactory.getCurrentSession().createQuery("select u.lastname, u.firstname, u.iduser from Gameparties g, User u where g.iduser=u.iduser and idgame=:idgame");
+		query.setParameter("idgame",idgame);
+		return query.list();
 	}
 
 	public void removeGameparties(Integer id) {

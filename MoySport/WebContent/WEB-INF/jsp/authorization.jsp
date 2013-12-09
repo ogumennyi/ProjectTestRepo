@@ -70,8 +70,8 @@
 					</form>
 					<c:if test="${'fail' eq auth}">
 					    <div style="color:red">
-					            Login Failed!!!<br />
-					            Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+				            Login Failed!!!<br />
+				            Reason : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 					     </div>
 					</c:if>
 				</div>
