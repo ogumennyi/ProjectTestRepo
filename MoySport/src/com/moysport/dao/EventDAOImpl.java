@@ -29,13 +29,13 @@ public class EventDAOImpl implements EventDAO {
 	 // Retrieve all
 	  return  query.list();
 	 }
-
-	@SuppressWarnings("unchecked")
-	public Event get( Integer id ) {
-	     // Retrieve existing event
-	  Event event = (Event) sessionFactory.getCurrentSession().get(Event.class, id);
-	  return event;
-	 }
+//
+//	@SuppressWarnings("unchecked")
+//	public Event get( Integer id ) {
+//	     // Retrieve existing event
+//	  Event event = (Event) sessionFactory.getCurrentSession().get(Event.class, id);
+//	  return event;
+//	 }
 		  
 	/**
 	 * Adds a new evet
@@ -157,7 +157,7 @@ public class EventDAOImpl implements EventDAO {
 
 	// Added by Medynskyy. Search for Event via idevent key 
 	@SuppressWarnings("unchecked")
-	public Event getEventId(int idevent) {
+	public Event get(int idevent) {
 		Query query = sessionFactory.getCurrentSession().createQuery("from Event where idevent=:idevent");
 		query.setParameter("idevent",idevent);
 		List<Event> eventlist = query.list();

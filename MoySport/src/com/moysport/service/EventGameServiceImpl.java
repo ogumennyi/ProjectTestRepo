@@ -24,22 +24,20 @@ public class EventGameServiceImpl implements EventGameService {
 	private EventGameDAO eventGameDAO;
 	@Autowired
 	private EventDAO eventDAO;
-
-	// Changed by Medynskyy
+	
 	@Transactional
-	public void addGame(EventGame eventGame,int idevent) {
-		Event event = eventDAO.getEventId(idevent);
-		eventGame.setEvents(event);
-	//	eventGameDAO.addGame(eventGame);
+	public EventGame get( int idevent ){
+		return eventGameDAO.get(idevent);
 	}
 	
-	///@Transactional
-	//public EventGame getGame(int idgame) {
-		//EventGame game = eventGameDAO.getGameId(idgame);
-		//game.s(event);
-	//	eventGameDAO.viewEventgame(idgame)
-	//	eventGameDAO.addGame(game);
-	//}
+
+	
+	@Transactional
+	public void add(EventGame eventGame,int idevent) {
+		Event event = eventDAO.get(idevent);
+		eventGame.setEvents(event);
+		eventGameDAO.add(eventGame);
+	}	  
 	
 	
 	@Transactional
@@ -55,6 +53,13 @@ public class EventGameServiceImpl implements EventGameService {
 	@Transactional
 	public void removeEventgames(Integer id) {
 		//eventGameDAO.removeEventgames(id);
+	}
+
+
+	@Transactional
+	public void update(EventGame eventGame, int idevent) {
+		// TODO Auto-generated method stub
+		eventGameDAO.update(eventGame);
 	}
 
 }

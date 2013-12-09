@@ -41,29 +41,22 @@ public class EventGameDAOImpl implements EventGameDAO {
 	 /**
 	  * Retrieves a single game
 	  */
-	 public EventGame get( Integer id ) {
+	 public EventGame get( int idgame ) {
 		   
 		  // Retrieve existing eventGame
-		  EventGame eventGame = (EventGame) sessionFactory.getCurrentSession().get(EventGame.class, id);
+			Query query = sessionFactory.getCurrentSession().createQuery("from EventGame where idgame=:idgame");
+			query.setParameter("idgame",idgame);
+			List<EventGame> eventgamelist = query.list();
+			return eventgamelist.size() > 0 ? (EventGame) eventgamelist.get(0) : null;
 
-		  // Persists to db
-		  return eventGame;
-	 }
+	}
 		  
 	 /**
 	  * Adds a new game
 	  */
 	 
-	 public void add(Integer idevent, EventGame eventGame) {
+	 public void add(EventGame eventGame) {
 		   
-
-		 // Retrieve existing Event via id
-		 Event existingEvent = (Event) sessionFactory.getCurrentSession().get(Event.class, idevent);
-		   
-		  // Add event to eventGame
-		 eventGame.setEvents(existingEvent);
-
-		  // Persists to db
 		 sessionFactory.getCurrentSession().save(eventGame);
 	}
 		  
@@ -111,8 +104,7 @@ public class EventGameDAOImpl implements EventGameDAO {
 
 		
 	 
-	 
-
+	
 	@SuppressWarnings("unchecked")
 	public List<EventGame> listEventgames() {
 		return sessionFactory.getCurrentSession().createQuery("from EventGame").list();
@@ -124,6 +116,9 @@ public class EventGameDAOImpl implements EventGameDAO {
 		query.setParameter("idgame",idgame);
 		return query.list();
 	}
+
+
+
 
 
 

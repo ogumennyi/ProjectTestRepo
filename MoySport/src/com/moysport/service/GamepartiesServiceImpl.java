@@ -34,5 +34,8 @@ public class GamepartiesServiceImpl implements GamepartiesService {
 	public void removeGameparties(Integer id) {
 		gamepartiesDAO.removeGameparties(id);
 	}
+	
+
+	
 
 }

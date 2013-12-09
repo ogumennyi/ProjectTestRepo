@@ -18,8 +18,7 @@ public interface EventDAO {
 	public List<Event> searchEvents(ArrayList<String> params);
 	public void removeEvents(Integer id);
 
-	public Event getEventId(int idevent);
-	
+	public Event get(int idevent);
 	public void add(Event event);
 	public void delete(Integer id);
 	public void update(Event event);

@@ -96,7 +96,7 @@ public class EventServiceImpl implements EventService {
 	@Transactional
 	public Event get(int idevent){
 
-		return eventDAO.getEventId(idevent);
+		return eventDAO.get(idevent);
 		
 	}
 
