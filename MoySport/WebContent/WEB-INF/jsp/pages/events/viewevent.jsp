@@ -33,13 +33,10 @@
 								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty[2]}">${gameparty[0]}&nbsp;${gameparty[1]}</a>, 
 							</c:forEach>
 						</div><div class="usr_tmplt_txt_clr"></div></div>
-						<div style="padding: 5px 20px 10px 20px;">
+						<div style="padding: 5px 20px 5px 20px;">
 							<input type="submit" class="submit small" value="Принять участие" style="cursor: pointer;"/>
-							<input type="submit" class="submit small" value="Редактировать Игру" style="cursor: pointer; margin-left: 20px"/>
 							<a style="margin-left: 20px" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}"><b>Просмотреть игру</b></a>
 						</div>
-						<div style="margin-top: 10px;"><b>Комментарии:</b></div>
-						<div style="margin-top: 10px;">Блок Переписки пользователей</div>
 					</div>
 				</c:forEach>
 			</div>

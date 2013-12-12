@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,8 @@ public class Eventgames {
 	@GeneratedValue
 	private Integer idgame;
 	
-	@Column(name = "IDEVENT")
-	private Integer idevent;
+	/*@Column(name = "IDEVENT")
+	private Integer idevent;*/
 	
 	@Column(name = "STARTTIME")
 	private Timestamp starttime;
@@ -28,6 +30,18 @@ public class Eventgames {
 	@Column(name = "COMMENTS")
 	private String comments;
 	
+	@ManyToOne
+	@JoinColumn(name = "IDEVENT", nullable = false)
+	private Events events;
+	
+	public Events getEvents() {
+		return events;
+	}
+
+	public void setEvents(Events events) {
+		this.events = events;
+	}
+
 	public Integer getIdgame() {
 		return idgame;
 	}
@@ -36,13 +50,13 @@ public class Eventgames {
 		this.idgame = idgame;
 	}
 
-	public Integer getIdevent() {
+	/*public Integer getIdevent() {
 		return idevent;
 	}
 
 	public void setIdevent(Integer idevent) {
 		this.idevent = idevent;
-	}
+	}*/
 
 	public Timestamp getStarttime() {
 		return starttime;

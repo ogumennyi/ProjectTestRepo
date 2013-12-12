@@ -1,11 +1,17 @@
 package com.moysport.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,9 +26,12 @@ public class Events {
 	@Column(name = "NAME")
 	private String name;
 
-	@Column(name = "IDLOCATION")
-	private Integer idlocation;
+	/*@Column(name = "IDLOCATION")
+	private Integer idlocation;*/
 	
+	/*@Column(name = "IDSPORT")
+	private Integer idsport;*/
+
 	@Column(name = "IDCREATEDBY")
 	private Integer idcreatedby;
 	
@@ -38,8 +47,41 @@ public class Events {
 	@Column(name = "MARKCNT")
 	private Integer markcnt;
 	
-	@Column(name = "IDSPORT")
-	private Integer idsport;
+	@ManyToOne
+	@JoinColumn(name = "IDLOCATION", nullable = false)
+	private Locations locations;
+	
+	@ManyToOne
+	@JoinColumn(name = "IDSPORT", nullable = false)
+	private Sport sport;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="IDEVENT")
+	private Set<Eventgames> eventgames;
+	
+	public Set<Eventgames> getEventgames() {
+		return eventgames;
+	}
+
+	public void setEventgames(Set<Eventgames> eventgames) {
+		this.eventgames = eventgames;
+	}
+
+	public Locations getLocations() {
+		return locations;
+	}
+
+	public void setLocations(Locations locations) {
+		this.locations = locations;
+	}
+
+	public Sport getSport() {
+		return sport;
+	}
+
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}
 
 	public Integer getIdevent() {
 		return idevent;
@@ -57,13 +99,13 @@ public class Events {
 		this.name = name;
 	}
 
-	public Integer getIdlocation() {
+	/*public Integer getIdlocation() {
 		return idlocation;
 	}
 
 	public void setIdlocation(Integer idlocation) {
 		this.idlocation = idlocation;
-	}
+	}*/
 
 	public Integer getIdcreatedby() {
 		return idcreatedby;
@@ -105,12 +147,12 @@ public class Events {
 		this.markcnt = markcnt;
 	}
 
-	public Integer getIdsport() {
+	/*public Integer getIdsport() {
 		return idsport;
 	}
 
 	public void setIdsport(Integer idsport) {
 		this.idsport = idsport;
-	}
+	}*/
 
 }

@@ -55,12 +55,12 @@ public class EventsDAOImpl implements EventsDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Events> listEvents() {
-		String sql = 
-			"select e.name, l.name as location, s.name as sport, e.idevent, eg.starttime, eg.endtime, eg.idgame " +  
-			"from Events e, Sport s, Locations l, Eventgames eg " +
+		String sql =
+			"select e from Events e order by e.idevent";
+			/*"select e.name, l.name as location, s.name as sport, e.idevent, eg.starttime, eg.endtime, eg.idgame " + 
+			"from Events e, Sport s, Locations l, Eventgames eg " + 
 			"where e.idsport=s.idsport and e.idlocation=l.idlocation and e.idevent=eg.idevent " + 
-			"order by e.idevent";
-		//String sql = "select e.name, l.name as location, s.name as sport, e.idevent from Events e, Sport s, Locations l where e.idsport=s.idsport and e.idlocation=l.idlocation";
+			"order by e.idevent";*/
 		return sessionFactory.getCurrentSession().createQuery(sql).list();
 	}
 	
