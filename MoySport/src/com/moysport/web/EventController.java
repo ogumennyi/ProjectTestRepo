@@ -174,6 +174,7 @@ public class EventController {
 	 return "pages/events/editevent";
     }
     
+    
 	/*	Edit event, POST method, Data from Form updates Model */	
 
     @RequestMapping(value = "/pages/events/editevent", method = RequestMethod.POST)
