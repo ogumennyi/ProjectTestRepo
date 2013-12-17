@@ -55,7 +55,7 @@ public class Events {
 	@JoinColumn(name = "IDSPORT", nullable = false)
 	private Sport sport;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDEVENT")
 	private Set<Eventgames> eventgames;
 	

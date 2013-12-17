@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.moysport.model.Eventgames;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,9 @@ public class EventgamesDAOImpl implements EventgamesDAO {
 	public Eventgames viewEventgame(int idgame) {
 		Query query = sessionFactory.getCurrentSession().createQuery("from Eventgames where idgame=:idgame");
 		query.setParameter("idgame",idgame);
-		return (Eventgames)query.list().get(0);
+		Eventgames eventgames = (Eventgames)query.list().get(0);
+		Hibernate.initialize(eventgames.getGameparties());
+		return eventgames;
 	}
 
 	public void removeEventgames(Integer id) {

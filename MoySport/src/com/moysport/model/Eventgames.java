@@ -1,6 +1,6 @@
 package com.moysport.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "EVENTGAMES")
@@ -26,15 +27,18 @@ public class Eventgames {
 	private Integer idevent;*/
 	
 	@Column(name = "STARTTIME")
-	private Timestamp starttime;
+	private Date starttime;
 	
 	@Column(name = "ENDTIME")
-	private Timestamp endtime;
+	private Date endtime;
 	
 	@Column(name = "COMMENTS")
 	private String comments;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@Transient
+	private int gamePartiesCount;
+
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDGAME")
 	private Set<Gameparties> gameparties;
 
@@ -74,19 +78,19 @@ public class Eventgames {
 		this.idevent = idevent;
 	}*/
 
-	public Timestamp getStarttime() {
+	public Date getStarttime() {
 		return starttime;
 	}
 
-	public void setStarttime(Timestamp starttime) {
+	public void setStarttime(Date starttime) {
 		this.starttime = starttime;
 	}
 
-	public Timestamp getEndtime() {
+	public Date getEndtime() {
 		return endtime;
 	}
 
-	public void setEndtime(Timestamp endtime) {
+	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
 	}
 
@@ -97,5 +101,13 @@ public class Eventgames {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
+	
+	public int getGamePartiesCount() {
+		return gamePartiesCount;
+	}
 
+	public void setGamePartiesCount(int gamePartiesCount) {
+		this.gamePartiesCount = gamePartiesCount;
+	}
+	
 }

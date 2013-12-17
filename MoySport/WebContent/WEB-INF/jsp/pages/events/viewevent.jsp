@@ -33,9 +33,8 @@
 								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${eventgame.idgame}">${gameparty.user.firstname}&nbsp;${gameparty.user.lastname}</a>, 
 							</c:forEach>
 						</div><div class="usr_tmplt_txt_clr"></div></div>
-						<div style="padding: 5px 20px 5px 20px;">
-							<input type="submit" class="submit small" value="Принять участие" style="cursor: pointer;"/>
-							<a style="margin-left: 20px" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}"><b>Просмотреть игру</b></a>
+						<div style="padding: 0px 20px;">
+							<a href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}"><b>Просмотреть игру</b></a>
 						</div>
 					</div>
 				</c:forEach>

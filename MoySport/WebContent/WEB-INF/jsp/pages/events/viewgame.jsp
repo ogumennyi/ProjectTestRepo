@@ -36,12 +36,20 @@
 						</c:forEach>
 					</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 10px 20px;">
-						<form:form method="post" action="${pageContext.request.contextPath}/${userGameAction}">
-							<input type="hidden" name="idgame" value="${eventgame.idgame}"/>
-							<input type="hidden" name="idgp" value="${gamepartyId}"/>
-							<input type="submit" class="submit small" value="${userGameActionButtonText}" style="cursor: pointer;"/>
-						</form:form>
-						<input type="submit" class="submit small" value="Редактировать Игру" style="cursor: pointer; margin-left: 20px"/>
+						<div style="float: left;">
+							<form:form method="post" action="${pageContext.request.contextPath}/${userGameAction}">
+								<input type="hidden" name="idgame" value="${eventgame.idgame}"/>
+								<input type="hidden" name="idgp" value="${gamepartyId}"/>
+								<input type="submit" class="submit small" value="${userGameActionButtonText}" style="cursor: pointer;"/>
+							</form:form>
+						</div>
+						<div style="float: left; margin-left: 20px;">
+							<a href="${pageContext.request.contextPath}/pages/events/editgame"><b>Редактировать Игру</b></a>
+						</div>
+						<div style="float: left; margin-left: 20px;">
+							<a href="${pageContext.request.contextPath}/pages/events/viewevent/${eventgame.events.idevent}"><b>Просмотреть событие</b></a>
+						</div>
+						<br style="clear: both;"/>
 					</div>
 					<div style="margin-top: 10px;"><b>Комментарии:</b></div>
 					<div style="margin-top: 10px;">Блок Переписки пользователей</div>
