@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +18,29 @@
 			<div id="dataBlock">
 				<div style="margin-bottom: 10px;"><b>Игра:</b></div>
 				<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame[0]}</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время окончания:</div><div class="usr_tmplt_txt_r">${eventgame[1]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame.starttime}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время окончания:</div><div class="usr_tmplt_txt_r">${eventgame.endtime}</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Max Кол-во участников:</div><div class="usr_tmplt_txt_r">кол-во участников</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame[2]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame.comments}</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Участники:</div><div class="usr_tmplt_txt_r" style="width:70%">
-						<c:forEach items="${gameparties}" var="gameparty">
-							<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty[2]}">${gameparty[1]}&nbsp;${gameparty[0]}</a>, 
+						<c:set var="userGameAction" value="acceptgame"/>
+						<c:set var="userGameActionButtonText" value="Принять участие"/>
+						<c:set var="gamepartyId" value=""/>
+						<c:forEach items="${eventgame.gameparties}" var="gameparty">
+							<c:if test="${user.iduser == gameparty.user.iduser}">
+								<c:set var="userGameAction" value="declinegame"/>
+								<c:set var="userGameActionButtonText" value="Отклонить участие"/>
+								<c:set var="gamepartyId" value="${gameparty.idgp}"/>
+							</c:if>
+							<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty.user.iduser}">${gameparty.user.firstname}&nbsp;${gameparty.user.lastname}</a>, 
 						</c:forEach>
 					</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 10px 20px;">
-						<input type="submit" class="submit small" value="Принять участие" style="cursor: pointer;"/>
+						<form:form method="post" action="${pageContext.request.contextPath}/${userGameAction}">
+							<input type="hidden" name="idgame" value="${eventgame.idgame}"/>
+							<input type="hidden" name="idgp" value="${gamepartyId}"/>
+							<input type="submit" class="submit small" value="${userGameActionButtonText}" style="cursor: pointer;"/>
+						</form:form>
 						<input type="submit" class="submit small" value="Редактировать Игру" style="cursor: pointer; margin-left: 20px"/>
 					</div>
 					<div style="margin-top: 10px;"><b>Комментарии:</b></div>

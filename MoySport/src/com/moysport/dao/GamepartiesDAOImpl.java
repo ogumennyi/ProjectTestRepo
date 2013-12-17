@@ -26,7 +26,7 @@ public class GamepartiesDAOImpl implements GamepartiesDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<Gameparties> listGameparties(int idgame) {
-		Query query = sessionFactory.getCurrentSession().createQuery("select u.lastname, u.firstname, u.iduser from Gameparties g, User u where g.iduser=u.iduser and idgame=:idgame");
+		Query query = sessionFactory.getCurrentSession().createQuery("select g from Gameparties g where idgame=:idgame");
 		query.setParameter("idgame",idgame);
 		return query.list();
 	}

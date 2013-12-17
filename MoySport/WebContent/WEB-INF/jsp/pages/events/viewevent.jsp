@@ -16,12 +16,12 @@
 		<div id="content">
 			<div id="dataBlock">
 				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
-					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event[0][0]}</b></div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event[0][2]}&nbsp;${event[0][1]}</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event[0][3]}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event.name}</b></div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event.createdby.firstname}&nbsp;${event.createdby.lastname}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event.locations.name}</div><div class="usr_tmplt_txt_clr"></div></div>
 				</div>
 				<div style="margin-top: 10px;"><b>Игры:</b></div>
-				<c:forEach items="${eventgames}" var="eventgame">
+				<c:forEach items="${event.eventgames}" var="eventgame">
 					<hr/>
 					<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame.starttime}</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -29,8 +29,8 @@
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Max Кол-во участников:</div><div class="usr_tmplt_txt_r">кол-во участников</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame.comments}</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Участники:</div><div class="usr_tmplt_txt_r" style="width:70%">
-							<c:forEach items="${gameparties}" var="gameparty">
-								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty[2]}">${gameparty[0]}&nbsp;${gameparty[1]}</a>, 
+							<c:forEach items="${eventgame.gameparties}" var="gameparty">
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${eventgame.idgame}">${gameparty.user.firstname}&nbsp;${gameparty.user.lastname}</a>, 
 							</c:forEach>
 						</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 5px 20px;">

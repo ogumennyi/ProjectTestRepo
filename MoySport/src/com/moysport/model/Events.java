@@ -32,8 +32,8 @@ public class Events {
 	/*@Column(name = "IDSPORT")
 	private Integer idsport;*/
 
-	@Column(name = "IDCREATEDBY")
-	private Integer idcreatedby;
+	/*@Column(name = "IDCREATEDBY")
+	private Integer idcreatedby;*/
 	
 	@Column(name = "IDCHANGEBY")
 	private Integer idchangeby;
@@ -59,6 +59,18 @@ public class Events {
     @JoinColumn(name="IDEVENT")
 	private Set<Eventgames> eventgames;
 	
+	@ManyToOne
+	@JoinColumn(name = "IDCREATEDBY", nullable = false)
+	private User createdby;
+	
+	public User getCreatedby() {
+		return createdby;
+	}
+
+	public void setCreatedby(User createdby) {
+		this.createdby = createdby;
+	}
+
 	public Set<Eventgames> getEventgames() {
 		return eventgames;
 	}
@@ -107,13 +119,13 @@ public class Events {
 		this.idlocation = idlocation;
 	}*/
 
-	public Integer getIdcreatedby() {
+	/*public Integer getIdcreatedby() {
 		return idcreatedby;
 	}
 
 	public void setIdcreatedby(Integer idcreatedby) {
 		this.idcreatedby = idcreatedby;
-	}
+	}*/
 
 	public Integer getIdchangeby() {
 		return idchangeby;

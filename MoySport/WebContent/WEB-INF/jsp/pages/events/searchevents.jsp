@@ -81,37 +81,13 @@
 							<div style="margin-bottom: 5px;">
 							<div style="float: left; width: 70px;">&nbsp;</div>
 							<div style="float: left; width: 180px;">${eventgame.starttime}</div>
-							<div style="float: left; width: 260px;">${eventgame.endtime}</div>
+							<div style="float: left; width: 180px;">${eventgame.endtime}</div>
 							<div style="float: left;">
 								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}">
-								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
+								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px; width: 12px" align="top" /></a></div>
 							<br style="clear: both;"/>
 						</div>
 						</c:forEach>
-						<%-- 
-						<c:if test="${ idevent != event[3] }">
-							<div style="padding: 5px 0px; margin: 10px 0px; background-color: #EEEFE3; border-top:1px solid grey;">
-								<div style="float: left; width: 100px; padding-left: 10px; height: 16px; ">${event[2]}</div>					
-								<div style="float: left; width: 120px; height: 16px;">${event[1]}</div>
-								<div style="float: left; width: 200px; height: 16px;">${event[0]}</div>
-								<div style="float: left; width: 80px; height: 16px;">1/10</div>
-								<div style="float: left;">
-									<a style="text-decoration: none;" href="${pageContext.request.contextPath}/pages/events/viewevent/${event[3]}">
-									<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
-								<br style="clear: both;"/>
-							</div>
-						</c:if>
-						<div style="margin-bottom: 5px;">
-							<div style="float: left; width: 70px;">&nbsp;</div>
-							<div style="float: left; width: 180px;">${event[4]}</div>
-							<div style="float: left; width: 260px;">${event[5]}</div>
-							<div style="float: left;">
-								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/viewgame/${event[6]}">
-								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px;" align="top" /></a></div>
-							<br style="clear: both;"/>
-						</div>
-						<c:set var="idevent" scope="request" value="${event[3]}"/>
-						--%>
 					</c:forEach>
 					<c:if test="${empty eventsList}">
 						<div style="width: 100%; text-align: center; margin-top:20px;">События не найдены</div>

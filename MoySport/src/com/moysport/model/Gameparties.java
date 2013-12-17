@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,11 +16,11 @@ public class Gameparties {
 	@GeneratedValue
 	private Integer idgp;
 
-	@Column(name = "IDGAME")
-	private Integer idgame;
+	/*@Column(name = "IDGAME")
+	private Integer idgame;*/
 
-	@Column(name = "IDUSER")
-	private Integer iduser;
+	/*@Column(name = "IDUSER")
+	private Integer iduser;*/
 
 	@Column(name = "VISITED")
 	private Integer visited;
@@ -28,6 +30,30 @@ public class Gameparties {
 
 	@Column(name = "IDTEAM")
 	private Integer idteam;
+	
+	@ManyToOne
+	@JoinColumn(name = "IDGAME", nullable = false)
+	private Eventgames eventgames;
+
+	@ManyToOne
+	@JoinColumn(name = "IDUSER", nullable = false)
+	private User user;
+	
+	public Eventgames getEventgames() {
+		return eventgames;
+	}
+
+	public void setEventgames(Eventgames eventgames) {
+		this.eventgames = eventgames;
+	}	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public Integer getIdgp() {
 		return idgp;
@@ -37,21 +63,21 @@ public class Gameparties {
 		this.idgp = idgp;
 	}
 
-	public Integer getIdgame() {
+	/*public Integer getIdgame() {
 		return idgame;
 	}
 
 	public void setIdgame(Integer idgame) {
 		this.idgame = idgame;
-	}
+	}*/
 
-	public Integer getIduser() {
+	/*public Integer getIduser() {
 		return iduser;
 	}
 
 	public void setIduser(Integer iduser) {
 		this.iduser = iduser;
-	}
+	}*/
 
 	public Integer getVisited() {
 		return visited;

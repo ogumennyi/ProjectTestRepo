@@ -1,13 +1,17 @@
 package com.moysport.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,9 +34,21 @@ public class Eventgames {
 	@Column(name = "COMMENTS")
 	private String comments;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @JoinColumn(name="IDGAME")
+	private Set<Gameparties> gameparties;
+
 	@ManyToOne
 	@JoinColumn(name = "IDEVENT", nullable = false)
 	private Events events;
+	
+	public Set<Gameparties> getGameparties() {
+		return gameparties;
+	}
+
+	public void setGameparties(Set<Gameparties> gameparties) {
+		this.gameparties = gameparties;
+	}
 	
 	public Events getEvents() {
 		return events;

@@ -24,11 +24,10 @@ public class EventgamesDAOImpl implements EventgamesDAO {
 		return sessionFactory.getCurrentSession().createQuery("from Eventgames").list();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public List<Eventgames> viewEventgame(int idgame) {
+	public Eventgames viewEventgame(int idgame) {
 		Query query = sessionFactory.getCurrentSession().createQuery("from Eventgames where idgame=:idgame");
 		query.setParameter("idgame",idgame);
-		return query.list();
+		return (Eventgames)query.list().get(0);
 	}
 
 	public void removeEventgames(Integer id) {

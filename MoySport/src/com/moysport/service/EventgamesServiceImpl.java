@@ -26,7 +26,7 @@ public class EventgamesServiceImpl implements EventgamesService {
 	}
 	
 	@Transactional
-	public List<Eventgames> viewEventgame(int idgame){
+	public Eventgames viewEventgame(int idgame){
 		return eventgamesDAO.viewEventgame(idgame);
 	}
 
