@@ -69,12 +69,6 @@ public class EventController {
 		return "table_pages/events";
 	}
 
-	@RequestMapping(value = "/table_pages/events/add", method = RequestMethod.POST)
-	public String addEvents(@ModelAttribute("events") Event events, BindingResult result) {
-		eventService.addEvents(events);
-		return "redirect:/table_pages/events";
-	}
-
 	@RequestMapping(value = "/table_pages/events/delete", method = RequestMethod.POST)
 	public String deleteEvents(@RequestParam("idevent") Integer idevent) {
 		eventService.removeEvents(idevent);
@@ -107,11 +101,6 @@ public class EventController {
 		map.put("event", eventService.viewEvent(idevent));
 		// map.put("eventgames", eventsService.eventgames(idevent));
 		// map.put("gameparties", eventsService.gameparties(idevent));
-		return "pages/events/viewevent";
-	}
-
-	@RequestMapping(value = "/pages/events/addevent", method = RequestMethod.POST)
-	public String addevent(ModelMap model) {
 		return "pages/events/viewevent";
 	}
 
@@ -249,7 +238,7 @@ public class EventController {
 		map.put("gameparties", gamePartyService.listGameparties(idgame));
 		// }
 
-		return "redirect:/pages/events/editgame";
+		return "pages/events/editgame";
 
 	}
 
