@@ -20,7 +20,7 @@
 				<form action="${pageContext.request.contextPath}/pages/events/addevent" method="post">
 					<table>
 						<tr>
-							<td width="100%" valign="top">
+							<td valign="top">
 								<table class="textFont" style="padding: 10px">
 									<tr>
 										<th class="heading" colspan="2" align="left">Создание игры</th>
@@ -29,7 +29,7 @@
 										<td class="fldName">Вид спорта:</td>
 										<td class="fldText">
 											<select name="sport_type" class="inputText">
-												<option selected>Футбол</option>
+												<option selected="selected">Футбол</option>
 												<option>Баскетбол</option>
 												<option>Хоккей</option>
 												<option>Плавание</option>
