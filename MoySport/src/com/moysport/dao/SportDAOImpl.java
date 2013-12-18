@@ -3,7 +3,6 @@ package com.moysport.dao;
 import java.util.List;
 
 import com.moysport.model.Sport;
-import com.moysport.model.User;
 
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;

@@ -49,8 +49,8 @@ public class UserDAOImpl implements UserDAO {
 		return userslist.size() > 0 ? (User) userslist.get(0) : null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public User getplayer(String nickname){
-	
 		Query query = sessionFactory.getCurrentSession().createQuery("from User where nickname=:nickname");
 		query.setParameter("nickname",nickname);
 		List<User> userslist = query.list();

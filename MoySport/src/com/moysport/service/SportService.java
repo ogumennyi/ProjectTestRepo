@@ -2,9 +2,7 @@ package com.moysport.service;
 
 import java.util.List;
 
-import com.moysport.model.Location;
 import com.moysport.model.Sport;
-import com.moysport.model.User;
 
 public interface SportService {
 	

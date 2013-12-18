@@ -22,7 +22,7 @@
 				<form:form action="${pageContext.request.contextPath}/pages/events/creategame" method="post" modelAttribute="game">
 					<table>
 						<tr>
-							<td width="100%" valign="top">
+							<td valign="top">
 								<table class="textFont" style="padding: 10px">
 									<tr>
 										<th class="heading" colspan="2" align="left">Создание игры</th>
