@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.moysport.model.User;
-import com.moysport.model.Userskill;
+import com.moysport.model.UserSkill;
 import com.moysport.service.UserService;
 
 @Controller
@@ -38,7 +38,7 @@ public class UserController {
 	
 	@RequestMapping("/table_pages/users")
 	public String listUserskill(Map<String, Object> map) {
-		map.put("user", new Userskill());
+		map.put("user", new UserSkill());
 		map.put("userList", userService.listUser());
 		return "table_pages/users";
 	}
