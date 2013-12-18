@@ -44,7 +44,7 @@
 							</form:form>
 						</div>
 						<div style="float: left; margin-left: 20px;">
-							<a href="${pageContext.request.contextPath}/pages/events/editgame"><b>Редактировать Игру</b></a>
+							<a href="${pageContext.request.contextPath}/pages/events/editgame/${eventgame.idgame}"><b>Редактировать Игру</b></a>
 						</div>
 						<div style="float: left; margin-left: 20px;">
 							<a href="${pageContext.request.contextPath}/pages/events/viewevent/${eventgame.events.idevent}"><b>Просмотреть событие</b></a>

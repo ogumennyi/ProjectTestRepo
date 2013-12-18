@@ -2,7 +2,9 @@ package com.moysport.service;
 
 import java.util.List;
 
+import com.moysport.dao.EventDAO;
 import com.moysport.dao.EventGameDAO;
+import com.moysport.model.Event;
 import com.moysport.model.EventGame;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,28 +13,48 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EventGameServiceImpl implements EventGameService {
-	
+
 	@Autowired
-	private EventGameDAO eventgamesDAO;
+	private EventGameDAO eventGameDAO;
+
+	@Autowired
+	private EventDAO eventDAO;
 
 	@Transactional
 	public void addEventgames(EventGame eventgames) {
-		eventgamesDAO.addEventgames(eventgames);
+		eventGameDAO.addEventgames(eventgames);
 	}
 
 	@Transactional
 	public List<EventGame> listEventgames() {
-		return eventgamesDAO.listEventgames();
+		return eventGameDAO.listEventgames();
 	}
-	
+
 	@Transactional
-	public EventGame viewEventgame(int idgame){
-		return eventgamesDAO.viewEventgame(idgame);
+	public EventGame viewEventgame(int idgame) {
+		return eventGameDAO.viewEventgame(idgame);
 	}
 
 	@Transactional
 	public void removeEventgames(Integer id) {
-		eventgamesDAO.removeEventgames(id);
+		eventGameDAO.removeEventgames(id);
+	}
+
+	@Transactional
+	public EventGame get(int idevent) {
+		return eventGameDAO.get(idevent);
+	}
+
+	@Transactional
+	public void add(EventGame eventGame, int idevent) {
+		Event event = eventDAO.get(idevent);
+		eventGame.setEvents(event);
+		eventGameDAO.add(eventGame);
+	}
+
+	@Transactional
+	public void update(EventGame eventGame, int idevent) {
+		eventGameDAO.update(eventGame);
 	}
 
 }

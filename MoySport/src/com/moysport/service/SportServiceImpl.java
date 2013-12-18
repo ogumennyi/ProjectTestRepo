@@ -29,5 +29,10 @@ public class SportServiceImpl implements SportService {
 	public void removeSport(Integer id) {
 		sportDAO.removeSport(id);
 	}
-
+	
+	// Added by Medynskyy. Search for Sport via sportId key 
+	@Transactional
+	public Sport get(int idsport){
+		return sportDAO.getSportId(idsport);
+	}
 }

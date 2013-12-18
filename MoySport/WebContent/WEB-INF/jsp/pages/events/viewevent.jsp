@@ -18,7 +18,10 @@
 				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
 					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event.name}</b></div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event.createdby.firstname}&nbsp;${event.createdby.lastname}</div><div class="usr_tmplt_txt_clr"></div></div>
-					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event.locations.name}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event.locations.name}</div><div class="usr_tmplt_txt_clr"></div></div>
+					<div style="padding: 10px 20px;">
+						<a href="${pageContext.request.contextPath}/pages/events/editevent/${event.idevent}"><b>Редактировать событие</b></a>
+					</div>
 				</div>
 				<div style="margin-top: 10px;"><b>Игры:</b></div>
 				<c:forEach items="${event.eventgames}" var="eventgame">

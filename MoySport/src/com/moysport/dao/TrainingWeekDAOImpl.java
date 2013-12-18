@@ -20,7 +20,7 @@ public class TrainingWeekDAOImpl implements TrainingWeekDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<TrainingWeek> listTrainingweek() {
-		return sessionFactory.getCurrentSession().createQuery("from Trainingweek").list();
+		return sessionFactory.getCurrentSession().createQuery("from TrainingWeek").list();
 	}
 
 	public void removeTrainingweek(Integer id) {

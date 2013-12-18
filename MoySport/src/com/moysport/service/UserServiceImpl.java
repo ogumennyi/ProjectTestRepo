@@ -40,5 +40,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	public User getplayer(int iduser) throws UsernameNotFoundException {
 		return userDAO.getplayer(iduser);
 	}
-
+	
+	public User getplayer(String username){
+		
+		return userDAO.getplayer(username);
+	}
+	
 }

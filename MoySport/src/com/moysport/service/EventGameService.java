@@ -10,5 +10,9 @@ public interface EventGameService {
 	public List<EventGame> listEventgames();
 	public EventGame viewEventgame(int idgame);
 	public void removeEventgames(Integer id);
-
+	
+	public void add(EventGame eventGame,int idevent);
+	public void update(EventGame eventGame,int idevent);
+	public EventGame get( int id );
+	
 }

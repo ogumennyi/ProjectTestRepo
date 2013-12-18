@@ -13,21 +13,26 @@ import com.moysport.model.Location;
 public class LocationServiceImpl implements LocationService {
 	
 	@Autowired
-	private LocationDAO LocationsDAO;
+	private LocationDAO locationDAO;
 
 	@Transactional
 	public void addLocations(Location locations) {
-		LocationsDAO.addLocations(locations);
+		locationDAO.addLocations(locations);
 	}
 
 	@Transactional
 	public List<Location> listLocations() {
-		return LocationsDAO.listLocations();
+		return locationDAO.listLocations();
 	}
 
 	@Transactional
 	public void removeLocations(Integer id) {
-		LocationsDAO.removeLocations(id);
+		locationDAO.removeLocations(id);
+	}
+	
+	@Transactional
+	public Location get( int idlocation ){
+		return locationDAO.getLocationId(idlocation);
 	}
 
 }

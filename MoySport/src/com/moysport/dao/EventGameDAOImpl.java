@@ -22,13 +22,13 @@ public class EventGameDAOImpl implements EventGameDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<EventGame> listEventgames() {
-		return sessionFactory.getCurrentSession().createQuery("from Eventgames").list();
+		return sessionFactory.getCurrentSession().createQuery("from EventGame").list();
 	}
-	
+
 	public EventGame viewEventgame(int idgame) {
-		Query query = sessionFactory.getCurrentSession().createQuery("from Eventgames where idgame=:idgame");
-		query.setParameter("idgame",idgame);
-		EventGame eventgames = (EventGame)query.list().get(0);
+		Query query = sessionFactory.getCurrentSession().createQuery("from EventGame where idgame=:idgame");
+		query.setParameter("idgame", idgame);
+		EventGame eventgames = (EventGame) query.list().get(0);
 		Hibernate.initialize(eventgames.getGameparties());
 		return eventgames;
 	}
@@ -38,6 +38,79 @@ public class EventGameDAOImpl implements EventGameDAO {
 		if (null != eventgames) {
 			sessionFactory.getCurrentSession().delete(eventgames);
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<EventGame> getAll(Integer id) {
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM EventGame WHERE event.idevent=" + id);
+		return query.list();
+	}
+
+	/**
+	 * Retrieves all games
+	 */
+
+	@SuppressWarnings("unchecked")
+	public List<EventGame> getAll() {
+		Query query = sessionFactory.getCurrentSession().createQuery("FROM EventGame");
+		return query.list();
+	}
+
+	/**
+	 * Retrieves a single game
+	 */
+	@SuppressWarnings("unchecked")
+	public EventGame get(int idgame) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from EventGame where idgame=:idgame");
+		query.setParameter("idgame", idgame);
+		List<EventGame> eventgamelist = query.list();
+		return eventgamelist.size() > 0 ? (EventGame) eventgamelist.get(0) : null;
+
+	}
+
+	/**
+	 * Adds a new game
+	 */
+
+	public void add(EventGame eventGame) {
+		sessionFactory.getCurrentSession().save(eventGame);
+	}
+
+	/**
+	 * Deletes an existing game
+	 */
+	public void delete(Integer id) {
+		// Retrieve existing credit card
+		EventGame eventGame = (EventGame) sessionFactory.getCurrentSession().get(EventGame.class, id);
+		// Delete
+		sessionFactory.getCurrentSession().delete(eventGame);
+	}
+
+	/**
+	 * Deletes all games based on the events id
+	 */
+	public void deleteAll(Integer idevent) {
+		Query query = sessionFactory.getCurrentSession().createQuery("DELETE FROM EventGame WHERE event.idevent=" + idevent);
+		// Delete all
+		query.executeUpdate();
+	}
+
+	/**
+	 * Edits an existing game
+	 */
+
+	public void update(EventGame eventGame) {
+		// Retrieve existing credit card via id
+		EventGame existingEventGame = (EventGame) sessionFactory.getCurrentSession().get(EventGame.class, eventGame.getIdgame());
+		// Assign updated values to this eventGame
+		if (eventGame.getComments() != null)
+			existingEventGame.setComments(eventGame.getComments());
+		if (eventGame.getEndtime() != null)
+			existingEventGame.setEndtime(eventGame.getEndtime());
+		if (eventGame.getStarttime() != null)
+			existingEventGame.setStarttime(eventGame.getStarttime());
+		// Save updates
+		sessionFactory.getCurrentSession().save(existingEventGame);
 	}
 
 }

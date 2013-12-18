@@ -7,16 +7,16 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.moysport.model.Sport" />
-        <mapping class="com.moysport.model.Eventgames" />
-        <mapping class="com.moysport.model.Gameparties" />
-        <mapping class="com.moysport.model.Trainingplan" />
-        <mapping class="com.moysport.model.Userskill" />
+        <mapping class="com.moysport.model.EventGame" />
+        <mapping class="com.moysport.model.GameParty" />
+        <mapping class="com.moysport.model.TrainingPlan" />
+        <mapping class="com.moysport.model.UserSkill" />
         <mapping class="com.moysport.model.User" />
-        <mapping class="com.moysport.model.Events" />
-        <mapping class="com.moysport.model.Gameratings" />
-        <mapping class="com.moysport.model.Locations" />
-        <mapping class="com.moysport.model.Trainings" />
-        <mapping class="com.moysport.model.Trainingweek" />
+        <mapping class="com.moysport.model.Event" />
+        <mapping class="com.moysport.model.GameRating" />
+        <mapping class="com.moysport.model.Location" />
+        <mapping class="com.moysport.model.Training" /> 
+        <mapping class="com.moysport.model.TrainingWeek" />
     </session-factory>
 	    
 </hibernate-configuration>

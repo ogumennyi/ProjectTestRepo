@@ -10,5 +10,14 @@ public interface EventGameDAO {
 	public List<EventGame> listEventgames();
 	public EventGame viewEventgame(int idgame);
 	public void removeEventgames(Integer id);
-
+	
+	public List<EventGame> getAll(Integer id);
+	public List<EventGame> getAll();
+	public void add(EventGame eventGame);
+	public void delete(Integer id);
+	public void deleteAll(Integer idevent);
+	public void update(EventGame eventGame);
+	 
+	public EventGame get(int idevent);
+	
 }

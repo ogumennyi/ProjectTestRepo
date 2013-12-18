@@ -10,5 +10,6 @@ public interface UserService {
 	public List<User> listUser();
 	public void removeUser(Integer id);
 	public User getplayer(int iduser);
+	public User getplayer (String username);
 
 }

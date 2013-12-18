@@ -9,5 +9,6 @@ public interface SportDAO {
 	public void addSport(Sport sport);
 	public List<Sport> listSport();
 	public void removeSport(Integer id);
-
+	public Sport getSportId(int idsport);
+	
 }

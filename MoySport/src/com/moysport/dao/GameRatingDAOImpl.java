@@ -20,7 +20,7 @@ public class GameRatingDAOImpl implements GameRatingDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<GameRating> listGameratings() {
-		return sessionFactory.getCurrentSession().createQuery("from Gameratings").list();
+		return sessionFactory.getCurrentSession().createQuery("from GameRating").list();
 	}
 
 	public void removeGameratings(Integer id) {

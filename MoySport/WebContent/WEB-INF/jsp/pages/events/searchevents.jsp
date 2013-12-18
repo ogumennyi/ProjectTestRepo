@@ -58,12 +58,15 @@
 							</div>
 							<br style="clear: both;"/>
 						</div>
-						<div style="padding: 15px 0px 15px 0px">
-							<div style="float: left; margin-left: 180px;">
+						<div style="padding: 15px 0px">
+							<div>
 								<input type="submit" class="submit" value="Найти" style="cursor: pointer;"/>
 							</div>
-							<div style="float: left; margin-left: 20px;">
+							<div style="float: left; margin: 5px 0px 0px 140px;">
 								<a href="${pageContext.request.contextPath}/pages/events/createevent"><b>Создать новое событие</b></a>
+							</div>
+							<div style="float: left; margin: 5px 0px 0px 20px;">
+								<a href="${pageContext.request.contextPath}/pages/events/creategame"><b>Создать игру</b></a>
 							</div>
 						</div>
 						<br style="clear: both;"/>

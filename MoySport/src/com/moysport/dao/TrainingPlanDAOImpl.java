@@ -20,7 +20,7 @@ public class TrainingPlanDAOImpl  implements TrainingPlanDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<TrainingPlan> listTrainingplan() {
-		return sessionFactory.getCurrentSession().createQuery("from Trainingplan").list();
+		return sessionFactory.getCurrentSession().createQuery("from TrainingPlan").list();
 	}
 
 	public void removeTrainingplan(Integer id) {

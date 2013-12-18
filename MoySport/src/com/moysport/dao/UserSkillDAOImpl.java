@@ -20,7 +20,7 @@ public class UserSkillDAOImpl implements UserSkillDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<UserSkill> listUserskill() {
-		return sessionFactory.getCurrentSession().createQuery("from Userskill").list();
+		return sessionFactory.getCurrentSession().createQuery("from UserSkill").list();
 	}
 
 	public void removeUserskill(Integer id) {

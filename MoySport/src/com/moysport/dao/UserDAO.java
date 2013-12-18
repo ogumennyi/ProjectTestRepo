@@ -11,5 +11,6 @@ public interface UserDAO {
 	public void removeUser(Integer id);
 	public User getUser(String username);
 	public User getplayer(int iduser);
+	public User getplayer (String username);
 	
 }

@@ -21,12 +21,12 @@ public class GamePartyDAOImpl implements GamePartyDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<GameParty> listGameparties() {
-		return sessionFactory.getCurrentSession().createQuery("from Gameparties").list();
+		return sessionFactory.getCurrentSession().createQuery("from GameParty").list();
 	}
 	
 	@SuppressWarnings("unchecked")
 	public List<GameParty> listGameparties(int idgame) {
-		Query query = sessionFactory.getCurrentSession().createQuery("select g from Gameparties g where idgame=:idgame");
+		Query query = sessionFactory.getCurrentSession().createQuery("select g from GameParty g where idgame=:idgame");
 		query.setParameter("idgame",idgame);
 		return query.list();
 	}

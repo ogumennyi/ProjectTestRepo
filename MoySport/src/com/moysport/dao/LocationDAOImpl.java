@@ -2,6 +2,7 @@ package com.moysport.dao;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,7 +21,7 @@ public class LocationDAOImpl implements LocationDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Location> listLocations() {
-		return sessionFactory.getCurrentSession().createQuery("from Locations").list();
+		return sessionFactory.getCurrentSession().createQuery("from Location").list();
 	}
 
 	public void removeLocations(Integer id) {
@@ -28,6 +29,14 @@ public class LocationDAOImpl implements LocationDAO {
 		if (null != locations) {
 			sessionFactory.getCurrentSession().delete(locations);
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public Location getLocationId(int idlocation) {
+		Query query = sessionFactory.getCurrentSession().createQuery("from Location where idlocation=:idlocation");
+		query.setParameter("idlocation", idlocation);
+		List<Location> locationlist = query.list();
+		return locationlist.size() > 0 ? (Location) locationlist.get(0) : null;
 	}
 
 }
