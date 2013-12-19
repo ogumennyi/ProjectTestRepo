@@ -1,6 +1,6 @@
 package com.moysport.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -27,10 +27,10 @@ public class EventGame {
 	private Integer idevent;*/
 	
 	@Column(name = "STARTTIME")
-	private Date starttime;
+	private Timestamp starttime;
 	
 	@Column(name = "ENDTIME")
-	private Date endtime;
+	private Timestamp endtime;
 	
 	@Column(name = "COMMENTS")
 	private String comments;
@@ -78,19 +78,19 @@ public class EventGame {
 		this.idevent = idevent;
 	}*/
 
-	public Date getStarttime() {
+	public Timestamp getStarttime() {
 		return starttime;
 	}
 
-	public void setStarttime(Date starttime) {
+	public void setStarttime(Timestamp starttime) {
 		this.starttime = starttime;
 	}
 
-	public Date getEndtime() {
+	public Timestamp getEndtime() {
 		return endtime;
 	}
 
-	public void setEndtime(Date endtime) {
+	public void setEndtime(Timestamp endtime) {
 		this.endtime = endtime;
 	}
 
