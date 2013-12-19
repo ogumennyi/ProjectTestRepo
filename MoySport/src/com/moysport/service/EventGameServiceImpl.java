@@ -47,7 +47,7 @@ public class EventGameServiceImpl implements EventGameService {
 
 	@Transactional
 	public void add(EventGame eventGame, int idevent) {
-		Event event = eventDAO.get(idevent);
+		Event event = eventDAO.getEvent(idevent);
 		eventGame.setEvents(event);
 		eventGameDAO.add(eventGame);
 	}

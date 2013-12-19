@@ -17,24 +17,24 @@ import com.moysport.service.LocationService;
 public class LocationController {
 	
 	@Autowired
-	private LocationService locationsService;
+	private LocationService locationService;
 
 	@RequestMapping("/table_pages/locations")
 	public String listLocations(Map<String, Object> map) {
 		map.put("locations", new Location());
-		map.put("locationsList", locationsService.listLocations());
+		map.put("locationsList", locationService.listLocations());
 		return "table_pages/locations";
 	}
 
 	@RequestMapping(value = "/table_pages/locations/add", method = RequestMethod.POST)
 	public String addLocations(@ModelAttribute("locations") Location locations, BindingResult result) {
-		locationsService.addLocations(locations);
+		locationService.addLocations(locations);
 		return "redirect:/table_pages/locations";
 	}
 
 	@RequestMapping(value = "/table_pages/locations/delete", method = RequestMethod.POST)
 	public String deleteLocations(@RequestParam("idlocation") Integer idlocation) {
-		locationsService.removeLocations(idlocation);
+		locationService.removeLocations(idlocation);
 		return "redirect:/table_pages/locations";
 	}
 

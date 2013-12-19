@@ -14,7 +14,7 @@
 	<div id="view">
 		<div id="head">
 			<div id="logo">
-				<a href="${pageContext.request.contextPath}/authorization" class="block">&nbsp;</a>
+				<a href="${pageContext.request.contextPath}/welcome" class="block">&nbsp;</a>
 				<h1>
 					<a href=".">Moy<span>Sport</span></a>
 				</h1>
@@ -25,7 +25,7 @@
 			<hr class="hidden" />
 			<div id="mainMenu">
 				<ul>
-					<li class="active"><a href="${pageContext.request.contextPath}/authorization">Авторизация<span></span></a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/welcome">Авторизация<span></span></a></li>
 					<li><a href="${pageContext.request.contextPath}/registration">Регистрация<span></span></a></li>
 				</ul>
 			</div>

@@ -20,24 +20,24 @@ import com.moysport.service.GamePartyService;
 public class GamePartyController {
 	
 	@Autowired
-	private GamePartyService gamepartiesService;
+	private GamePartyService gamePartyService;
 
 	@RequestMapping("/table_pages/gameparties")
 	public String listGameparties(Map<String, Object> map) {
 		map.put("gameparties", new GameParty());
-		map.put("gamepartiesList", gamepartiesService.listGameparties());
+		map.put("gamepartiesList", gamePartyService.listGameparties());
 		return "table_pages/gameparties";
 	}
 
 	@RequestMapping(value = "/table_pages/gameparties/add", method = RequestMethod.POST)
 	public String addGameparties(@ModelAttribute("gameparties") GameParty gameparties, BindingResult result) {
-		gamepartiesService.addGameparties(gameparties);
+		gamePartyService.addGameparties(gameparties);
 		return "redirect:/table_pages/gameparties";
 	}
 
 	@RequestMapping(value = "/table_pages/gameparties/delete", method = RequestMethod.POST)
 	public String deleteGameparties(@RequestParam("idGp") Integer idGp) {
-		gamepartiesService.removeGameparties(idGp);
+		gamePartyService.removeGameparties(idGp);
 		return "redirect:/table_pages/gameparties";
 	}
 	
@@ -48,13 +48,13 @@ public class GamePartyController {
 		eventgames.setIdgame(idgame);
 		gameparties.setEventgames(eventgames);
 		gameparties.setUser((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-		gamepartiesService.addGameparties(gameparties);
+		gamePartyService.addGameparties(gameparties);
 		return "redirect:/pages/events/viewgame/"+idgame;
 	}
 	
 	@RequestMapping(value = "/declinegame", method = RequestMethod.POST)
 	public String declineGame(@RequestParam("idgame") int idgame, @RequestParam("idgp") int idgp){
-		gamepartiesService.removeGameparties(idgp);
+		gamePartyService.removeGameparties(idgp);
 		return "redirect:/pages/events/viewgame/"+idgame;
 	}	
 

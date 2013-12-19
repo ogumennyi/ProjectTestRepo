@@ -88,17 +88,17 @@
 							<br style="clear: both;"/>
 						</div>
 						<c:forEach items="${event.eventgames}" var="eventgame">
-							<div style="margin-bottom: 5px;">
-							<div style="float: left; width: 70px;">&nbsp;</div>
-							<div style="float: left; width: 140px;"><fmt:formatDate pattern="dd-mm-yyyy hh:mm" value="${eventgame.starttime}"/></div>
-							<div style="float: left; width: 160px;"><fmt:formatDate pattern="dd-mm-yyyy hh:mm" value="${eventgame.endtime}"/></div>
-							<div style="float: left; width: 60px; height: 16px;">${eventgame.gamePartiesCount}</div>
-							<div style="float: left;">
-								<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}">
-								<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px; width: 12px" align="top" /></a>
+							<div style="margin-bottom: 15px;">
+								<div style="float: left; width: 70px;">&nbsp;</div>
+								<div style="float: left; width: 140px;"><fmt:formatDate pattern="dd-mm-yyyy hh:mm" value="${eventgame.starttime}"/></div>
+								<div style="float: left; width: 160px;"><fmt:formatDate pattern="dd-mm-yyyy hh:mm" value="${eventgame.endtime}"/></div>
+								<div style="float: left; width: 60px; height: 16px;">${eventgame.gamePartiesCount}</div>
+								<div style="float: left;">
+									<a style="text-decoration: none" href="${pageContext.request.contextPath}/pages/events/viewgame/${eventgame.idgame}">
+									<img src="${pageContext.request.contextPath}/images/arrow_right_16.png" alt="" class="left" style="border: 0; padding: 0px; margin: 0px; width: 12px" align="top" /></a>
+								</div>
+								<br style="clear: both;"/>
 							</div>
-							<br style="clear: both;"/>
-						</div>
 						</c:forEach>
 					</c:forEach>
 					<c:if test="${empty eventsList}">

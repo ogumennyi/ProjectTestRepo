@@ -23,11 +23,6 @@ public class DefaultController {
 	public String login(ModelMap model) {
 		return "authorization";
 	}
-	
-	@RequestMapping(value = "/loginold", method = RequestMethod.GET)
-	public String loginold(ModelMap model) {
-		return "temp/login";
-	}
 
 	@RequestMapping(value = "/loginfailed", method = RequestMethod.GET)
 	public String loginerror(ModelMap model) {
@@ -35,13 +30,8 @@ public class DefaultController {
 		return "authorization";
 	}
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(ModelMap model) {
-		return "temp/index";
-	}
-	
-	@RequestMapping(value = "/authorization", method = RequestMethod.GET)
-	public String authorozation(ModelMap model) {
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public String welcome(ModelMap model) {
 		return "authorization";
 	}
 	
@@ -111,6 +101,12 @@ public class DefaultController {
 	public String logout(ModelMap model) {
 		return "authorization";
 	}
+	
+	// Temp goes below
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(ModelMap model) {
+		return "temp/index";
+	}
 
 	@RequestMapping("/employee/list.html")
 	public ModelAndView gotoEmployee(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
@@ -122,6 +118,6 @@ public class DefaultController {
 	public ModelAndView gotoAdmin(HttpServletRequest arg0, HttpServletResponse arg1) throws Exception {
 		ModelAndView mav = new ModelAndView("temp/admin/home");
 		return mav;
-	}
+	}	
 
 }

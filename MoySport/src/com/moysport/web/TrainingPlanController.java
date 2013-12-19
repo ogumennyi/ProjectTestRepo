@@ -17,24 +17,24 @@ import com.moysport.service.TrainingPlanService;
 public class TrainingPlanController {
 	
 	@Autowired
-	private TrainingPlanService trainingplanService;
+	private TrainingPlanService trainingPlanService;
 
 	@RequestMapping("/table_pages/trainingplan")
 	public String listTrainingplan(Map<String, Object> map) {
 		map.put("trainingplan", new TrainingPlan());
-		map.put("trainingplanList", trainingplanService.listTrainingplan());
+		map.put("trainingplanList", trainingPlanService.listTrainingplan());
 		return "table_pages/trainingplan";
 	}
 
 	@RequestMapping(value = "/table_pages/trainingplan/add", method = RequestMethod.POST)
 	public String addTrainingplan(@ModelAttribute("trainingplan") TrainingPlan trainingplan, BindingResult result) {
-		trainingplanService.addTrainingplan(trainingplan);
+		trainingPlanService.addTrainingplan(trainingplan);
 		return "redirect:/table_pages/trainingplan";
 	}
 
 	@RequestMapping(value = "/table_pages/trainingplan/delete", method = RequestMethod.POST)
 	public String deleteTrainingplan(@RequestParam("idTP") Integer idTP) {
-		trainingplanService.removeTrainingplan(idTP);
+		trainingPlanService.removeTrainingplan(idTP);
 		return "redirect:/table_pages/trainingplan";
 	}
 

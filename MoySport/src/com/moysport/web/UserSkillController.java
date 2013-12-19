@@ -17,24 +17,24 @@ import com.moysport.service.UserSkillService;
 public class UserSkillController {
 	
 	@Autowired
-	private UserSkillService userskillService;
+	private UserSkillService userSkillService;
 
 	@RequestMapping("/table_pages/userskill")
 	public String listUserskill(Map<String, Object> map) {
 		map.put("userskill", new UserSkill());
-		map.put("userskillList", userskillService.listUserskill());
+		map.put("userskillList", userSkillService.listUserskill());
 		return "table_pages/userskill";
 	}
 
 	@RequestMapping(value = "/table_pages/userskill/add", method = RequestMethod.POST)
 	public String addUserskill(@ModelAttribute("userskill") UserSkill userskill, BindingResult result) {
-		userskillService.addUserskill(userskill);
+		userSkillService.addUserskill(userskill);
 		return "redirect:/table_pages/userskill";
 	}
 
 	@RequestMapping(value = "/table_pages/userskill/delete", method = RequestMethod.POST)
 	public String deleteUserskill(@RequestParam("iD") Integer iD) {
-		userskillService.removeUserskill(iD);
+		userSkillService.removeUserskill(iD);
 		return "redirect:/table_pages/userskill";
 	}
 
