@@ -234,9 +234,7 @@ public class EventController {
 		map.put("eventgame", existingEventGame);
 		map.put("username", username);
 
-		// if(!gamepartiesService.listGameparties(idgame).isEmpty()) {
 		map.put("gameparties", gamePartyService.listGameparties(idgame));
-		// }
 
 		return "pages/events/editgame";
 
