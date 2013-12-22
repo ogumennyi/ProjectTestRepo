@@ -44,6 +44,11 @@ public class EventGameServiceImpl implements EventGameService {
 	public EventGame get(int idevent) {
 		return eventGameDAO.get(idevent);
 	}
+	
+	@Transactional
+	public List<EventGame> getAll(int idevent) {
+		return eventGameDAO.getAll(idevent);
+	}
 
 	@Transactional
 	public void add(EventGame eventGame, int idevent) {

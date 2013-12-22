@@ -16,8 +16,8 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
-				<div style="margin-bottom: 10px;"><b>Игра:</b></div>
-				<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
+				<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px; background-color: #F9FAF3; border:1px solid grey; border-radius: 5px;">
+					<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l" style="width:30%"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${eventgame.events.name}</b></div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время начала:</div><div class="usr_tmplt_txt_r">${eventgame.starttime}</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Время окончания:</div><div class="usr_tmplt_txt_r">${eventgame.endtime}</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Max Кол-во участников:</div><div class="usr_tmplt_txt_r">кол-во участников</div><div class="usr_tmplt_txt_clr"></div></div>
@@ -51,9 +51,9 @@
 						</div>
 						<br style="clear: both;"/>
 					</div>
-					<div style="margin-top: 10px;"><b>Комментарии:</b></div>
-					<div style="margin-top: 10px;">Блок Переписки пользователей</div>
 				</div>
+				<div style="margin-top: 10px;"><b>Комментарии:</b></div>
+				<div style="margin-top: 10px;">Блок Переписки пользователей</div>
 			</div>
 			<jsp:include page="../../templates/cabinet.jsp"/>
 		</div>

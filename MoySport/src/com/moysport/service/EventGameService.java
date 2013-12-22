@@ -13,6 +13,7 @@ public interface EventGameService {
 	
 	public void add(EventGame eventGame,int idevent);
 	public void update(EventGame eventGame,int idevent);
-	public EventGame get( int id );
+	public EventGame get(int idGame);
+	public List<EventGame> getAll(int idEvent);
 	
 }

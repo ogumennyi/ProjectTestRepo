@@ -128,7 +128,7 @@ public class EventController {
 		map.put("idsport", existingEvent.getSport().getIdsport());
 		map.put("sportList", sportService.listSport());
 		map.put("locationList", locationService.listLocations());
-		map.put("eventgames", eventGameService.get(idevent));
+		map.put("eventgames", eventGameService.getAll(idevent));
 
 		return "pages/events/editevent";
 	}

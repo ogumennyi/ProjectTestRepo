@@ -15,7 +15,7 @@
 		</jsp:include>
 		<div id="content">
 			<div id="dataBlock">
-				<div class="usr_tmplt_txt" style="width:100%; background-color: #EEEFE3; border:2px solid grey;">
+				<div class="usr_tmplt_txt" style="width:100%; background-color: #F9FAF3; border:1px solid grey; border-radius: 5px;">
 					<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;"><div class="usr_tmplt_txt_l"><b>Событие:</b></div><div class="usr_tmplt_txt_r"><b>${event.name}</b></div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Организатор:</div><div class="usr_tmplt_txt_r">${event.createdby.firstname}&nbsp;${event.createdby.lastname}</div><div class="usr_tmplt_txt_clr"></div></div>
 					<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l">Локация:</div><div class="usr_tmplt_txt_r">${event.locations.name}</div><div class="usr_tmplt_txt_clr"></div></div>

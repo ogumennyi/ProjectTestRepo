@@ -1,23 +1,3 @@
-/** 
- * Copyright 2008 Breezy New Media
- * =====================================
- * Czech Language:
- * #zmena zarovnani textu, obsahu:
- *   -- trida .left, .right, .center zpusobi zarovnani obsahu doleva, doprava, nebo vycentruje, 
- *      @napr. odstavec centrovany na stred: <p class="center">text odstavce zarovnany na stredu</p>
- *   -- uziti .left, resp. .right tridy na obrazek zrusi jeho odsazeni zleva, resp. zprava
- *   -- zarovnavat lze i pomoci obtekani prvku (vyuziti float vlastnosti)
- *        1) umisteni doleva, obtekani prvku zprava = pomoci tridy .fl
- *        2) umisteni doprava, obtekani prvku zleva = pomoci tridy .fr
- *
- * #zmena velikosti textu
- *   -- vetsi pismo nez standartni pomoci tridy .big, napr. <p class="big">Vetsi text</p>
- *   -- mensi pismo nez standartni pomoci tridy .small, napr. <h3 class="small">Mensi velikost daneho nadpisu</h3>
- *   
- * #pridani casove ikonky k textu
- *   -- pomoci tridy ico a ico-date, pouziti: <p class="ico ico-date">Datum vcetne casove ikonky</p>     
- */     
-
 /* -- Basics -- */
 html, body, div, p, li, ul, ol, form, fieldset, h1, h2, h3, h4, h5, h6   { margin: 0; padding: 0; list-style: none; }
 
@@ -189,6 +169,12 @@ img.right { margin-right: 0 !important; }
 
 .margin_5000 { margin: 5px 0px 0px 0px }
 
+div.withHover:hover {
+  background-color: #EEEFE3;
+  border-top-right-radius: 5px; 
+  border-bottom-right-radius: 5px;
+}
+
 .usr_tmplt_bg 		{ background-color: #FDFDFB; }
 .usr_tmplt div 		{ display: block; }
 .usr_tmplt_ph 		{ width: 25%; }
@@ -205,15 +191,20 @@ img.right { margin-right: 0 !important; }
 .searchinput {border-color: #A4A4A4; height: 15px; padding:3px 5px 4px 5px; width: 200px; }
 .searchselect {border-color: #A4A4A4; height: 24px; padding:2px 5px 5px 5px; width: 212px; }
 
-background-image: -webkit-gradient(
-	linear,
-	left top,
-	left bottom,
-	color-stop(0, #D46C6C),
-	color-stop(1, #E3CACA)
-);
-background-image: -o-linear-gradient(bottom, #D46C6C 0%, #E3CACA 100%);
-background-image: -moz-linear-gradient(bottom, #D46C6C 0%, #E3CACA 100%);
-background-image: -webkit-linear-gradient(bottom, #D46C6C 0%, #E3CACA 100%);
-background-image: -ms-linear-gradient(bottom, #D46C6C 0%, #E3CACA 100%);
-background-image: linear-gradient(to bottom, #D46C6C 0%, #E3CACA 100%);
+/* IE10 Consumer Preview */ 
+background-image: -ms-linear-gradient(top, #E6A8A8 0%, #FF8282 50%, #E6A8A8 100%);
+
+/* Mozilla Firefox */ 
+background-image: -moz-linear-gradient(top, #E6A8A8 0%, #FF8282 50%, #E6A8A8 100%);
+
+/* Opera */ 
+background-image: -o-linear-gradient(top, #E6A8A8 0%, #FF8282 50%, #E6A8A8 100%);
+
+/* Webkit (Safari/Chrome 10) */ 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E6A8A8), color-stop(0.5, #FF8282), color-stop(1, #E6A8A8));
+
+/* Webkit (Chrome 11+) */ 
+background-image: -webkit-linear-gradient(top, #E6A8A8 0%, #FF8282 50%, #E6A8A8 100%);
+
+/* W3C Markup, IE10 Release Preview */ 
+background-image: linear-gradient(to bottom, #E6A8A8 0%, #FF8282 50%, #E6A8A8 100%);
