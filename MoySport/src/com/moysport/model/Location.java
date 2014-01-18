@@ -1,11 +1,16 @@
 package com.moysport.model;
 
 import java.sql.Timestamp;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -78,6 +83,10 @@ public class Location {
 	
 	@Column(name = "PIC")
 	private String pic;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name="IDLOCATION")
+	private Set<Event> events;
 
 	public Integer getIdlocation() {
 		return idlocation;
@@ -253,6 +262,16 @@ public class Location {
 
 	public void setPic(String pic) {
 		this.pic = pic;
+	}
+	
+	
+	
+	public Set<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<Event> events) {
+		this.events = events;
 	}
 	
 }

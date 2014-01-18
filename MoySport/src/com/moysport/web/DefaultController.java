@@ -56,26 +56,7 @@ public class DefaultController {
 	public String viewplayer(ModelMap model) {
 		return "pages/players/viewplayer";
 	}
-	
-	@RequestMapping(value = "/pages/locations/searchlocations", method = RequestMethod.GET)
-	public String searchlocations(ModelMap model) {
-		return "pages/locations/searchlocations";
-	}
-	
-	@RequestMapping(value = "/pages/locations/viewlocation", method = RequestMethod.GET)
-	public String viewlocation(ModelMap model) {
-		return "pages/locations/viewlocation";
-	}
-	
-	@RequestMapping(value = "/pages/locations/createlocation", method = RequestMethod.GET)
-	public String createlocation(ModelMap model) {
-		return "pages/locations/createlocation";
-	}
-	
-	@RequestMapping(value = "/pages/locations/addlocation", method = RequestMethod.POST)
-	public String addlocation(ModelMap model) {
-		return "pages/locations/viewlocation";
-	}	
+		
 	
 	@RequestMapping(value = "/pages/search", method = RequestMethod.GET)
 	public String search(ModelMap model) {
