@@ -49,5 +49,10 @@ public class LocationServiceImpl implements LocationService {
 	public Location get( int idlocation ){
 		return locationDAO.getLocationId(idlocation);
 	}
+	
+	@Transactional
+	public void updateLocation(Location location) {
+		locationDAO.updateLocation(location);
+	}
 
 }

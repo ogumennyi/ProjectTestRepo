@@ -134,7 +134,7 @@
 						<td>16</td>
 					</tr>
 					<tr class="even">
-						<td><a href="${pageContext.request.contextPath}/pages/locations/viewlocation">Школа №1</a></td>
+						<td><a href="${pageContext.request.contextPath}/pages/locations/viewlocation/9">Школа №1</a></td>
 						<td>Львов</td>
 						<td>ул.Бандеры 8</td>
 						<td>14</td>

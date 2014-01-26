@@ -19,79 +19,85 @@
 						<td width="100%" valign="top">
 							<table class="regular textFont" style="padding: 10px">
 								<tr>
-									<th class="heading" colspan="2" align="left">Локация: ${locations.name}</th>
+									<th class="heading" colspan="2" align="left">Локация: ${location.name}</th>
+								</tr>
+								<tr>
+									<td class="fldName">ID Локации:</td>
+									<td class="fldText">${location.idlocation}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Количество проведенных игр:</td>
-									<td class="fldText">${locations.checkin}</td>
+									<td class="fldText">${location.checkin}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Виды спорта на локации:</td>
-									<td class="fldText">${locations.tag}</td>
+									<td class="fldText">${location.tag}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Страна:</td>
-									<td class="fldText">${locations.country}</td>
+									<td class="fldText">${location.country}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Регион:</td>
-									<td class="fldText">${locations.region}</td>
+									<td class="fldText">${location.region}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Город:</td>
-									<td class="fldText">${locations.city}</td>
+									<td class="fldText">${location.city}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Район:</td>
-									<td class="fldText">${locations.district}</td>
+									<td class="fldText">${location.district}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Улица:</td>
-									<td class="fldText">${locations.street}</td>
+									<td class="fldText">${location.street}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Дом:</td>
-									<td class="fldText">${locations.building}</td>
+									<td class="fldText">${location.building}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Почтовый Индекс:</td>
-									<td class="fldText">${locations.zip}</td>
+									<td class="fldText">${location.zip}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Описание объекта:</td>
-									<td class="fldText">${locations.description}</td>
+									<td class="fldText">${location.description}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Контакты:</td>
-									<td class="fldText">${locations.contacts}</td>
+									<td class="fldText">${location.contacts}</td>
 								</tr>
 								<tr>
 									<td class="fldName">web-site:</td>
-									<td class="fldText">${locations.httplink}</td>
+									<td class="fldText">${location.httplink}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Created By:</td>
-									<td class="fldText">${locations.idcreatedby}</td>
+									<td class="fldText">${location.idcreatedby}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Creation Date:</td>
-									<td class="fldText">${locations.creationdate}</td>
+									<td class="fldText">${location.creationdate}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Change By:</td>
-									<td class="fldText">${locations.idchangeby}</td>
+									<td class="fldText">${location.idchangeby}</td>
 								</tr>
 								<tr>
 									<td class="fldName">Change Date:</td>
-									<td class="fldText">${locations.changedate}</td>
+									<td class="fldText">${location.changedate}</td>
 								</tr>
 								<tr>
-									<td class="fldName"><a href="edit_location.html"><br>Редактировать локацию</a></td>
+									<td class="fldName">Статус Локации:</td>
+									<td class="fldText">${location.status}</td>
 								</tr>
 								<tr>
-									<td class="fldName" colspan="2" align="center"><br>
-									<br>
-									<br>Блок Переписки пользователей</td>
+									<td class="fldName"><a href="${pageContext.request.contextPath}/pages/locations/editlocation/${location.idlocation}"><b>Редактировать локацию</b></a></td>
+								</tr>
+								<tr>
+									<td class="fldName" colspan="2" align="center">Блок Переписки пользователей</td>
 								</tr>
 							</table>
 						</td>

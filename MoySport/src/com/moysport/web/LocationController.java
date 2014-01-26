@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,14 +36,6 @@ public class LocationController {
 	
 	
 	
-	
-	
-	
-	@RequestMapping(value = "/pages/locations/viewlocation", method = RequestMethod.GET)
-	public String viewlocation(ModelMap model) {
-		return "pages/locations/viewlocation";
-	}
-	
 	@RequestMapping(value = "/pages/locations/createlocation", method = RequestMethod.GET)
 	public String createlocation(Map<String, Object> map) {
 		System.out.println(">>>In Post");
@@ -56,26 +49,58 @@ public class LocationController {
 			BindingResult result, Map<String, Object> map) {
 		Timestamp sysdate = new Timestamp(new Date().getTime());
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		location.setCheckin(0);
 		location.setIdchangeby(user.getIduser());
 		location.setChangedate(sysdate);
 		location.setIdcreatedby(user.getIduser());
 		location.setCreationdate(sysdate);
 		locationService.addLocations(location);
-		/*
-		java.util.Date date = new java.util.Date();
-		long time = date.getTime();
-
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		event.setIdchangeby(user.getIduser());
-		event.setCreatedby(user);
-		event.setMark(0);
-		event.setMarkcnt(0);
-		event.setChangedate(new Timestamp(time));
-		eventService.add(event, idlocation, idsport);*/
-		return "redirect:/pages/events/searchevents";
+		
+		return "redirect:/pages/locations/searchlocations";
 	}
 	
-	@RequestMapping(value = "/pages/locations/addlocation", method = RequestMethod.POST)
+	@RequestMapping(value = "/pages/locations/viewlocation/{idlocation}", method = RequestMethod.GET)
+	public String viewEvent(@PathVariable int idlocation, Map<String, Object> map) {
+		map.put("location", locationService.get(idlocation));
+		return "pages/locations/viewlocation";
+	}
+	
+	
+	/* Edit event, GET method , user fills out the form */
+	@RequestMapping(value = "/pages/locations/editlocation/{idlocation}", method = RequestMethod.GET)
+	public String eventEdit(@PathVariable int idlocation, Map<String, Object> map) {
+		Location existingLocation =  locationService.get(idlocation);
+		// Add to model
+		map.put("location", existingLocation);
+		/*map.put("idlocation", existingEvent.getLocations().getIdlocation());
+		map.put("idsport", existingEvent.getSport().getIdsport());
+		map.put("sportList", sportService.listSport());
+		map.put("locationList", locationService.listLocations());
+		map.put("eventgames", eventGameService.getAll(idevent));*/
+
+		return "pages/locations/editlocation";
+	}
+
+	/* Edit event, POST method, Data from Form updates Model */
+	@RequestMapping(value = "/pages/locations/editlocation", method = RequestMethod.POST)
+	public String eventEdit(@ModelAttribute("location") Location location,
+			BindingResult result, Map<String, Object> map) {
+		Timestamp sysdate = new Timestamp(new Date().getTime());
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		location.setIdchangeby(user.getIduser());
+		location.setChangedate(sysdate);
+		locationService.updateLocation(location);
+		
+		return "redirect:/pages/locations/searchlocations";
+	}
+	
+	
+	
+	
+	
+	
+	
+	/*@RequestMapping(value = "/pages/locations/addlocation", method = RequestMethod.POST)
 	public String addlocation(ModelMap model) {
 		return "pages/locations/viewlocation";
 	}
@@ -101,6 +126,6 @@ public class LocationController {
 	public String deleteLocations(@RequestParam("idlocation") Integer idlocation) {
 		locationService.removeLocations(idlocation);
 		return "redirect:/table_pages/locations";
-	}
+	}*/
 
 }

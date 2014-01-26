@@ -15,5 +15,6 @@ public interface LocationService {
 	public void removeLocations(Integer id);
 	
 	public Location get( int idlocation );
+	public void updateLocation(Location location);
 
 }

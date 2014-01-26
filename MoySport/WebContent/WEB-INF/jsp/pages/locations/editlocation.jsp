@@ -19,7 +19,7 @@
 			</jsp:include>
 			<div id="content">
 				<div id="dataBlock">
-					<form:form action="${pageContext.request.contextPath}/pages/locations/createlocation" method="post" modelAttribute="location">
+					<form:form action="${pageContext.request.contextPath}/pages/locations/editlocation" method="post" modelAttribute="location">
 						<table>
 							<tr>
 								<td width="100%" valign="top">
@@ -28,8 +28,12 @@
 											<th class="heading" colspan="2" align="left">Создание локации</th>
 										</tr>
 										<tr>
+											<td class="fldName">ID Локации:</td>
+											<td class="fldText"><form:input type="text" path="idlocation" cssClass="inputText"/></td>
+										</tr>
+										<tr>
 											<td class="fldName">Название локации:</td>
-											<td class="fldText"><form:input type="text" path="name" cssClass="inputText" /></td>
+											<td class="fldText"><form:input type="text" path="name" cssClass="inputText"/></td>
 										</tr>
 										<tr>
 											<td class="fldName">Страна:</td>
@@ -76,15 +80,15 @@
 											<td class="fldName">Статус Локации:</td>
 											<td class="fldText">
 												<form:select path="status" cssClass="inputText">
-													<option selected="selected" value="BLACK">BLACK</option>
-													<option value="WHITE">WHITE</option>
+													<option <c:if test="${location.status == 'BLACK'}">selected="selected"</c:if> value="BLACK">BLACK</option>
+													<option <c:if test="${location.status == 'WHITE'}">selected="selected"</c:if> value="WHITE">WHITE</option>
 												</form:select>
 											</td>
 										</tr>
 										
 										
 										<tr>
-											<td class="fldName" colspan="2" align="left"><input type="submit" class="submit" value="Создать" style="cursor: pointer;"></td>
+											<td class="fldName" colspan="2" align="left"><input type="submit" class="submit" value="Сохранить" style="cursor: pointer;"></td>
 										</tr>
 									</table>
 								</td>

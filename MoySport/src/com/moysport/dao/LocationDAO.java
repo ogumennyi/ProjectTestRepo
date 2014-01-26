@@ -11,5 +11,6 @@ public interface LocationDAO {
 	public void removeLocations(Integer id);
 	
 	public Location getLocationId(int idlocation);
+	public void updateLocation(Location location);
 	
 }
