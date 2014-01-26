@@ -1,5 +1,6 @@
 package com.moysport.web;
 
+import java.sql.Timestamp;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,11 +8,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
+
+import utils.UserBinder;
+import utils.UserValidator;
 
 import com.moysport.model.User;
 import com.moysport.model.UserSkill;
@@ -31,9 +38,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/user/new", method = RequestMethod.POST)
-	public String addUser(@ModelAttribute("user") User user, BindingResult result) {
-		userService.addUser(user);
-		return "redirect:/login";
+	public String addUser(@ModelAttribute("user") User user, BindingResult result, WebRequest webRequest) {
+		UserValidator userValidator = new UserValidator(webRequest);
+		userValidator.validate(user, result);
+		if (result.hasErrors()) {
+			return "registration";
+	    }
+        else {	        	
+    		userService.addUser(user);		
+    		return "redirect:/login";
+    		//return "registration";
+        }
+
 	}
 	
 	@RequestMapping("/table_pages/users")
@@ -108,6 +124,11 @@ public class UserController {
 	@RequestMapping(value = "/pages/user/help", method = RequestMethod.GET)
 	public String help(ModelMap model) {
 		return "pages/user/help";
-	}	
+	}
+	
+	@InitBinder
+    protected void initBinder(WebDataBinder dataBinder, WebRequest webRequest) {
+        dataBinder.registerCustomEditor(Timestamp.class, "birthdate", new UserBinder(webRequest));
+    }
 
 }

@@ -35,7 +35,7 @@
 			<div id="contentBlock">
 				<h2>Регистрация</h2>
 				<br/>
-				<form:form method="post" action="user/new" commandName="user">
+				<form:form method="post" action="user/new" modelAttribute="user">
 					<fieldset>
 						<div>
 							<div><form:label path="nickname"><spring:message code="label.login.nickname"/></form:label></div>
@@ -63,8 +63,50 @@
 							</div>
 						</div>
 						<br style="clear: both;"/>
-						<div style="padding-top: 5px;">Дата рождения</div>
-						<form:input path="birthdate" cssClass="inputText" type="date" />
+						
+						
+						<div style="padding-top: 5px;">
+						<form:input path="birthdate" name="birthdate" cssClass="inputText" type="hidden"/>
+							<div style="float: left;">
+								<div>День рождения</div>
+								<select name="day" >
+										<option  value="День" selected="selected">День</option>
+										<c:forEach var="i" begin="1" end="31">
+											<option>${i}</option>
+										</c:forEach>
+								</select>
+							</div>
+							<div style="float: left; margin-left: 25px">
+								<div>Месяц рождения</div>
+								<select name="month">
+										<option value="Месяц" selected="selected">Месяц</option>
+										<option>Январь</option>
+										<option>Февраль</option>
+										<option>Март</option>
+										<option>Апрель</option>
+										<option>Май</option>
+										<option>Июнь</option>
+										<option>Июль</option>
+										<option>Август</option>
+										<option>Сентябрь</option>
+										<option>Октябрь</option>
+										<option>Ноябрь</option>
+										<option>Декабрь</option>
+								</select>
+							</div>
+							<div style="float: left; margin-left: 50px">
+								<div>Год рождения</div>
+								<select name="year" >
+										<option value="Год" selected="selected">Год</option>
+										<c:forEach var="i" begin="1900" end="2010">
+											<option>${i}</option>
+										</c:forEach>
+								</select>
+							</div>
+
+						</div>
+						
+						<br style="clear: both;"/>						
 						<div style="padding-top: 5px;">Телефон</div>
 						<form:input path="mphone" cssClass="inputText" />
 						<div style="padding-top: 5px;">email</div>
