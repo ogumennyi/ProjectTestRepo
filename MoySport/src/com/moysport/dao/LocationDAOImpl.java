@@ -40,8 +40,6 @@ public class LocationDAOImpl implements LocationDAO {
 	}
 	
 	public void updateLocation(Location location) {
-		System.out.println(">>>>"+location.getIdlocation());
-		System.out.println(">>>>"+location.getName());
 		// Retrieve existing location via id
 		Location existingLocation = (Location) sessionFactory.getCurrentSession().get(Location.class, location.getIdlocation());
 		// Assign updated values to this location
