@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.moysport.model.Event;
 import com.moysport.model.Location;
 import com.moysport.model.User;
 import com.moysport.service.LocationService;
