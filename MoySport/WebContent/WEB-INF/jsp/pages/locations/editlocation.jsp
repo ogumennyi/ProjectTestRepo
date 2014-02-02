@@ -11,6 +11,7 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/button.css" media="screen" />
 	</head>
 	<body>
 		<div id="view">
@@ -20,80 +21,82 @@
 			<div id="content">
 				<div id="dataBlock">
 					<form:form action="${pageContext.request.contextPath}/pages/locations/editlocation" method="post" modelAttribute="location">
-						<table>
-							<tr>
-								<td width="100%" valign="top">
-									<table class="textFont" style="padding: 10px">
-										<tr>
-											<th class="heading" colspan="2" align="left">Создание локации</th>
-										</tr>
-										<tr>
-											<td class="fldName">ID Локации:</td>
-											<td class="fldText"><form:input type="text" path="idlocation" cssClass="inputText"/></td>
-										</tr>
-										<tr>
-											<td class="fldName">Название локации:</td>
-											<td class="fldText"><form:input type="text" path="name" cssClass="inputText"/></td>
-										</tr>
-										<tr>
-											<td class="fldName">Страна:</td>
-											<td class="fldText"><form:input type="text" path="country" cssClass="inputText" /></td>
-										</tr>
-										
-										<tr>
-											<td class="fldName">Регион:</td>
-											<td class="fldText"><form:input type="text" path="region" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Город:</td>
-											<td class="fldText"><form:input type="text" path="city" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Район:</td>
-											<td class="fldText"><form:input type="text" path="district" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Улица:</td>
-											<td class="fldText"><form:input type="text" path="street" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Дом:</td>
-											<td class="fldText"><form:input type="text" path="building" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Почтовый Индекс:</td>
-											<td class="fldText"><form:input type="text" path="zip" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Описание объекта:</td>
-											<td class="fldText"><form:input type="text" path="description" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Контакты:</td>
-											<td class="fldText"><form:input type="text" path="contacts" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">web-site:</td>
-											<td class="fldText"><form:input type="text" path="httplink" cssClass="inputText" /></td>
-										</tr>
-										<tr>
-											<td class="fldName">Статус Локации:</td>
-											<td class="fldText">
-												<form:select path="status" cssClass="inputText">
-													<option <c:if test="${location.status == 'BLACK'}">selected="selected"</c:if> value="BLACK">BLACK</option>
-													<option <c:if test="${location.status == 'WHITE'}">selected="selected"</c:if> value="WHITE">WHITE</option>
-												</form:select>
-											</td>
-										</tr>
-										
-										
-										<tr>
-											<td class="fldName" colspan="2" align="left"><input type="submit" class="submit" value="Сохранить" style="cursor: pointer;"></td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
+						<div style="background-color: #EEEFE3; border:1px solid grey; border-radius: 5px;">
+							<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
+								<form:input path="idlocation" type="hidden" value="${location.idlocation}" />
+								<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%"><b>Локации №:</b></div>
+									<div class="usr_tmplt_txt_r"><b>${location.idlocation}</b></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Название локации:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="name" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Страна:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="country" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Регион:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="region" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Город:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="city" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Район:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="district" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Улица:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="street" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Дом:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="building" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Почтовый Индекс:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="zip" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Контакты:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="contacts" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">web-site:</div>
+									<div class="usr_tmplt_txt_r"><form:input path="httplink" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Статус Локации:</div>
+									<div class="usr_tmplt_txt_r">
+										<form:select  path="status" cssClass="inputText" style="border-color: #A4A4A4; height: 23px; padding:3px 5px 4px 5px;">
+											<option <c:if test="${location.status == 'BLACK'}">selected="selected"</c:if> value="BLACK">BLACK</option>
+											<option <c:if test="${location.status == 'WHITE'}">selected="selected"</c:if> value="WHITE">WHITE</option>
+										</form:select>
+									</div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Описание объекта:</div>
+									<div class="usr_tmplt_txt_r"><form:textarea type="text" path="description"	cols="50" rows="10" class="inputText" style="border-color: #A4A4A4; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+							</div>
+						</div>
+						<div style="width: 100%;"><div style="float: right;"><input type="submit" class="srchBtn" value="Сохранить" style="cursor: pointer; width: 100px; margin-top: 15px"/></div><br style="clear: both;"/></div>
 					</form:form>
 				</div>
 				<jsp:include page="../../templates/cabinet.jsp"/>
