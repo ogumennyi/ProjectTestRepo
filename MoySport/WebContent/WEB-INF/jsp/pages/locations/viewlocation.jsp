@@ -28,6 +28,11 @@
 								<div class="usr_tmplt_txt_clr"></div>
 							</div>
 							<div style="padding: 5px 20px 0px 20px;">
+								<div class="usr_tmplt_txt_l" style="width:30%">Кол-во мероприятий:</div>
+								<div class="usr_tmplt_txt_r">${location.checkin}</div>
+								<div class="usr_tmplt_txt_clr"></div>
+							</div>
+							<div style="padding: 5px 20px 0px 20px;">
 								<div class="usr_tmplt_txt_l" style="width:30%">Страна:</div>
 								<div class="usr_tmplt_txt_r">${location.country}</div>
 								<div class="usr_tmplt_txt_clr"></div>
