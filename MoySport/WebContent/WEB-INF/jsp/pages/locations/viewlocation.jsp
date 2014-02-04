@@ -20,6 +20,7 @@
 			</jsp:include>
 			<div id="content">
 				<div id="dataBlock">
+					<h3>Информация о локации</h3>
 					<div style="background-color: #EEEFE3; border:1px solid grey; border-radius: 5px;">
 						<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
 							<div style="padding: 5px 20px 0px 20px;">

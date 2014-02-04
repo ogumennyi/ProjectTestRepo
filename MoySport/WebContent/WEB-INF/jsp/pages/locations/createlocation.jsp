@@ -20,6 +20,7 @@
 			</jsp:include>
 			<div id="content">
 				<div id="dataBlock">
+					<h3>Создание локации</h3>
 					<form:form action="${pageContext.request.contextPath}/pages/locations/createlocation" method="post" modelAttribute="location">
 					<div style="background-color: #EEEFE3; border:1px solid grey; border-radius: 5px;">
 							<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">

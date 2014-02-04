@@ -20,15 +20,16 @@
 			</jsp:include>
 			<div id="content">
 				<div id="dataBlock">
+					<h3>Редактирование локации</h3>
 					<form:form action="${pageContext.request.contextPath}/pages/locations/editlocation" method="post" modelAttribute="location">
 						<div style="background-color: #EEEFE3; border:1px solid grey; border-radius: 5px;">
 							<div class="usr_tmplt_txt" style="width:100%; margin-bottom:10px;">
 								<form:input path="idlocation" type="hidden" value="${location.idlocation}" />
-								<div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;">
+								<%-- <div class="usr_tmplt_txt_h" style="padding: 10px 20px 10px 20px;">
 									<div class="usr_tmplt_txt_l" style="width:30%"><b>Локации №:</b></div>
 									<div class="usr_tmplt_txt_r"><b>${location.idlocation}</b></div>
 									<div class="usr_tmplt_txt_clr"></div>
-								</div>
+								</div> --%>
 								<div style="padding: 5px 20px 0px 20px;">
 									<div class="usr_tmplt_txt_l" style="width:30%">Название локации:</div>
 									<div class="usr_tmplt_txt_r"><form:input path="name" cssClass="inputText" style="border-color: #A4A4A4; height: 13px; padding:3px 5px 4px 5px;" /></div>
@@ -92,6 +93,17 @@
 								<div style="padding: 5px 20px 0px 20px;">
 									<div class="usr_tmplt_txt_l" style="width:30%">Описание объекта:</div>
 									<div class="usr_tmplt_txt_r"><form:textarea type="text" path="description"	cols="50" rows="10" class="inputText" style="border-color: #A4A4A4; padding:3px 5px 4px 5px;" /></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Кем создано:</div>
+									<%-- <div class="usr_tmplt_txt_r">${location.idcreatedby}</div> --%>
+									<div class="usr_tmplt_txt_r"><a href="${pageContext.request.contextPath}/pages/players/viewplayer/${location.createdby.iduser}">${location.createdby.firstname} ${location.createdby.lastname}</a></div>
+									<div class="usr_tmplt_txt_clr"></div>
+								</div>
+								<div style="padding: 5px 20px 0px 20px;">
+									<div class="usr_tmplt_txt_l" style="width:30%">Дата создания:</div>
+									<div class="usr_tmplt_txt_r">${location.creationdate}</div>
 									<div class="usr_tmplt_txt_clr"></div>
 								</div>
 							</div>
