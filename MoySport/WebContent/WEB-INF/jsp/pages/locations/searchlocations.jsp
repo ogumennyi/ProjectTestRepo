@@ -21,60 +21,58 @@
 			<div id="content">
 				<div id="contentBlock">
 					<h2>Поиск локации</h2>
-					<br>
-					<form action="#" method="post">
-						<fieldset>
-							<div>
-								<div style="float: left; margin-right: 25px">
-									<div>Вид Спорта</div>
-									<select name="sport_type" class="inputText">
-										<option selected>Все виды
-										<option>Футбол
-										<option>Баскетбол
-										<option>Хоккей
-										<option>Плавание
-									</select>
+					<div style="background-image: -webkit-linear-gradient(top, #E8C6BA 0%, #BD8E73 50%, #E8C6BA 100%); text-align: center; border-radius: 5px;">
+					<br/>
+					<form method="post" action="${pageContext.request.contextPath}/events/search">
+						<div>
+							<div style="text-align: center; width: 100%">
+								<div style="float: left; margin: 0px 25px 0px 40px">
+									<div>
+										<select name="idsport" class="inputText searchselect" style="margin: 0px;">
+											<option <c:if test="${idsport == ''}">selected="selected"</c:if> value="">Все виды спорта</option>
+											<c:forEach items="${sportList}" var="sport">
+												<option <c:if test="${sport.idsport == idsport}">selected="selected"</c:if> value="${sport.idsport}">${sport.name}</option>
+											</c:forEach>
+										</select>
+									</div>
 								</div>
 								<div style="float: left;">
-									<div>Название Локация</div>
-									<input type="text" value="" class="inputText">
+									<input name="keyword" type="text" value="${keyword}" class="inputText searchinput" style="width: 200px;" placeholder="Ключевая фраза"/>
 								</div>
 							</div>
-	
-							<br style="clear: both;">
-							<br style="clear: both;">
-							<div>
-								<div style="float: left; margin-right: 25px">
-									<div>Город</div>
-									<input type="text" value="" class="inputText">
+							<br style="clear: both;"/>
+							<div style="padding-top:5px">
+								<div style="float: left; margin: 0px 25px 0px 40px">
+									<input name="ev_date" type="text" value="" class="inputText searchinput" placeholder="Дата"/>
 								</div>
 								<div style="float: left;">
-									<div>Улица</div>
-									<input type="text" value="" class="inputText">
+									<input name="location" type="text" value="${location}" class="inputText searchinput" placeholder="Локация"/>
 								</div>
-							</div>
-							<br style="clear: both;"> <br style="clear: both;">
-	
-							<div>
+							</div>	
+							<br style="clear: both;"/>
+							<div style="padding-top:5px">
+								<div style="float: left; margin: 0px 25px 0px 40px">
+									<input type="text" value="" class="inputText searchinput" placeholder="Город"/>
+								</div>
 								<div style="float: left;">
-									<input type="checkbox" name="" value="">Искать в моем городе
+									<input type="text" value="" class="inputText searchinput" placeholder="Улица"/>
 								</div>
 							</div>
-							<br style="clear: both;"> <br style="clear: both;">
-							<div>
-								<div style="float: left;">
-									<input type="checkbox" name="" value="">Искать поля, где играют друзья
-								</div>
-							</div>
-							<br style="clear: both;"> <br style="clear: both;">
-							<p>
-								<input type="submit" class="submit" value="Найти">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/pages/locations/createlocation"><b>Создать новую локацию</b></a>
-							</p>
-						</fieldset>
-						<br>
+							<br style="clear: both;"/>
+						</div>
+						<div style="padding: 15px 0px">
+							<input type="submit" class="srchBtn" value="Найти" style="cursor: pointer;"/>
+						</div>
 					</form>
-	
-					<p>Пример вывода результатов поиска локаций</p>
+				</div>
+				<div>
+					<div style="float: right; margin: 5px 0px 0px 20px;">
+						<a href="${pageContext.request.contextPath}/pages/locations/createlocation"><b>Создать новую локацию</b></a>
+					</div>
+					<br style="clear: both;"/>
+				</div>
+				
+				<div><h6>Результаты поиска:</h6></div>
 					<table class="regular">
 						<tr>
 							<td><b>Локация</b></td>
