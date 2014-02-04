@@ -33,7 +33,7 @@
 						<div style="padding: 5px 20px 0px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Комментарии:</div><div class="usr_tmplt_txt_r">${eventgame.comments}</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 5px 20px 10px 20px;"><div class="usr_tmplt_txt_l" style="width:30%">Участники:</div><div class="usr_tmplt_txt_r" style="width:70%">
 							<c:forEach items="${eventgame.gameparties}" var="gameparty">
-								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${eventgame.idgame}">${gameparty.user.firstname}&nbsp;${gameparty.user.lastname}</a>, 
+								<a href="${pageContext.request.contextPath}/pages/players/viewplayer/${gameparty.user.iduser}">${gameparty.user.firstname}&nbsp;${gameparty.user.lastname}</a>, 
 							</c:forEach>
 						</div><div class="usr_tmplt_txt_clr"></div></div>
 						<div style="padding: 0px 20px;">
