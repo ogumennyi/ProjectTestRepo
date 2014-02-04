@@ -49,9 +49,11 @@ public class LocationController {
 		Timestamp sysdate = new Timestamp(new Date().getTime());
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		location.setCheckin(0);
-		location.setIdchangeby(user.getIduser());
+		//location.setIdchangeby(user.getIduser());
+		location.setChangeby(user);
 		location.setChangedate(sysdate);
-		location.setIdcreatedby(user.getIduser());
+		location.setCreatedby(user);
+		//location.setIdcreatedby(user.getIduser());
 		location.setCreationdate(sysdate);
 		locationService.addLocations(location);
 		
@@ -86,7 +88,8 @@ public class LocationController {
 			BindingResult result, Map<String, Object> map) {
 		Timestamp sysdate = new Timestamp(new Date().getTime());
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		location.setIdchangeby(user.getIduser());
+		//location.setIdchangeby(user.getIduser());
+		location.setChangeby(user);
 		location.setChangedate(sysdate);
 		locationService.updateLocation(location);
 		

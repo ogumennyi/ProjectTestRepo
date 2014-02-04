@@ -57,7 +57,8 @@ public class LocationDAOImpl implements LocationDAO {
 		existingLocation.setStatus(location.getStatus());
 		
 		existingLocation.setChangedate(location.getChangedate());
-		existingLocation.setIdchangeby(location.getIdchangeby());
+		existingLocation.setChangeby(location.getChangeby());
+		//existingLocation.setIdchangeby(location.getIdchangeby());
 		
 		// Save updates
 		sessionFactory.getCurrentSession().save(existingLocation);

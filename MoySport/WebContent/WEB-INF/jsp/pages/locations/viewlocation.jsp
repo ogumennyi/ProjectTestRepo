@@ -89,7 +89,8 @@
 							</div>
 							<div style="padding: 5px 20px 0px 20px;">
 								<div class="usr_tmplt_txt_l" style="width:30%">Кем создано:</div>
-								<div class="usr_tmplt_txt_r">${location.idcreatedby}</div>
+								<%-- <div class="usr_tmplt_txt_r">${location.idcreatedby}</div> --%>
+								<div class="usr_tmplt_txt_r"><a href="${pageContext.request.contextPath}/pages/players/viewplayer/${location.createdby.iduser}">${location.createdby.firstname} ${location.createdby.lastname}</a></div>
 								<div class="usr_tmplt_txt_clr"></div>
 							</div>
 							<div style="padding: 5px 20px 0px 20px;">
@@ -99,7 +100,8 @@
 							</div>
 							<div style="padding: 5px 20px 0px 20px;">
 								<div class="usr_tmplt_txt_l" style="width:30%">Кем изменено:</div>
-								<div class="usr_tmplt_txt_r">${location.idchangeby}</div>
+								<div class="usr_tmplt_txt_r"><a href="${pageContext.request.contextPath}/pages/players/viewplayer/${location.changeby.iduser}">${location.changeby.firstname} ${location.changeby.lastname}</a></div>
+								<%-- <div class="usr_tmplt_txt_r">${location.idchangeby}</div> --%>
 								<div class="usr_tmplt_txt_clr"></div>
 							</div>
 							<div style="padding: 5px 20px 0px 20px;">

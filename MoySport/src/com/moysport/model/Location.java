@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -60,8 +61,8 @@ public class Location {
 	@Column(name = "CHECKIN")
 	private Integer checkin;
 	
-	@Column(name = "IDCREATEDBY")
-	private Integer idcreatedby;
+	/*@Column(name = "IDCREATEDBY")
+	private Integer idcreatedby;*/
 	
 	@Column(name = "CREATIONDATE")
 	private Timestamp creationdate;
@@ -69,8 +70,8 @@ public class Location {
 	@Column(name = "CHANGEDATE")
 	private Timestamp changedate;
 	
-	@Column(name = "IDCHANGEBY")
-	private Integer idchangeby;
+	/*@Column(name = "IDCHANGEBY")
+	private Integer idchangeby;*/
 	
 	@Column(name = "TAG")
 	private String tag;
@@ -87,6 +88,30 @@ public class Location {
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDLOCATION")
 	private Set<Event> events;
+	
+	@ManyToOne
+	@JoinColumn(name = "IDCREATEDBY", nullable = false)
+	private User createdby;
+	
+	public User getCreatedby() {
+		return createdby;
+	}
+
+	public void setCreatedby(User createdby) {
+		this.createdby = createdby;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "IDCHANGEBY", nullable = false)
+	private User changeby;
+	
+	public User getChangeby() {
+		return changeby;
+	}
+
+	public void setChangeby(User changeby) {
+		this.changeby = changeby;
+	}
 
 	public Integer getIdlocation() {
 		return idlocation;
@@ -208,13 +233,13 @@ public class Location {
 		this.checkin = checkin;
 	}
 
-	public Integer getIdcreatedby() {
+	/*public Integer getIdcreatedby() {
 		return idcreatedby;
 	}
 
 	public void setIdcreatedby(Integer idcreatedby) {
 		this.idcreatedby = idcreatedby;
-	}
+	}*/
 
 	public Timestamp getCreationdate() {
 		return creationdate;
@@ -232,13 +257,13 @@ public class Location {
 		this.changedate = changedate;
 	}
 
-	public Integer getIdchangeby() {
+	/*public Integer getIdchangeby() {
 		return idchangeby;
 	}
 
 	public void setIdchangeby(Integer idchangeby) {
 		this.idchangeby = idchangeby;
-	}
+	}*/
 
 	public String getLatitude() {
 		return latitude;
@@ -263,8 +288,6 @@ public class Location {
 	public void setPic(String pic) {
 		this.pic = pic;
 	}
-	
-	
 	
 	public Set<Event> getEvents() {
 		return events;
