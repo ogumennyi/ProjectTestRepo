@@ -1,6 +1,5 @@
 package com.moysport.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -9,8 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.moysport.dao.LocationDAO;
-import com.moysport.model.Event;
-import com.moysport.model.EventGame;
 import com.moysport.model.Location;
 
 @Service
