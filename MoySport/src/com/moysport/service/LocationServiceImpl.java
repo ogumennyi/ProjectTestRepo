@@ -1,5 +1,6 @@
 package com.moysport.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -28,6 +29,18 @@ public class LocationServiceImpl implements LocationService {
 			Hibernate.initialize(location.getEvents());
 		}
 		return locationsList;
+	}
+	
+	@Transactional
+	public List<Location> searchLocations(HashMap<String, String> params) {
+		List<Location> locationList = locationDAO.listLocations(params);
+		/*for (Location location : locationList) {
+			Hibernate.initialize(location.get.getEventgames());
+			for (EventGame eventgames : event.getEventgames()) {
+				eventgames.setGamePartiesCount(eventgames.getGameparties().size());
+			}
+		}*/
+		return locationList;
 	}
 
 	

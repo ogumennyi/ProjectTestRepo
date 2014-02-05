@@ -1,5 +1,7 @@
 package com.moysport.dao;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -22,6 +24,23 @@ public class LocationDAOImpl implements LocationDAO {
 	@SuppressWarnings("unchecked")
 	public List<Location> listLocations() {
 		return sessionFactory.getCurrentSession().createQuery("from Location").list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Location> listLocations(HashMap<String, String> params) {
+		String sql = "from Location";
+		Iterator<String> i = params.keySet().iterator();
+		boolean isFirst = true;
+		while (i.hasNext()) {
+			String key = i.next();
+			if (isFirst) {
+				sql += " where " + params.get(key);
+				isFirst = false;
+			} else {
+				sql += " and " + params.get(key);
+			}
+		}
+		return sessionFactory.getCurrentSession().createQuery(sql).list();
 	}
 
 	public void removeLocations(Integer id) {

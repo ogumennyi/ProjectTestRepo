@@ -2,6 +2,7 @@ package com.moysport.web;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +18,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.moysport.model.Location;
 import com.moysport.model.User;
 import com.moysport.service.LocationService;
+import com.moysport.service.SportService;
 
 @Controller
 public class LocationController {
 	
 	@Autowired
 	private LocationService locationService;
+	@Autowired
+	SportService sportService;
 	
 	@RequestMapping(value = "/pages/locations/searchlocations", method = RequestMethod.GET)
 	public String searchlocations(Map<String, Object> map) {
 		map.put("locationsList", locationService.listLocations());
+		map.put("sportList", sportService.listSport());
 		return "pages/locations/searchlocations";
 	}
 	
-	
+	@RequestMapping(value = "/locations/search", method = RequestMethod.POST)
+	public String searchlocations(@RequestParam("idsport") String idsport, @RequestParam("keyword") String keyword,
+			Map<String, Object> map) {
+		map.put("sportList", sportService.listSport());
+		HashMap<String, String> params = new HashMap<String, String>();
+		/*if (idsport != null && idsport.length() > 0)
+			params.put("idsport", "sport.idsport='" + idsport + "'");*/
+		if (keyword != null && keyword.length() > 0)
+			params.put("keyword", "name like '%" + keyword + "%'");
+		map.put("locationsList", locationService.searchLocations(params));
+		map.put("idsport", idsport);
+		//map.put("location", location);
+		map.put("keyword", keyword);
+		return "pages/locations/searchlocations";
+	}
 	
 	
 	

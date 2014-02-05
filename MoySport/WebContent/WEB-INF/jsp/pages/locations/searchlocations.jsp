@@ -23,7 +23,7 @@
 					<h2>Поиск локации</h2>
 					<div style="background-image: -webkit-linear-gradient(top, #E8C6BA 0%, #BD8E73 50%, #E8C6BA 100%); text-align: center; border-radius: 5px;">
 					<br/>
-					<form method="post" action="${pageContext.request.contextPath}/events/search">
+					<form method="post" action="${pageContext.request.contextPath}/locations/search">
 						<div>
 							<div style="text-align: center; width: 100%">
 								<div style="float: left; margin: 0px 25px 0px 40px">
