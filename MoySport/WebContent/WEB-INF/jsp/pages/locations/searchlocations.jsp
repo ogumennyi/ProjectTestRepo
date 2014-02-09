@@ -26,7 +26,7 @@
 					<form method="post" action="${pageContext.request.contextPath}/locations/search">
 						<div>
 							<div style="text-align: center; width: 100%">
-								<div style="float: left; margin: 0px 25px 0px 40px">
+								<%-- <div style="float: left; margin: 0px 25px 0px 40px">
 									<div>
 										<select name="idsport" class="inputText searchselect" style="margin: 0px;">
 											<option <c:if test="${idsport == ''}">selected="selected"</c:if> value="">Все виды спорта</option>
@@ -35,27 +35,39 @@
 											</c:forEach>
 										</select>
 									</div>
+								</div> --%>
+								<div style="float: left; margin: 0px 25px 0px 40px">
+									<input name="keyword" type="text" value="${keyword}" class="inputText searchinput" style="width: 200px;" placeholder="Ключевая фраза"/>
 								</div>
 								<div style="float: left;">
-									<input name="keyword" type="text" value="${keyword}" class="inputText searchinput" style="width: 200px;" placeholder="Ключевая фраза"/>
+									<input name="sp_city" type="text" value="${sp_city}" class="inputText searchinput" placeholder="Город"/>
 								</div>
 							</div>
 							<br style="clear: both;"/>
 							<div style="padding-top:5px">
 								<div style="float: left; margin: 0px 25px 0px 40px">
-									<input name="ev_date" type="text" value="" class="inputText searchinput" placeholder="Дата"/>
+									<input name="sp_district" type="text" value="${sp_district}" class="inputText searchinput" placeholder="Район"/>
 								</div>
 								<div style="float: left;">
-									<input name="location" type="text" value="${location}" class="inputText searchinput" placeholder="Локация"/>
+									<input name="sp_street" type="text" value="${sp_street}" class="inputText searchinput" placeholder="Улица"/>
 								</div>
 							</div>	
 							<br style="clear: both;"/>
 							<div style="padding-top:5px">
 								<div style="float: left; margin: 0px 25px 0px 40px">
-									<input type="text" value="" class="inputText searchinput" placeholder="Город"/>
+									<input name="sp_building" type="text" value="${sp_building}" class="inputText searchinput" placeholder="Дом"/>
 								</div>
 								<div style="float: left;">
-									<input type="text" value="" class="inputText searchinput" placeholder="Улица"/>
+									<input name="sp_contacts" type="text" value="${sp_contacts}" class="inputText searchinput" placeholder="Контакты"/>
+								</div>
+							</div>
+							<br style="clear: both;"/>
+							<div style="padding-top:5px">
+								<div style="float: left; margin: 0px 25px 0px 40px">
+									<input name="sp_httplink" type="text" value="${sp_httplink}" class="inputText searchinput" placeholder="Web-Site"/>
+								</div>
+								<div style="float: left;">
+									<input name="sp_description" type="text" value="${sp_description}" class="inputText searchinput" placeholder="Описание объекта"/>
 								</div>
 							</div>
 							<br style="clear: both;"/>

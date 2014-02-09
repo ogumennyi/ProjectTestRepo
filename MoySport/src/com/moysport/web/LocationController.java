@@ -36,18 +36,53 @@ public class LocationController {
 	}
 	
 	@RequestMapping(value = "/locations/search", method = RequestMethod.POST)
-	public String searchlocations(@RequestParam("idsport") String idsport, @RequestParam("keyword") String keyword,
-			Map<String, Object> map) {
+	public String searchlocations( @RequestParam("keyword") String keyword
+									, @RequestParam("sp_city") String sp_city
+									, @RequestParam("sp_district") String sp_district
+									, @RequestParam("sp_street") String sp_street
+									, @RequestParam("sp_building") String sp_building
+									, @RequestParam("sp_contacts") String sp_contacts
+									, @RequestParam("sp_httplink") String sp_httplink
+									, @RequestParam("sp_description") String sp_description
+									//, @RequestParam("idsport") String idsport
+									, Map<String, Object> map) {
 		map.put("sportList", sportService.listSport());
 		HashMap<String, String> params = new HashMap<String, String>();
+		
 		/*if (idsport != null && idsport.length() > 0)
 			params.put("idsport", "sport.idsport='" + idsport + "'");*/
+		
+		
 		if (keyword != null && keyword.length() > 0)
 			params.put("keyword", "name like '%" + keyword + "%'");
+		if (sp_city != null && sp_city.length() > 0)
+			params.put("sp_city", "city like '%" + sp_city + "%'");
+		if (sp_district != null && sp_district.length() > 0)
+			params.put("sp_district", "district like '%" + sp_district + "%'");
+		if (sp_street != null && sp_street.length() > 0)
+			params.put("sp_street", "street like '%" + sp_street + "%'");
+		if (sp_building != null && sp_building.length() > 0)
+			params.put("sp_building", "building like '%" + sp_building + "%'");
+		if (sp_contacts != null && sp_contacts.length() > 0)
+			params.put("sp_contacts", "contacts like '%" + sp_contacts + "%'");
+		if (sp_httplink != null && sp_httplink.length() > 0)
+			params.put("sp_httplink", "httplink like '%" + sp_httplink + "%'");
+		if (sp_description != null && sp_description.length() > 0)
+			params.put("sp_description", "description like '%" + sp_description + "%'");
+		
+		
+		
 		map.put("locationsList", locationService.searchLocations(params));
-		map.put("idsport", idsport);
+		//map.put("idsport", idsport);
 		//map.put("location", location);
 		map.put("keyword", keyword);
+		map.put("sp_city", sp_city);
+		map.put("sp_district", sp_district);
+		map.put("sp_street", sp_street);
+		map.put("sp_building", sp_building);
+		map.put("sp_contacts", sp_contacts);
+		map.put("sp_httplink", sp_httplink);
+		map.put("sp_description", sp_description);
 		return "pages/locations/searchlocations";
 	}
 	
