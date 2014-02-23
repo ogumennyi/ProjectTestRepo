@@ -17,6 +17,7 @@
         <mapping class="com.moysport.model.Location" />
         <mapping class="com.moysport.model.Training" /> 
         <mapping class="com.moysport.model.TrainingWeek" />
+        <mapping class="com.moysport.model.LocationSport" />
     </session-factory>
 	    
 </hibernate-configuration>

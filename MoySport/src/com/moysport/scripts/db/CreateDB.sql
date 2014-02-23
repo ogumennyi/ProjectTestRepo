@@ -109,6 +109,22 @@ DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
+-- Table `LOCSPORTS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `LOCATIONSPORT` ;
+
+SHOW WARNINGS;
+CREATE TABLE IF NOT EXISTS `LOCATIONSPORT` (
+  `IDLS` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'Унікальний ключ.\nАвтоматично генерується системою при додаванні нового запису, закрите для редагування та відображення\nTable Description: таблиця LOCATIONSPORT призначена для реалізації звязку багато до багатьох між таблицями LOCATIONS і SPORTS.',
+  `IDSPORT` INT(11) NULL DEFAULT NULL COMMENT 'ID вида спорта',
+  `IDLOCATION` INT(11) NULL DEFAULT NULL COMMENT 'ID локации',
+  PRIMARY KEY (`IDLS`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
 -- Table `EVENTS`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `EVENTS` ;
@@ -421,3 +437,22 @@ INSERT INTO `userskill` (`ID`,`IDUSER`,`IDSPORT`,`ACTCNT`,`LASTACTDATE`,`ACTRATI
 INSERT INTO `userskill` (`ID`,`IDUSER`,`IDSPORT`,`ACTCNT`,`LASTACTDATE`,`ACTRATING`,`ACTRATINGCNT`,`PERFMARK`,`SELFRATING`,`CHANGEDATE`,`IDCHANGEBY`) VALUES (3,3,1,3,'2013-06-16 09:24:00',30.00,40,5.00,8,'2013-03-16 09:24:00',3);
 INSERT INTO `userskill` (`ID`,`IDUSER`,`IDSPORT`,`ACTCNT`,`LASTACTDATE`,`ACTRATING`,`ACTRATINGCNT`,`PERFMARK`,`SELFRATING`,`CHANGEDATE`,`IDCHANGEBY`) VALUES (4,4,1,3,'2013-06-16 09:24:00',30.00,40,5.00,8,'2013-02-16 09:24:00',4);
 
+-- Query: SELECT * FROM mysport.locationsport
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '2');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '3');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '4');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '5');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('1', '7');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('2', '6');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('3', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('4', '6');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('4', '4');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('5', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('6', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('7', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('8', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('9', '1');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('9', '2');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('9', '3');
+INSERT INTO `mysport`.`locationsport` (`IDSPORT`, `IDLOCATION`) VALUES ('9', '5');
