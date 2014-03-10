@@ -87,6 +87,18 @@ public class Location {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDLOCATION")
+	private Set<LocationSport> locationsports;
+	
+	public Set<LocationSport> getLocationsports() {
+		return locationsports;
+	}
+
+	public void setLocationsports(Set<LocationSport> locationsports) {
+		this.locationsports = locationsports;
+	}
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name="IDLOCATION")
 	private Set<Event> events;
 	
 	@ManyToOne
