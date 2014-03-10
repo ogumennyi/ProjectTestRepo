@@ -7,8 +7,14 @@
 <head>
 <title>Мой Спорт</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/default.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/default.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/print.css" media="print" />
+<style>
+      .error {
+        color: #ff0000;
+        font-weight: bold;
+      }
+</style>
 </head>
 <body>
 	<div id="view">
@@ -35,11 +41,14 @@
 			<div id="contentBlock">
 				<h2>Регистрация</h2>
 				<br/>
-				<form:form method="post" action="user/new" modelAttribute="user">
+				<form:form method="post" action="${pageContext.request.contextPath}/user/new" modelAttribute="user">
 					<fieldset>
 						<div>
 							<div><form:label path="nickname"><spring:message code="label.login.nickname"/></form:label></div>
 							<form:input path="nickname" cssClass="inputText" />
+						</div>
+						<div style="padding-top: 5px;">
+							<form:errors path="nickname" cssClass="error" />						
 						</div>
 						<div style="padding-top: 5px;">
 							<div style="float: left;">
@@ -59,12 +68,12 @@
 							</div>
 							<div style="float: left; margin-left: 25px">
 								<div>Повторите пароль</div>
-								<input type="text" value="" class="inputText"/>
+								<input type="text" name="confirm_password" value="" class="inputText"/>
 							</div>
 						</div>
 						<br style="clear: both;"/>
-						
-						
+						<div style="padding-top: 5px;"></div>
+						<form:errors path="pwd" cssClass="error" />					
 						<div style="padding-top: 5px;">
 						<form:input path="birthdate" name="birthdate" cssClass="inputText" type="hidden"/>
 							<div style="float: left;">
@@ -103,14 +112,20 @@
 										</c:forEach>
 								</select>
 							</div>
-
+							<div style="float: left; margin-left: 75px">
+								<div style="float: left; margin-left: 75px">
+								<form:errors path="birthdate" cssClass="error" />
+							</div>
+							</div>
 						</div>
 						
 						<br style="clear: both;"/>						
 						<div style="padding-top: 5px;">Телефон</div>
 						<form:input path="mphone" cssClass="inputText" />
-						<div style="padding-top: 5px;">email</div>
+						<div style="padding-top: 5px;">email</div>						
 						<form:input path="email" cssClass="inputText" />
+						<div style="padding-top: 5px;"></div>
+						<form:errors path="email" cssClass="error" />
 						<br/><br/>
 						<p>
 							<input type="submit" class="submit" value="Зарегистрироваться" style="cursor: pointer;"/>
