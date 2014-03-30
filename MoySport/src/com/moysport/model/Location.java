@@ -1,6 +1,7 @@
 package com.moysport.model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -85,7 +88,7 @@ public class Location {
 	@Column(name = "PIC")
 	private String pic;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	/*@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDLOCATION")
 	private Set<LocationSport> locationsports;
 	
@@ -95,7 +98,7 @@ public class Location {
 
 	public void setLocationsports(Set<LocationSport> locationsports) {
 		this.locationsports = locationsports;
-	}
+	}*/
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="IDLOCATION")
@@ -307,6 +310,20 @@ public class Location {
 
 	public void setEvents(Set<Event> events) {
 		this.events = events;
+	}
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "LOCATIONSPORT", joinColumns = { 
+			@JoinColumn(name = "IDLOCATION") }, 
+			inverseJoinColumns = { @JoinColumn(name = "IDSPORT") })
+	private Set<Sport> sports = new HashSet<Sport>();
+	
+	public Set<Sport> getSports() {
+		return this.sports;
+	}
+ 
+	public void setCategories(Set<Sport> sports) {
+		this.sports = sports;
 	}
 	
 }

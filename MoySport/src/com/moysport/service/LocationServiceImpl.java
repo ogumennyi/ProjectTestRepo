@@ -19,10 +19,9 @@ public class LocationServiceImpl implements LocationService {
 
 	@Transactional
 	public List<Location> listLocations() {
-		//return locationDAO.listLocations();
 		List<Location> locationsList = locationDAO.listLocations();
 		for (Location location : locationsList) {
-			Hibernate.initialize(location.getLocationsports());
+			Hibernate.initialize(location.getSports());
 		}
 		return locationsList;
 	}
@@ -31,7 +30,7 @@ public class LocationServiceImpl implements LocationService {
 	public List<Location> searchLocations() {
 		List<Location> locationsList = locationDAO.listLocations();
 		for (Location location : locationsList) {
-			Hibernate.initialize(location.getLocationsports());
+			Hibernate.initialize(location.getSports());
 		}
 		return locationsList;
 	}
@@ -40,7 +39,7 @@ public class LocationServiceImpl implements LocationService {
 	public List<Location> searchLocations(HashMap<String, String> params) {
 		List<Location> locationsList = locationDAO.listLocations(params);
 		for (Location location : locationsList) {
-			Hibernate.initialize(location.getLocationsports());
+			Hibernate.initialize(location.getSports());
 		}
 		return locationsList;
 	}
@@ -59,7 +58,7 @@ public class LocationServiceImpl implements LocationService {
 	@Transactional
 	public Location get( int idlocation ){
 		Location location = locationDAO.getLocationId(idlocation);
-		Hibernate.initialize(location.getLocationsports());
+		Hibernate.initialize(location.getSports());
 		return location;
 	}
 	

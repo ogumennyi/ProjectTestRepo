@@ -44,14 +44,9 @@ public class LocationController {
 									, @RequestParam("sp_contacts") String sp_contacts
 									, @RequestParam("sp_httplink") String sp_httplink
 									, @RequestParam("sp_description") String sp_description
-									//, @RequestParam("idsport") String idsport
 									, Map<String, Object> map) {
 		map.put("sportList", sportService.listSport());
 		HashMap<String, String> params = new HashMap<String, String>();
-		
-		/*if (idsport != null && idsport.length() > 0)
-			params.put("idsport", "sport.idsport='" + idsport + "'");*/
-		
 		
 		if (keyword != null && keyword.length() > 0)
 			params.put("keyword", "name like '%" + keyword + "%'");
@@ -73,8 +68,6 @@ public class LocationController {
 		
 		
 		map.put("locationsList", locationService.searchLocations(params));
-		//map.put("idsport", idsport);
-		//map.put("location", location);
 		map.put("keyword", keyword);
 		map.put("sp_city", sp_city);
 		map.put("sp_district", sp_district);
@@ -90,8 +83,8 @@ public class LocationController {
 	
 	@RequestMapping(value = "/pages/locations/createlocation", method = RequestMethod.GET)
 	public String createlocation(Map<String, Object> map) {
-		System.out.println(">>>In Post");
 		map.put("location", new Location());
+		map.put("sportList", sportService.listSport());
 		return "pages/locations/createlocation";
 	}
 	
@@ -102,11 +95,9 @@ public class LocationController {
 		Timestamp sysdate = new Timestamp(new Date().getTime());
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		location.setCheckin(0);
-		//location.setIdchangeby(user.getIduser());
 		location.setChangeby(user);
 		location.setChangedate(sysdate);
 		location.setCreatedby(user);
-		//location.setIdcreatedby(user.getIduser());
 		location.setCreationdate(sysdate);
 		locationService.addLocations(location);
 		
@@ -115,7 +106,8 @@ public class LocationController {
 	
 	@RequestMapping(value = "/pages/locations/viewlocation/{idlocation}", method = RequestMethod.GET)
 	public String viewEvent(@PathVariable int idlocation, Map<String, Object> map) {
-		map.put("location", locationService.get(idlocation));
+		Location location = locationService.get(idlocation);
+		map.put("location", location);
 		return "pages/locations/viewlocation";
 	}
 	
@@ -126,12 +118,9 @@ public class LocationController {
 		Location existingLocation =  locationService.get(idlocation);
 		// Add to model
 		map.put("location", existingLocation);
-		/*map.put("idlocation", existingEvent.getLocations().getIdlocation());
-		map.put("idsport", existingEvent.getSport().getIdsport());
+		map.put("sports1", existingLocation.getSports());
 		map.put("sportList", sportService.listSport());
-		map.put("locationList", locationService.listLocations());
-		map.put("eventgames", eventGameService.getAll(idevent));*/
-
+		
 		return "pages/locations/editlocation";
 	}
 
@@ -141,46 +130,11 @@ public class LocationController {
 			BindingResult result, Map<String, Object> map) {
 		Timestamp sysdate = new Timestamp(new Date().getTime());
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		//location.setIdchangeby(user.getIduser());
+		
 		location.setChangeby(user);
 		location.setChangedate(sysdate);
 		locationService.updateLocation(location);
 		
 		return "redirect:/pages/locations/searchlocations";
 	}
-	
-	
-	
-	
-	
-	
-	
-	/*@RequestMapping(value = "/pages/locations/addlocation", method = RequestMethod.POST)
-	public String addlocation(ModelMap model) {
-		return "pages/locations/viewlocation";
-	}
-	
-	
-	
-	
-	
-	@RequestMapping("/table_pages/locations")
-	public String listLocations(Map<String, Object> map) {
-		map.put("locations", new Location());
-		map.put("locationsList", locationService.listLocations());
-		return "table_pages/locations";
-	}
-
-	@RequestMapping(value = "/table_pages/locations/add", method = RequestMethod.POST)
-	public String addLocations(@ModelAttribute("locations") Location locations, BindingResult result) {
-		locationService.addLocations(locations);
-		return "redirect:/table_pages/locations";
-	}
-
-	@RequestMapping(value = "/table_pages/locations/delete", method = RequestMethod.POST)
-	public String deleteLocations(@RequestParam("idlocation") Integer idlocation) {
-		locationService.removeLocations(idlocation);
-		return "redirect:/table_pages/locations";
-	}*/
-
 }

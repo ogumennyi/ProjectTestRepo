@@ -1,9 +1,14 @@
 package com.moysport.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +28,17 @@ public class Sport {
 
 	@Column(name = "HTTPLINK")
 	private String httplink;
+	
+	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "sports")
+	private Set<Location> locations = new HashSet<Location>();
+	
+	public Set<Location> getLocations() {
+		return this.locations;
+	}
+ 
+	public void setLocations(Set<Location> locations) {
+		this.locations = locations;
+	}
 
 	public Integer getIdsport() {
 		return idsport;

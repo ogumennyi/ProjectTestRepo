@@ -122,8 +122,8 @@
 									<div style="float: left; margin: 5px 15px 5px 30px">
 										<div style="float: left; width: 100px;"><B>Виды спорта</B></div>
 										<div style="float: left; width: 200px;">
-											<c:forEach items="${location.locationsports}" var="locationsport" varStatus="elementStatus">
-												<a >${locationsport.sport.name}<c:if test="${elementStatus.last ne true}">, </c:if></a>
+											<c:forEach items="${location.sports}" var="sport" varStatus="elementStatus">
+												<a >${sport.name}<c:if test="${elementStatus.last ne true}">, </c:if></a>
 											</c:forEach>
 										</div>
 									</div>

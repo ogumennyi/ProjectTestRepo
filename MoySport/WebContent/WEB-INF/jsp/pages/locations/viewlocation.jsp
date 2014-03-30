@@ -31,8 +31,8 @@
 							<div style="padding: 5px 20px 0px 20px;">
 								<div class="usr_tmplt_txt_l" style="width:30%">Виды спорта:</div>
 								<div class="usr_tmplt_txt_r">
-								<c:forEach items="${location.locationsports}" var="locationsport" varStatus="elementStatus">
-									<a >${locationsport.sport.name}<c:if test="${elementStatus.last ne true}">, </c:if></a>
+								<c:forEach items="${location.sports}" var="sport" varStatus="elementStatus">
+									<a >${sport.name}<c:if test="${elementStatus.last ne true}">, </c:if></a>
 								</c:forEach>
 								</div>
 								<div class="usr_tmplt_txt_clr"></div>
